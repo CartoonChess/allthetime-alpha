@@ -13,6 +13,7 @@
 		AE8B21212367F48000411C6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8B211F2367F48000411C6A /* Main.storyboard */; };
 		AE8B21232367F48D00411C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21222367F48D00411C6A /* Assets.xcassets */; };
 		AE8B21262367F48D00411C6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21242367F48D00411C6A /* LaunchScreen.storyboard */; };
+		AE8B21332368561100411C6A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21322368561100411C6A /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AE8B21222367F48D00411C6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE8B21252367F48D00411C6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE8B21272367F48D00411C6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE8B21322368561100411C6A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,56 @@
 		AE8B21182367F48000411C6A /* AllTheTime */ = {
 			isa = PBXGroup;
 			children = (
+				AE8B212D236854D500411C6A /* Model */,
+				AE8B212E236854DE00411C6A /* ViewModel */,
+				AE8B212F236854E200411C6A /* Controller */,
+				AE8B2130236854E800411C6A /* View */,
+				AE8B2131236854ED00411C6A /* Other */,
+			);
+			path = AllTheTime;
+			sourceTree = "<group>";
+		};
+		AE8B212D236854D500411C6A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE8B212E236854DE00411C6A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AE8B212F236854E200411C6A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AE8B211D2367F48000411C6A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AE8B2130236854E800411C6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE8B211F2367F48000411C6A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE8B2131236854ED00411C6A /* Other */ = {
+			isa = PBXGroup;
+			children = (
 				AE8B21192367F48000411C6A /* AppDelegate.swift */,
 				AE8B211B2367F48000411C6A /* SceneDelegate.swift */,
-				AE8B211D2367F48000411C6A /* ViewController.swift */,
-				AE8B211F2367F48000411C6A /* Main.storyboard */,
 				AE8B21222367F48D00411C6A /* Assets.xcassets */,
 				AE8B21242367F48D00411C6A /* LaunchScreen.storyboard */,
 				AE8B21272367F48D00411C6A /* Info.plist */,
+				AE8B21322368561100411C6A /* Default-568h@2x.png */,
 			);
-			path = AllTheTime;
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE8B21262367F48D00411C6A /* LaunchScreen.storyboard in Resources */,
+				AE8B21332368561100411C6A /* Default-568h@2x.png in Resources */,
 				AE8B21232367F48D00411C6A /* Assets.xcassets in Resources */,
 				AE8B21212367F48000411C6A /* Main.storyboard in Resources */,
 			);
