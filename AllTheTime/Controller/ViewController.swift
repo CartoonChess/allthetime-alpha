@@ -89,17 +89,13 @@ class ViewController: UIViewController {
                 // End empty block here, as long as it isn't the start of the day
                 if start != startOfDay {
                     schedule[emptyBlock] = start
-                    emptyBlock = 0
+                    emptyBlock = start
                 }
                 // Go to end of this course block
                 start = endOfCourse
             } else if emptyBlock != 0 && grid.contains(start) {
                 // End empty block and begin new one
                 schedule[emptyBlock] = start
-                emptyBlock = 0
-                start += 1
-            } else if emptyBlock == 0 {
-                // Begin empty block
                 emptyBlock = start
                 start += 1
             } else {
@@ -108,7 +104,6 @@ class ViewController: UIViewController {
             }
         }
         
-        print(schedule)
         return schedule
     }
     
@@ -116,29 +111,8 @@ class ViewController: UIViewController {
         // Add empty times into schedule
         let schedule = makeDayBlocks(courses)
         
-//        // Course view
-//        let courseView = UIView()
-//        courseView.backgroundColor = UIColor.green
-//
-//        // Empty hour view
-////        let emptyHourView = UIView()
-////        emptyHourView.backgroundColor = UIColor.black
-        
         // We will active all height constraints simultaneously
         var constraints: [NSLayoutConstraint] = []
-        
-//        for row in 1...rowsPerDay {
-//            let emptyHourView = UIView()
-//            emptyHourView.backgroundColor = UIColor.black
-//            stackView.addArrangedSubview(emptyHourView)
-//            let height = CGFloat(1.0 / Double(rowsPerDay))
-//
-//            // Set height constraint, but not on last cell, to avoid math errors
-//            if row < rowsPerDay {
-//                // Constant accounts for size of stack spacing (row border)
-//                constraints.append(emptyHourView.heightAnchor.constraint(equalTo: emptyHourView.superview!.heightAnchor, multiplier: height, constant: -1))
-//            }
-//        }
         
         var grey: CGFloat = 0.0
         
@@ -151,13 +125,9 @@ class ViewController: UIViewController {
             stackView.addArrangedSubview(calendarItemView)
             
             // Get height of view based on how long the time period is
-            // FIXME: 30-min blocks returning 5 instead of 6
             print("key \(calendarItem.key), value \(calendarItem.value)")
             let blocks = calendarItem.value - calendarItem.key
             let height = CGFloat(Float(blocks) / Float(blocksPerDay))
-            
-            print("blocks: \(blocks)")
-            print("Height: \(height)")
             
             // Set height constraint, but not on last cell, to avoid math errors
             if calendarItem.value < blocksPerDay {
@@ -166,8 +136,6 @@ class ViewController: UIViewController {
             }
         }
 
-//        stackView.addArrangedSubview(courseView)
-//        stackView.addArrangedSubview(emptyHourView)
 //        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate(constraints)
