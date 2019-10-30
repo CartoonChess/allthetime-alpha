@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimeTableViewController: UIViewController {
     
     // MARK: - Properties
     // 18 30-minute blocks, plus two blocks for weekday + day number
@@ -31,23 +31,6 @@ class ViewController: UIViewController {
         print("Loaded.")
         
         getDaySchedule()
-        
-        
-        // TODO: Move this to course view controller
-        Courses.fetch(code: "PG1807-45") { result in
-            switch result {
-            case .success(let courses):
-                // TODO: Set class var instead of below
-                for course in courses.results {
-                    let viewModel = CourseViewModel(course)
-                    print("Course view model: \(viewModel)")
-                    print("\(viewModel.timeAndDate)")
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
     }
     
     // MARK: Calendar

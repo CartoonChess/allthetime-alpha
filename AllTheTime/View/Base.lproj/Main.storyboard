@@ -11,7 +11,7 @@
         <!--시간표-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AllTheTime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TimeTableViewController" customModule="AllTheTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,6 +42,9 @@
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="   오늘   "/>
+                                                        <connections>
+                                                            <segue destination="Llf-OE-Qrn" kind="show" id="pAr-Gm-gKo"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keP-73-TpR">
                                                         <rect key="frame" x="93" y="0.5" width="30" height="33"/>
@@ -197,13 +200,45 @@
             </objects>
             <point key="canvasLocation" x="828" y="118.29085457271366"/>
         </scene>
+        <!--강의 상세-->
+        <scene sceneID="3UP-En-ATC">
+            <objects>
+                <viewController id="Llf-OE-Qrn" customClass="CourseDetailsViewController" customModule="AllTheTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="feW-4F-puS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-DP-enw">
+                                <rect key="frame" x="0.0" y="323.5" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vmb-vO-9Cp" firstAttribute="trailing" secondItem="Lvf-DP-enw" secondAttribute="trailing" id="Mwc-Gk-JP8"/>
+                            <constraint firstItem="Lvf-DP-enw" firstAttribute="centerY" secondItem="feW-4F-puS" secondAttribute="centerY" id="Sa7-Qm-1Ui"/>
+                            <constraint firstItem="Lvf-DP-enw" firstAttribute="leading" secondItem="Vmb-vO-9Cp" secondAttribute="leading" id="tCP-63-R3T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vmb-vO-9Cp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="강의 상세" id="JKR-4m-mbS"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Lvf-DP-enw" id="qph-pb-tQm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLQ-Ga-3GH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="121"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ziu-f4-N9B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQx-dw-kfl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kKh-Hd-2Ib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

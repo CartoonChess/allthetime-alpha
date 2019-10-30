@@ -11,9 +11,10 @@
 		AE366E3023695E6700B39B99 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E2F23695E6700B39B99 /* CourseViewModel.swift */; };
 		AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */; };
 		AE366E342369BB7400B39B99 /* UnknownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E332369BB7400B39B99 /* UnknownError.swift */; };
+		AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */; };
 		AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B21192367F48000411C6A /* AppDelegate.swift */; };
 		AE8B211C2367F48000411C6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211B2367F48000411C6A /* SceneDelegate.swift */; };
-		AE8B211E2367F48000411C6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211D2367F48000411C6A /* ViewController.swift */; };
+		AE8B211E2367F48000411C6A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211D2367F48000411C6A /* TimeTableViewController.swift */; };
 		AE8B21212367F48000411C6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8B211F2367F48000411C6A /* Main.storyboard */; };
 		AE8B21232367F48D00411C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21222367F48D00411C6A /* Assets.xcassets */; };
 		AE8B21262367F48D00411C6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21242367F48D00411C6A /* LaunchScreen.storyboard */; };
@@ -25,10 +26,11 @@
 		AE366E2F23695E6700B39B99 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusMessage.swift"; sourceTree = "<group>"; };
 		AE366E332369BB7400B39B99 /* UnknownError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownError.swift; sourceTree = "<group>"; };
+		AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
 		AE8B21162367F48000411C6A /* AllTheTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllTheTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8B21192367F48000411C6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8B211B2367F48000411C6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE8B211D2367F48000411C6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE8B211D2367F48000411C6A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		AE8B21202367F48000411C6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE8B21222367F48D00411C6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE8B21252367F48D00411C6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,10 +68,10 @@
 		AE8B21182367F48000411C6A /* AllTheTime */ = {
 			isa = PBXGroup;
 			children = (
-				AE8B212D236854D500411C6A /* Model */,
-				AE8B212E236854DE00411C6A /* ViewModel */,
-				AE8B212F236854E200411C6A /* Controller */,
 				AE8B2130236854E800411C6A /* View */,
+				AE8B212F236854E200411C6A /* Controller */,
+				AE8B212E236854DE00411C6A /* ViewModel */,
+				AE8B212D236854D500411C6A /* Model */,
 				AE8B2131236854ED00411C6A /* Other */,
 			);
 			path = AllTheTime;
@@ -96,7 +98,8 @@
 		AE8B212F236854E200411C6A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AE8B211D2367F48000411C6A /* ViewController.swift */,
+				AE8B211D2367F48000411C6A /* TimeTableViewController.swift */,
+				AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,11 +198,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE366E2E23695E3500B39B99 /* Course.swift in Sources */,
-				AE8B211E2367F48000411C6A /* ViewController.swift in Sources */,
+				AE8B211E2367F48000411C6A /* TimeTableViewController.swift in Sources */,
 				AE366E3023695E6700B39B99 /* CourseViewModel.swift in Sources */,
 				AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */,
 				AE366E342369BB7400B39B99 /* UnknownError.swift in Sources */,
 				AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */,
+				AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */,
 				AE8B211C2367F48000411C6A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
