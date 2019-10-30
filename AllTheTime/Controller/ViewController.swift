@@ -31,6 +31,23 @@ class ViewController: UIViewController {
         print("Loaded.")
         
         getDaySchedule()
+        
+        
+        // TODO: Move this to course view controller
+        Courses.fetch(code: "PG1807-45") { result in
+            switch result {
+            case .success(let courses):
+                // TODO: Set class var instead of below
+                for course in courses.results {
+                    let viewModel = CourseViewModel(course)
+                    print("Course view model: \(viewModel)")
+                    print("\(viewModel.timeAndDate)")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
     }
     
     // MARK: Calendar
@@ -127,7 +144,6 @@ class ViewController: UIViewController {
             stackView.addArrangedSubview(calendarItemView)
             
             // Get height of view based on how long the time period is
-            print("key \(calendarItem.key), value \(calendarItem.value)")
             let blocks = calendarItem.value - calendarItem.key
             let height = CGFloat(Float(blocks) / Float(blocksPerDay))
             
