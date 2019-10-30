@@ -10,13 +10,21 @@ import UIKit
 
 class CourseDetailsViewController: UIViewController {
     
+    // TODO: Get everything except the bottom button into a scroll view (maybe a static table?)
+    
     // MARK: - Properties
-    var course: CourseViewModel?
+    var course: CourseDetailsCourseViewModel?
     
     // MARK: IBOutlets
+    @IBOutlet weak var timeAndDayLabel: UILabel!
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var professorLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: - Methods
+    
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +34,31 @@ class CourseDetailsViewController: UIViewController {
             switch result {
             case .success(let courses):
                 for course in courses.results {
-                    self.course = CourseViewModel(course)
+                    self.course = CourseDetailsCourseViewModel(course)
                     DispatchQueue.main.async {
-                        self.title = self.course?.title
-                        self.descriptionLabel.text = self.course?.description
+                        self.updateView()
                     }
                 }
             case .failure(let error):
                 print("Could not fetch courses: \(error.localizedDescription)")
             }
         }
+    }
+    
+    // MARK: Other
+    
+    func updateView() {
+        // TODO: Use dependency injection so this isn't an optional
+        guard let course = course else { return }
+        
+        title = course.title
+        
+        timeAndDayLabel.text = course.timeAndDate
+        codeLabel.text = course.code
+        professorLabel.text = course.professor
+        locationLabel.text = course.location
+        
+        descriptionLabel.text = course.description
     }
     
 

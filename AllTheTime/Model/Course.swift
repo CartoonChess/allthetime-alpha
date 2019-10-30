@@ -12,7 +12,7 @@ struct Course: Codable {
     let title, code, location, professor, startTime, endTime: String
     let days: [String]
     // API does not provide course descriptions at this time
-    let description = "No description available."
+    let description = "강의 설명 없음"
 
     enum CodingKeys: String, CodingKey {
         case code, location, professor

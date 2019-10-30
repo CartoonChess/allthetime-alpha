@@ -12,6 +12,7 @@
 		AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */; };
 		AE366E342369BB7400B39B99 /* UnknownError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E332369BB7400B39B99 /* UnknownError.swift */; };
 		AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */; };
+		AE64E18E2369CEF500F15FCE /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE64E18D2369CEF500F15FCE /* PaddedLabel.swift */; };
 		AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B21192367F48000411C6A /* AppDelegate.swift */; };
 		AE8B211C2367F48000411C6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211B2367F48000411C6A /* SceneDelegate.swift */; };
 		AE8B211E2367F48000411C6A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211D2367F48000411C6A /* TimeTableViewController.swift */; };
@@ -27,6 +28,7 @@
 		AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusMessage.swift"; sourceTree = "<group>"; };
 		AE366E332369BB7400B39B99 /* UnknownError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownError.swift; sourceTree = "<group>"; };
 		AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
+		AE64E18D2369CEF500F15FCE /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		AE8B21162367F48000411C6A /* AllTheTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllTheTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8B21192367F48000411C6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8B211B2367F48000411C6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				AE8B211F2367F48000411C6A /* Main.storyboard */,
+				AE64E18D2369CEF500F15FCE /* PaddedLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */,
 				AE366E342369BB7400B39B99 /* UnknownError.swift in Sources */,
 				AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */,
+				AE64E18E2369CEF500F15FCE /* PaddedLabel.swift in Sources */,
 				AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */,
 				AE8B211C2367F48000411C6A /* SceneDelegate.swift in Sources */,
 			);
