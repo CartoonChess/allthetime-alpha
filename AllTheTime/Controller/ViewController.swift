@@ -52,7 +52,8 @@ class ViewController: UIViewController {
     func getDaySchedule() {
         let daySchedule: [Int: Int] = [
             blocksFromTime("10:00"): blocksFromTime("11:00"),
-            blocksFromTime("12:00"): blocksFromTime("12:30")
+            blocksFromTime("12:00"): blocksFromTime("12:30"),
+            blocksFromTime("13:30"): blocksFromTime("15:00")
         ]
         
         // Update view
@@ -83,6 +84,7 @@ class ViewController: UIViewController {
         var emptyBlock = 0
         
         // Check each five-minute interval for course or empty time
+        // FIXME: First (empty) block goes until first course, ignoring grid
         while start <= endOfDay {
             // Add empty time where there is no course scheduled
             if let endOfCourse = courses[start] {
@@ -93,7 +95,7 @@ class ViewController: UIViewController {
                 }
                 // Go to end of this course block
                 start = endOfCourse
-            } else if emptyBlock != 0 && grid.contains(start) {
+            } else if grid.contains(start) && emptyBlock != start {
                 // End empty block and begin new one
                 schedule[emptyBlock] = start
                 emptyBlock = start
@@ -116,8 +118,8 @@ class ViewController: UIViewController {
         
         var grey: CGFloat = 0.0
         
-        // FIXME: Need to do this in order somehow...
-        for calendarItem in schedule {
+        // Go through each item, in order, and add them to the stack
+        for calendarItem in schedule.sorted(by: { $0.key < $1.key }) {
             let calendarItemView = UIView()
                 grey += 0.05
                 let color = UIColor(white: grey, alpha: 1)
