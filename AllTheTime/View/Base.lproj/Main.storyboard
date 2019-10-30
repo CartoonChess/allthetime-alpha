@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lQx-dw-kfl">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -59,7 +60,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="h5M-fQ-j2s">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="481"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0VB-EG-AkV">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="0VB-EG-AkV">
                                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="481"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rcy-IN-3cc">
@@ -74,31 +75,36 @@
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fdi-oi-WRi">
-                                                                <rect key="frame" x="0.0" y="122.5" width="124" height="120"/>
+                                                                <rect key="frame" x="0.0" y="122.5" width="124" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKk-g2-di6">
+                                                                <rect key="frame" x="0.0" y="213.5" width="124" height="30"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTD-a5-fqD">
-                                                                <rect key="frame" x="0.0" y="243.5" width="124" height="60"/>
+                                                                <rect key="frame" x="0.0" y="244.5" width="124" height="60"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bs9-8u-HUi">
-                                                                <rect key="frame" x="0.0" y="304.5" width="124" height="60.5"/>
+                                                                <rect key="frame" x="0.0" y="305.5" width="124" height="60.5"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vau-ie-cX6">
-                                                                <rect key="frame" x="0.0" y="366" width="124" height="60"/>
+                                                                <rect key="frame" x="0.0" y="367" width="124" height="60"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3r-8q-kg4">
-                                                                <rect key="frame" x="0.0" y="427" width="124" height="54"/>
+                                                                <rect key="frame" x="0.0" y="428" width="124" height="53"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="PKk-g2-di6" firstAttribute="height" secondItem="Rcy-IN-3cc" secondAttribute="height" multiplier="0.0625" id="1by-mp-yGR"/>
                                                             <constraint firstItem="Vau-ie-cX6" firstAttribute="height" secondItem="Rcy-IN-3cc" secondAttribute="height" multiplier="0.125" id="NvQ-Tf-cIx"/>
                                                             <constraint firstItem="P9f-00-Vz5" firstAttribute="height" secondItem="Rcy-IN-3cc" secondAttribute="height" multiplier="0.125" id="PDW-CJ-8MY"/>
                                                             <constraint firstItem="DTD-a5-fqD" firstAttribute="height" secondItem="Rcy-IN-3cc" secondAttribute="height" multiplier="0.125" id="Utl-cU-ZcQ"/>
-                                                            <constraint firstItem="Fdi-oi-WRi" firstAttribute="height" secondItem="Rcy-IN-3cc" secondAttribute="height" multiplier="0.25" id="iDA-9I-SFV"/>
+                                                            <constraint firstItem="Fdi-oi-WRi" firstAttribute="height" secondItem="Rcy-IN-3cc" secondAttribute="height" multiplier="0.1875" id="iDA-9I-SFV"/>
                                                             <constraint firstItem="Bs9-8u-HUi" firstAttribute="height" secondItem="Rcy-IN-3cc" secondAttribute="height" multiplier="0.125" id="nj5-lA-sTM"/>
                                                             <constraint firstItem="Ew1-3I-XHO" firstAttribute="height" secondItem="Rcy-IN-3cc" secondAttribute="height" multiplier="0.125" id="tAX-z6-ehA"/>
                                                         </constraints>
@@ -183,6 +189,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="시간표" id="ENp-Lo-Ss6"/>
+                    <connections>
+                        <outlet property="mondayStackView" destination="0VB-EG-AkV" id="IHi-fW-4VX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
