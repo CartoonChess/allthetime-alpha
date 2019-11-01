@@ -1,5 +1,5 @@
 //
-//  UnknownError.swift
+//  GeneralError.swift
 //  AllTheTime
 //
 //  Created by Xcode on ’19/10/30.
@@ -14,6 +14,11 @@ enum GeneralError: LocalizedError {
     case unknown
     
     var errorDescription: String? {
-        return "Unknown error"
+        switch self {
+        case .unknown:
+            return "Unknown error"
+        @unknown default:
+            return "Unknown error"
+        }
     }
 }

@@ -19,6 +19,7 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     // MARK: IBOutlets
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeAndDayLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
@@ -29,6 +30,8 @@ class SearchTableViewCell: UITableViewCell {
     // MARK: - Methods
     
     private func construct(using course: SearchCourseViewModel) {
+        containerView.layer.borderColor = UIColor.lightGray.cgColor
+            
         titleLabel.text = course.title
         timeAndDayLabel.text = course.timeAndDate
         codeLabel.text = course.code

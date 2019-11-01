@@ -19,23 +19,51 @@ class SearchTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showSearchController()
+        fetchCourses()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
-        // Fetch full course list
+    }
+    
+    // MARK: View
+    
+    /// Show search bar and make sure it's always showing, even when scrolling
+    func showSearchController() {
+        let searchController = UISearchController()
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
+        } else {
+            // Fallback on earlier versions
+            navigationItem.titleView = searchController.searchBar
+        }
+    }
+    
+    // MARK: Courses
+    
+    /// Fetch full course list
+    func fetchCourses() {
         Courses.fetch() { result in
             switch result {
             case .success(let courses):
-                for course in courses.results {
-                    let viewModel = SearchCourseViewModel(course)
-                    self.courses.append(viewModel)
-                }
-                DispatchQueue.main.async { self.tableView.reloadData() }
+                self.updateCourses(courses)
             case .failure(let error):
                 print("Could not fetch courses: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func updateCourses(_ courses: Courses) {
+        // Add courses to array
+        for course in courses.results {
+            let viewModel = SearchCourseViewModel(course)
+            self.courses.append(viewModel)
+        }
+        // Order by course code and display
+        self.courses.sort { $0.code < $1.code }
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
 
     /*
@@ -72,20 +100,4 @@ extension SearchTableViewController {
         cell.course = courses[indexPath.row]
         return cell
     }
-    
-    
-    // MARK: - Error handling
-
-//    enum Error: LocalizedError {
-//        case wrongCellType
-//        
-//        var errorDescription: String? {
-//            switch self {
-//            case .wrongCellType:
-//                return "The cell must be of type SearchTableViewCell"
-//            @unknown default:
-//                return "Unknown error"
-//            }
-//        }
-//    }
 }
