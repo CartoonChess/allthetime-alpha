@@ -218,7 +218,7 @@
                                 <rect key="frame" x="0.0" y="104.5" width="375" height="504.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLM-O8-kcR">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-bG-mES">
                                                 <rect key="frame" x="16" y="16" width="343" height="94"/>
@@ -298,13 +298,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메모" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is0-CZ-x01">
-                                                <rect key="frame" x="16" y="194.5" width="343" height="20.5"/>
+                                                <rect key="frame" x="16" y="162.5" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 설명" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-DP-enw" customClass="PaddedLabel" customModule="AllTheTime">
-                                                <rect key="frame" x="16" y="126" width="343" height="52.5"/>
+                                                <rect key="frame" x="16" y="126" width="343" height="20.5"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -387,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLQ-Ga-3GH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1504.8" y="495.20239880059972"/>
+            <point key="canvasLocation" x="1505" y="510"/>
         </scene>
         <!--강의 목록-->
         <scene sceneID="bmz-h1-H7z">
@@ -497,6 +497,7 @@
                                     <outlet property="professorLabel" destination="rbB-JU-e1v" id="Dyq-ub-FeT"/>
                                     <outlet property="timeAndDayLabel" destination="9rs-GW-xFL" id="cnW-YE-xfJ"/>
                                     <outlet property="titleLabel" destination="onU-Ea-6n2" id="Ceg-Fl-QdU"/>
+                                    <segue destination="Llf-OE-Qrn" kind="show" id="DHP-Um-1p6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -536,4 +537,7 @@
         <image name="Icons/code" width="480" height="384"/>
         <image name="Icons/school" width="480" height="384"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DHP-Um-1p6"/>
+    </inferredMetricsTieBreakers>
 </document>

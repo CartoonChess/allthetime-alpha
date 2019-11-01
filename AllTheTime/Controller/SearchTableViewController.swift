@@ -71,6 +71,17 @@ class SearchTableViewController: UITableViewController {
         filteredCourses = courses
         DispatchQueue.main.async { self.tableView.reloadData() }
     }
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the course the user has selected
+        if let destination = segue.destination as? CourseDetailsViewController,
+            let row = tableView.indexPathForSelectedRow?.row {
+            let course = CourseDetailsCourseViewModel(courses!.results[row])
+            destination.course = course
+        }
+    }
 
 }
 

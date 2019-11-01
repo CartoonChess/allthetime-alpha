@@ -28,21 +28,8 @@ class CourseDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         // FIXME: Large title navigation bar is jumpy with scroll view
-
-        // TODO: This should be passed from the timetable/search view rather than fetched from server
-//        Courses.fetch(code: "PG1807-15") { result in
-//            switch result {
-//            case .success(let courses):
-//                for course in courses.results {
-//                    self.course = CourseDetailsCourseViewModel(course)
-//                    DispatchQueue.main.async {
-//                        self.updateView()
-//                    }
-//                }
-//            case .failure(let error):
-//                print("Could not fetch courses: \(error.localizedDescription)")
-//            }
-//        }
+        
+        updateView()
     }
     
     // MARK: Other

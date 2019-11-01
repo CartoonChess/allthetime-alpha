@@ -25,6 +25,7 @@ class CourseViewModel {
 }
 
 
+// MARK: -
 class SearchCourseViewModel: CourseViewModel {
     // FIXME: Sort days of week in order (enum?)
     //- Pass fix to CourseDetails VM
@@ -41,6 +42,7 @@ class SearchCourseViewModel: CourseViewModel {
 }
 
 
+// MARK: - 
 class CourseDetailsCourseViewModel: SearchCourseViewModel {
     // MARK: - Properties
     
