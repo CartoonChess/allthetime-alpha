@@ -37,6 +37,8 @@ class SearchTableViewController: UITableViewController {
             navigationItem.searchController?.searchBar.searchTextField.placeholder = "강의 검색"
             // Disable search controller hiding, so it shows up on load without scrolling
             navigationItem.hidesSearchBarWhenScrolling = false
+            // Listen for user changes
+            navigationItem.searchController?.searchResultsUpdater = self
         } else {
             // Fallback on earlier versions
             navigationItem.titleView = searchController.searchBar
@@ -46,11 +48,11 @@ class SearchTableViewController: UITableViewController {
     // MARK: Courses
     
     /// Fetch full course list
-    func fetchCourses() {
+    func fetchCourses(like searchTerms: String? = nil) {
         
         // TODO: Show a loading spinner while waiting
         
-        Courses.fetch() { result in
+        Courses.fetch(code: searchTerms) { result in
             switch result {
             case .success(let courses):
                 self.updateCourses(courses)
@@ -61,6 +63,9 @@ class SearchTableViewController: UITableViewController {
     }
     
     func updateCourses(_ courses: Courses) {
+        // Clear previous results
+        self.courses.removeAll()
+        
         // Add courses to array
         for course in courses.results {
             let viewModel = SearchCourseViewModel(course)
@@ -104,5 +109,22 @@ extension SearchTableViewController {
 
         cell.course = courses[indexPath.row]
         return cell
+    }
+}
+
+// TODO: How to handle iOS<11 search? (UISearchControllerDelegate?)
+
+// MARK: - Search functions
+extension SearchTableViewController: UISearchResultsUpdating {
+    // Triggers when search controller gains/loses first responder status and when contents are changed
+    // Does NOT trigger when user presses enter
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        // FIXME: Do not trigger when first responder status is lost
+        //- Probably want to avoid triggering when gaining first resp as well
+        //- Currently, losing first resp causes a crash (out-of-range in array)
+        
+        let searchTerms = searchController.searchBar.searchTextField.text
+        fetchCourses(like: searchTerms)
     }
 }

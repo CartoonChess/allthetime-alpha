@@ -37,7 +37,8 @@ struct Courses: Codable {
     
     static func fetch(code: String? = nil, completion: @escaping (Result<Courses, Error>) -> Void) {
         var baseURL = "https://k03c8j1o5a.execute-api.ap-northeast-2.amazonaws.com/v1/programmers/lectures"
-        if let code = code { baseURL += "?code=\(code)" }
+        if let code = code,
+            !code.isEmpty { baseURL += "?code=\(code)" }
         
         guard let url = URL(string: baseURL) else {
             print("Can't form API request with URL \"\(baseURL)\".")
