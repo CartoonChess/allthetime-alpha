@@ -22,6 +22,11 @@ class CourseViewModel {
         self.course = course
         self.title = course.title
     }
+    
+    /// Returns the course as a different type of course view model
+    func convert<ViewModel: CourseViewModel>(to viewModel: ViewModel.Type) -> ViewModel {
+        ViewModel(course)
+    }
 }
 
 

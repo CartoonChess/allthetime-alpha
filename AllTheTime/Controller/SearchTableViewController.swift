@@ -78,8 +78,7 @@ class SearchTableViewController: UITableViewController {
         // Get the course the user has selected
         if let destination = segue.destination as? CourseDetailsViewController,
             let row = tableView.indexPathForSelectedRow?.row {
-            let course = CourseDetailsCourseViewModel(courses!.results[row])
-            destination.course = course
+            destination.course = filteredCourses[row].convert(to: CourseDetailsCourseViewModel.self)
         }
     }
 
