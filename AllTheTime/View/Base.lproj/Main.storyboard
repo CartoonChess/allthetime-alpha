@@ -43,7 +43,7 @@
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="   오늘   "/>
                                                         <connections>
-                                                            <segue destination="Llf-OE-Qrn" kind="show" id="pAr-Gm-gKo"/>
+                                                            <segue destination="Llf-OE-Qrn" kind="show" id="q3n-in-D7V"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keP-73-TpR">
@@ -214,126 +214,164 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-bG-mES">
-                                <rect key="frame" x="16" y="120.5" width="343" height="94"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boS-do-E6d">
+                                <rect key="frame" x="0.0" y="104.5" width="375" height="516.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MqH-fG-rmL">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLM-O8-kcR">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/clock" translatesAutoresizingMaskIntoConstraints="NO" id="TLQ-Ta-LRm">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="TLQ-Ta-LRm" secondAttribute="height" multiplier="1:1" id="4DN-NS-dUC"/>
-                                                    <constraint firstAttribute="width" constant="16" id="YtY-Vv-abo"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 시간" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRs-Lp-dnK">
-                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-bG-mES">
+                                                <rect key="frame" x="16" y="16" width="343" height="94"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MqH-fG-rmL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/clock" translatesAutoresizingMaskIntoConstraints="NO" id="TLQ-Ta-LRm">
+                                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="TLQ-Ta-LRm" secondAttribute="height" multiplier="1:1" id="4DN-NS-dUC"/>
+                                                                    <constraint firstAttribute="width" constant="16" id="YtY-Vv-abo"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 시간" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRs-Lp-dnK">
+                                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gMd-uT-zPr">
+                                                        <rect key="frame" x="0.0" y="24.5" width="343" height="20.5"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/code" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Z-SN-5gk">
+                                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="16" id="TCp-aS-CU2"/>
+                                                                    <constraint firstAttribute="width" secondItem="Y2Z-SN-5gk" secondAttribute="height" multiplier="1:1" id="aGP-hQ-msT"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="교과목 코드" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2o-5N-uN7">
+                                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xm5-Ez-ShP">
+                                                        <rect key="frame" x="0.0" y="49" width="343" height="20.5"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/cap" translatesAutoresizingMaskIntoConstraints="NO" id="HFr-7f-LVr">
+                                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="16" id="erh-hS-YIk"/>
+                                                                    <constraint firstAttribute="width" secondItem="HFr-7f-LVr" secondAttribute="height" multiplier="1:1" id="fRk-Ei-1Y4"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="담당 교수" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-ym-JUc">
+                                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e1g-QP-oUK">
+                                                        <rect key="frame" x="0.0" y="73.5" width="343" height="20.5"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/school" translatesAutoresizingMaskIntoConstraints="NO" id="dsK-ON-ic0">
+                                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="dsK-ON-ic0" secondAttribute="height" multiplier="1:1" id="9Yn-88-bgk"/>
+                                                                    <constraint firstAttribute="width" constant="16" id="EBe-ni-S9Y"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의실" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id5-Yc-zCI">
+                                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메모" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is0-CZ-x01">
+                                                <rect key="frame" x="16" y="194.5" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gMd-uT-zPr">
-                                        <rect key="frame" x="0.0" y="24.5" width="343" height="20.5"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/code" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Z-SN-5gk">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="16" id="TCp-aS-CU2"/>
-                                                    <constraint firstAttribute="width" secondItem="Y2Z-SN-5gk" secondAttribute="height" multiplier="1:1" id="aGP-hQ-msT"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="교과목 코드" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2o-5N-uN7">
-                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 설명" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-DP-enw" customClass="PaddedLabel" customModule="AllTheTime">
+                                                <rect key="frame" x="16" y="126" width="343" height="52.5"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftTextInset">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightTextInset">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="topTextInset">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomTextInset">
+                                                        <integer key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xm5-Ez-ShP">
-                                        <rect key="frame" x="0.0" y="49" width="343" height="20.5"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/cap" translatesAutoresizingMaskIntoConstraints="NO" id="HFr-7f-LVr">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="16" id="erh-hS-YIk"/>
-                                                    <constraint firstAttribute="width" secondItem="HFr-7f-LVr" secondAttribute="height" multiplier="1:1" id="fRk-Ei-1Y4"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="담당 교수" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-ym-JUc">
-                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e1g-QP-oUK">
-                                        <rect key="frame" x="0.0" y="73.5" width="343" height="20.5"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/school" translatesAutoresizingMaskIntoConstraints="NO" id="dsK-ON-ic0">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="dsK-ON-ic0" secondAttribute="height" multiplier="1:1" id="9Yn-88-bgk"/>
-                                                    <constraint firstAttribute="width" constant="16" id="EBe-ni-S9Y"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의실" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id5-Yc-zCI">
-                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Is0-CZ-x01" firstAttribute="top" secondItem="Lvf-DP-enw" secondAttribute="bottom" constant="16" id="24e-jG-WU9"/>
+                                            <constraint firstAttribute="trailing" secondItem="Is0-CZ-x01" secondAttribute="trailing" constant="16" id="2LB-Lx-rAx"/>
+                                            <constraint firstItem="Is0-CZ-x01" firstAttribute="top" secondItem="Lvf-DP-enw" secondAttribute="bottom" constant="16" id="57z-NX-YFe"/>
+                                            <constraint firstAttribute="trailing" secondItem="Lvf-DP-enw" secondAttribute="trailing" constant="16" id="5d3-xI-5h9"/>
+                                            <constraint firstAttribute="bottom" secondItem="Is0-CZ-x01" secondAttribute="bottom" constant="16" id="9Z6-56-GFw"/>
+                                            <constraint firstItem="Lvf-DP-enw" firstAttribute="top" secondItem="SqK-bG-mES" secondAttribute="bottom" constant="16" id="LUM-6v-jQY"/>
+                                            <constraint firstItem="SqK-bG-mES" firstAttribute="leading" secondItem="gLM-O8-kcR" secondAttribute="leading" constant="16" id="OdG-1D-yUb"/>
+                                            <constraint firstItem="SqK-bG-mES" firstAttribute="top" secondItem="gLM-O8-kcR" secondAttribute="top" constant="16" id="Y5O-oh-xLR"/>
+                                            <constraint firstItem="Lvf-DP-enw" firstAttribute="leading" secondItem="gLM-O8-kcR" secondAttribute="leading" constant="16" id="ZRs-My-skB"/>
+                                            <constraint firstItem="Is0-CZ-x01" firstAttribute="leading" secondItem="gLM-O8-kcR" secondAttribute="leading" constant="16" id="hOy-0B-o5p"/>
+                                            <constraint firstAttribute="trailing" secondItem="SqK-bG-mES" secondAttribute="trailing" constant="16" id="neZ-sa-v4m"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                            </stackView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="강의 설명" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-DP-enw" customClass="PaddedLabel" customModule="AllTheTime">
-                                <rect key="frame" x="16" y="345" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftTextInset">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rightTextInset">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="topTextInset">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomTextInset">
-                                        <integer key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUh-2Z-4eJ">
-                                <rect key="frame" x="159" y="579" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="강의 추가"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="gLM-O8-kcR" secondAttribute="bottom" id="20L-XT-vYk"/>
+                                    <constraint firstAttribute="trailing" secondItem="gLM-O8-kcR" secondAttribute="trailing" id="FHG-PE-3qn"/>
+                                    <constraint firstItem="gLM-O8-kcR" firstAttribute="leading" secondItem="boS-do-E6d" secondAttribute="leading" id="FhT-Hc-jHr"/>
+                                    <constraint firstItem="gLM-O8-kcR" firstAttribute="top" secondItem="boS-do-E6d" secondAttribute="top" id="cVH-XG-ish"/>
+                                    <constraint firstItem="gLM-O8-kcR" firstAttribute="width" secondItem="boS-do-E6d" secondAttribute="width" id="oYN-93-u9j"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="PCz-Vv-0cp"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="JcU-jV-acb"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUh-2Z-4eJ">
+                                <rect key="frame" x="0.0" y="621" width="375" height="46"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="강의 추가">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메모" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is0-CZ-x01">
-                                <rect key="frame" x="16" y="411" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="SqK-bG-mES" firstAttribute="leading" secondItem="Vmb-vO-9Cp" secondAttribute="leading" constant="16" id="H9Q-da-jOJ"/>
-                            <constraint firstItem="SqK-bG-mES" firstAttribute="top" secondItem="Vmb-vO-9Cp" secondAttribute="top" constant="16" id="g6G-Rr-UGY"/>
-                            <constraint firstItem="Vmb-vO-9Cp" firstAttribute="trailing" secondItem="SqK-bG-mES" secondAttribute="trailing" constant="16" id="mxE-Cn-Xhl"/>
+                            <constraint firstItem="Vmb-vO-9Cp" firstAttribute="trailing" secondItem="boS-do-E6d" secondAttribute="trailing" id="MVI-Wp-gem"/>
+                            <constraint firstItem="lUh-2Z-4eJ" firstAttribute="leading" secondItem="Vmb-vO-9Cp" secondAttribute="leading" id="eIu-cw-Mij"/>
+                            <constraint firstItem="Vmb-vO-9Cp" firstAttribute="trailing" secondItem="lUh-2Z-4eJ" secondAttribute="trailing" id="flF-6b-wav"/>
+                            <constraint firstItem="boS-do-E6d" firstAttribute="top" secondItem="Vmb-vO-9Cp" secondAttribute="top" id="mlr-b0-XVg"/>
+                            <constraint firstItem="boS-do-E6d" firstAttribute="leading" secondItem="Vmb-vO-9Cp" secondAttribute="leading" id="oNM-gz-7b8"/>
+                            <constraint firstItem="lUh-2Z-4eJ" firstAttribute="top" secondItem="boS-do-E6d" secondAttribute="bottom" id="x5e-mg-kga"/>
+                            <constraint firstItem="lUh-2Z-4eJ" firstAttribute="bottom" secondItem="Vmb-vO-9Cp" secondAttribute="bottom" id="xdC-96-lJQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vmb-vO-9Cp"/>
                     </view>
@@ -348,7 +386,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLQ-Ga-3GH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="496"/>
+            <point key="canvasLocation" x="1504.8" y="495.20239880059972"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="M0g-uR-bcd">
+            <objects>
+                <viewController id="dq7-uU-hla" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Tj-3N-51O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EK5-vF-SnQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diL-gz-p5q">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1276"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPf-oF-umG">
+                                                <rect key="frame" x="10" y="20" width="355" height="1236"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.강의 설명 없음 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae suscipit tellus mauris a diam maecenas. Pharetra convallis posuere morbi leo. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Tristique magna sit amet purus gravida quis blandit. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Id nibh tortor id aliquet lectus proin nibh. Lobortis scelerisque fermentum dui faucibus in ornare quam. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Et netus et malesuada fames ac turpis egestas integer eget. Cursus turpis massa tincidunt dui ut ornare lectus sit. Integer malesuada nunc vel risus commodo. In hac habitasse platea dictumst vestibulum. Penatibus et magnis dis parturient. At imperdiet dui accumsan sit amet. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. At auctor urna nunc id cursus. Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Dui sapien eget mi proin sed libero enim sed. Maecenas pharetra convallis posuere morbi./n/nPlacerat duis ultricies lacus sed turpis tincidunt id aliquet risus. Nulla posuere sollicitudin aliquam ultrices. Consectetur purus ut faucibus pulvinar. Aliquet nec ullamcorper sit amet risus nullam. Purus viverra accumsan in nisl nisi scelerisque eu. Feugiat in ante metus dictum at tempor commodo ullamcorper. Non arcu risus quis varius quam quisque id. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. Fermentum dui faucibus in ornare quam viverra. Purus faucibus ornare suspendisse sed nisi. Non enim praesent elementum facilisis leo vel fringilla. Ut enim blandit volutpat maecenas. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Dolor sit amet consectetur adipiscing elit duis tristique. Semper feugiat nibh sed pulvinar. Porttitor massa id neque aliquam vestibulum morbi. Vehicula ipsum a arcu cursus vitae congue. Nunc lobortis mattis aliquam faucibus./n/nRisus in hendrerit gravida rutrum quisque non tellus orci ac. Amet facilisis magna etiam tempor orci eu lobortis elementum. Tortor condimentum lacinia quis vel. Tellus cras adipiscing enim eu turpis. Ut ornare lectus sit amet est placerat in egestas. Sagittis aliquam malesuada bibendum arcu vitae. Gravida arcu ac tortor dignissim convallis aenean et tortor at. Turpis massa tincidunt dui ut ornare lectus sit. Leo duis ut diam quam nulla porttitor massa id neque. Pretium fusce id velit ut tortor pretium viverra suspendisse. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. At tellus at urna condimentum mattis. Sed id semper risus in. Auctor neque vitae tempus quam pellentesque. Egestas diam in arcu cursus euismod quis viverra nibh cras. Et pharetra pharetra massa massa ultricies mi. Est ante in nibh mauris cursus mattis molestie a. Id eu nisl nunc mi. Nisi vitae suscipit tellus mauris a diam maecenas. Mauris pharetra et ultrices neque ornare aenean euismod.</mutableString>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="sPf-oF-umG" firstAttribute="leading" secondItem="diL-gz-p5q" secondAttribute="leading" constant="10" id="IPh-Eq-0K3"/>
+                                            <constraint firstAttribute="trailing" secondItem="sPf-oF-umG" secondAttribute="trailing" constant="10" id="Sek-xr-h7D"/>
+                                            <constraint firstItem="sPf-oF-umG" firstAttribute="top" secondItem="diL-gz-p5q" secondAttribute="top" constant="20" id="YfN-ZP-BRO"/>
+                                            <constraint firstAttribute="bottom" secondItem="sPf-oF-umG" secondAttribute="bottom" constant="20" id="gf3-59-oR1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="diL-gz-p5q" secondAttribute="trailing" id="IHO-QC-4Ns"/>
+                                    <constraint firstItem="diL-gz-p5q" firstAttribute="width" secondItem="EK5-vF-SnQ" secondAttribute="width" id="bIW-dE-twK"/>
+                                    <constraint firstAttribute="bottom" secondItem="diL-gz-p5q" secondAttribute="bottom" constant="270" id="kQE-Iw-KbM"/>
+                                    <constraint firstItem="diL-gz-p5q" firstAttribute="leading" secondItem="EK5-vF-SnQ" secondAttribute="leading" id="njv-n5-t25"/>
+                                    <constraint firstItem="diL-gz-p5q" firstAttribute="top" secondItem="EK5-vF-SnQ" secondAttribute="top" id="s9c-gR-8Ge"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="iCH-k0-Zyq"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="KIh-fb-aM9"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EK5-vF-SnQ" firstAttribute="leading" secondItem="Ysr-mg-j8m" secondAttribute="leading" id="GZm-Vw-ZvL"/>
+                            <constraint firstItem="Ysr-mg-j8m" firstAttribute="trailing" secondItem="EK5-vF-SnQ" secondAttribute="trailing" id="Ys9-QZ-Xuz"/>
+                            <constraint firstItem="Ysr-mg-j8m" firstAttribute="bottom" secondItem="EK5-vF-SnQ" secondAttribute="bottom" id="je3-bd-Qph"/>
+                            <constraint firstItem="EK5-vF-SnQ" firstAttribute="top" secondItem="Ysr-mg-j8m" secondAttribute="top" id="tlj-tE-zE1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ysr-mg-j8m"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nO8-kI-dxp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Co5-GK-FML" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360.8000000000002" y="494.30284857571218"/>
         </scene>
         <!--강의 목록-->
         <scene sceneID="bmz-h1-H7z">
@@ -478,7 +574,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQx-dw-kfl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kKh-Hd-2Ib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
