@@ -12,7 +12,7 @@ struct Course: Codable {
     let title, code, location, professor, startTime, endTime: String
     let days: [String]
     // API does not provide course descriptions at this time
-    let description = "강의 설명 없음 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae suscipit tellus mauris a diam maecenas. Pharetra convallis posuere morbi leo. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Tristique magna sit amet purus gravida quis blandit. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Id nibh tortor id aliquet lectus proin nibh. Lobortis scelerisque fermentum dui faucibus in ornare quam. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Et netus et malesuada fames ac turpis egestas integer eget. Cursus turpis massa tincidunt dui ut ornare lectus sit. Integer malesuada nunc vel risus commodo. In hac habitasse platea dictumst vestibulum. Penatibus et magnis dis parturient. At imperdiet dui accumsan sit amet. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. At auctor urna nunc id cursus. Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Dui sapien eget mi proin sed libero enim sed. Maecenas pharetra convallis posuere morbi./n/nPlacerat duis ultricies lacus sed turpis tincidunt id aliquet risus. Nulla posuere sollicitudin aliquam ultrices. Consectetur purus ut faucibus pulvinar. Aliquet nec ullamcorper sit amet risus nullam. Purus viverra accumsan in nisl nisi scelerisque eu. Feugiat in ante metus dictum at tempor commodo ullamcorper. Non arcu risus quis varius quam quisque id. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. Fermentum dui faucibus in ornare quam viverra. Purus faucibus ornare suspendisse sed nisi. Non enim praesent elementum facilisis leo vel fringilla. Ut enim blandit volutpat maecenas. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Dolor sit amet consectetur adipiscing elit duis tristique. Semper feugiat nibh sed pulvinar. Porttitor massa id neque aliquam vestibulum morbi. Vehicula ipsum a arcu cursus vitae congue. Nunc lobortis mattis aliquam faucibus./n/nRisus in hendrerit gravida rutrum quisque non tellus orci ac. Amet facilisis magna etiam tempor orci eu lobortis elementum. Tortor condimentum lacinia quis vel. Tellus cras adipiscing enim eu turpis. Ut ornare lectus sit amet est placerat in egestas. Sagittis aliquam malesuada bibendum arcu vitae. Gravida arcu ac tortor dignissim convallis aenean et tortor at. Turpis massa tincidunt dui ut ornare lectus sit. Leo duis ut diam quam nulla porttitor massa id neque. Pretium fusce id velit ut tortor pretium viverra suspendisse. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. At tellus at urna condimentum mattis. Sed id semper risus in. Auctor neque vitae tempus quam pellentesque. Egestas diam in arcu cursus euismod quis viverra nibh cras. Et pharetra pharetra massa massa ultricies mi. Est ante in nibh mauris cursus mattis molestie a. Id eu nisl nunc mi. Nisi vitae suscipit tellus mauris a diam maecenas. Mauris pharetra et ultrices neque ornare aenean euismod."
+    let description = "강의 설명 없음"
 
     enum CodingKeys: String, CodingKey {
         case code, location, professor
@@ -25,7 +25,9 @@ struct Course: Codable {
 
 // Responses return an array of items
 struct Courses: Codable {
-    let results: [Course]
+    // MARK: - Properties
+    
+    var results: [Course]
     // scannedCount does not appear to have a use at this time
     let count, scannedCount: Int
 
@@ -35,13 +37,29 @@ struct Courses: Codable {
         case scannedCount = "ScannedCount"
     }
     
-    static func fetch(code: String? = nil, completion: @escaping (Result<Courses, Error>) -> Void) {
-        var baseURL = "https://k03c8j1o5a.execute-api.ap-northeast-2.amazonaws.com/v1/programmers/lectures"
-        if let code = code,
-            !code.isEmpty { baseURL += "?code=\(code)" }
+    // MARK: - Methods
+    
+    // MARK: Fetch
+    
+    enum QueryType: String {
+        case title = "lecture"
+        case code
+    }
+    
+    /// Returns matching courses from the server if `query` and `queryType` are specified, otherwise returns all courses.
+    static func fetch(queryType: QueryType? = nil, query: String? = nil, completion: @escaping (Result<Courses, Error>) -> Void) {
+        assert((queryType == nil) == (query == nil), "queryType and query must be specified together.")
         
-        guard let url = URL(string: baseURL) else {
-            print("Can't form API request with URL \"\(baseURL)\".")
+        var urlString = "https://k03c8j1o5a.execute-api.ap-northeast-2.amazonaws.com/v1/programmers/lectures"
+        
+        // Add the query, if applicable
+        if let type = queryType?.rawValue,
+            let query = query {
+            urlString += "?\(type)=\(query)"
+        }
+        
+        guard let url = URL(string: urlString) else {
+            print("Can't form API request with URL \"\(urlString)\".")
             return
         }
         
@@ -68,24 +86,59 @@ struct Courses: Codable {
         }.resume()
     }
     
-    static func fetch(title: String) {
-        // TODO: Implement
-    }
-    
-    static func fetch(title: String, code: String) {
-        // TODO: Implement fetching by both, for when user is searching
-    }
-    
     private static func getCourses(from data: Data) -> Result<Courses, Error> {
         let decoder = JSONDecoder()
         do {
-            let courses = try decoder.decode(Courses.self, from: data)
+            var courses = try decoder.decode(Courses.self, from: data)
+            // Typically we want the courses sorted by code
+            courses.results.sort { $0.code < $1.code }
             return .success(courses)
         } catch {
             print("Error decoding JSON data.")
             return .failure(error)
         }
     }
+    
+    // MARK: Filter
+    
+    enum FilterDetail {
+        case quick, normal, full
+    }
+    
+    func filterResults(by searchTerms: String, filterDetail: FilterDetail = .normal) -> [Course] {
+        results.filter {
+            // Get properties against which search terms will be checked
+            let properties = getProperties(of: $0, for: filterDetail)
+            
+            let terms = searchTerms.lowercased()
+            
+            for property in properties {
+                if property.lowercased().contains(terms) { return true }
+            }
+            return false
+        }
+    }
+    
+    func filterResults<ViewModel: CourseViewModel>(by searchTerms: String, as type: ViewModel.Type) -> [ViewModel] {
+        let results = filterResults(by: searchTerms)
+        return results.map { ViewModel($0) }
+    }
+    
+    private func getProperties(of course: Course, for filterDetail: FilterDetail) -> [String] {
+        var properties = [course.title, course.code]
+        switch filterDetail {
+        case .quick:
+            // Quick search includes ony title and code
+            break
+        case .full:
+            // Full searches on everything (inlcudes normal, below)
+            properties.append(contentsOf: [course.description, course.startTime, course.endTime])
+            properties.append(contentsOf: course.days)
+            fallthrough
+        default:
+            // Normal searches quick plus the following
+            properties.append(contentsOf: [course.professor, course.location])
+        }
+        return properties
+    }
 }
-
-

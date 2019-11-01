@@ -11,7 +11,11 @@ import UIKit
 class SearchTableViewController: UITableViewController {
     
     // MARK: - Properties
-    var courses: [SearchCourseViewModel] = []
+    var courses: Courses?
+    // Full list from API call
+    var allCourses: [SearchCourseViewModel] = []
+    // Results from user search, or all if no filter is applied
+    var filteredCourses: [SearchCourseViewModel] = []
     
     // MARK: - Methods
     
@@ -20,8 +24,11 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TODO: Show a warning when no courses can be found
+        //- Do this as well in updateSearchResults()
+        guard let courses = courses else { return }
         showSearchController()
-        fetchCourses()
+        updateAllCourses(courses)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,44 +60,17 @@ class SearchTableViewController: UITableViewController {
     
     // MARK: Courses
     
-    /// Fetch full course list
-    func fetchCourses(like searchTerms: String? = nil) {
-        
-        // TODO: Show a loading spinner while waiting
-        
-        Courses.fetch(code: searchTerms) { result in
-            switch result {
-            case .success(let courses):
-                self.updateCourses(courses)
-            case .failure(let error):
-                print("Could not fetch courses: \(error.localizedDescription)")
-            }
-        }
+    /// Updates the courses fetched from the API.
+    func updateAllCourses(_ courses: Courses) {
+        allCourses = courses.results.map { SearchCourseViewModel($0) }
+        showCourses(allCourses)
     }
     
-    func updateCourses(_ courses: Courses) {
-        // Clear previous results
-        self.courses.removeAll()
-        
-        // Add courses to array
-        for course in courses.results {
-            let viewModel = SearchCourseViewModel(course)
-            self.courses.append(viewModel)
-        }
-        // Order by course code and display
-        self.courses.sort { $0.code < $1.code }
+    /// Updates the courses in the view.
+    func showCourses(_ courses: [SearchCourseViewModel]) {
+        filteredCourses = courses
         DispatchQueue.main.async { self.tableView.reloadData() }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -105,7 +85,7 @@ extension SearchTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int { 1 }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
+        return filteredCourses.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,14 +93,11 @@ extension SearchTableViewController {
             fatalError("The cell must be of type SearchTableViewCell.")
         }
 
-        cell.course = courses[indexPath.row]
+        cell.course = filteredCourses[indexPath.row]
         return cell
     }
 }
 
-// TODO: Case-insensitive searching? This is more a server-side requirement
-// TODO: Right-side search field spinner? (or over table)
-// TODO: Local search?
 
 // MARK: - Search functions
 extension SearchTableViewController: UISearchResultsUpdating {
@@ -132,6 +109,15 @@ extension SearchTableViewController: UISearchResultsUpdating {
             !searchController.isBeingDismissed else { return }
         
         let searchTerms = searchController.searchBar.text
-        fetchCourses(like: searchTerms)
+        
+        if let searchTerms = searchTerms,
+            !searchTerms.isEmpty {
+            filteredCourses = courses!.filterResults(by: searchTerms,
+                                                    as: SearchCourseViewModel.self)
+        } else {
+            filteredCourses = allCourses
+        }
+        
+        showCourses(filteredCourses)
     }
 }

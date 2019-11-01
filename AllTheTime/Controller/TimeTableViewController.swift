@@ -11,6 +11,8 @@ import UIKit
 class TimeTableViewController: UIViewController {
     
     // MARK: - Properties
+    var courses: Courses?
+    
     // 18 30-minute blocks, plus two blocks for weekday + day number
     let rowsPerDay = 20
     var blocksPerDay: Int {
@@ -28,7 +30,10 @@ class TimeTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("Loaded.")
+        print("Main view loaded.")
+        
+        // Get all courses from API
+        fetchCourses()
         
         getDaySchedule()
     }
@@ -141,6 +146,38 @@ class TimeTableViewController: UIViewController {
         
         NSLayoutConstraint.activate(constraints)
     }
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        let destination = segue.destination
+        
+        // Pass the selected object to the new view controller.
+        if let destination = destination as? SearchTableViewController {
+            destination.courses = courses
+        }
+    }
 
 }
 
+
+// MARK: - Initial data fetch
+extension TimeTableViewController {
+    /// Fetch full course list
+    func fetchCourses() {
+        
+        // TODO: Show a loading spinner while waiting
+        
+        Courses.fetch() { result in
+            switch result {
+            case .success(let courses):
+                self.courses = courses
+                print("Fetched courses.")
+                print(courses)
+            case .failure(let error):
+                print("Could not fetch courses: \(error.localizedDescription)")
+            }
+        }
+    }
+}

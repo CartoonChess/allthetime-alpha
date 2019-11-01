@@ -18,7 +18,7 @@ class CourseViewModel {
     
     // MARK: - Methods
     
-    init(_ course: Course) {
+    required init(_ course: Course) {
         self.course = course
         self.title = course.title
     }
@@ -49,7 +49,7 @@ class CourseDetailsCourseViewModel: SearchCourseViewModel {
     
     // MARK: - Methods
     
-    override init(_ course: Course) {
+    required init(_ course: Course) {
         self.description = course.description
         super.init(course)
     }
