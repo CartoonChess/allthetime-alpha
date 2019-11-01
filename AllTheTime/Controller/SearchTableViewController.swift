@@ -11,7 +11,7 @@ import UIKit
 class SearchTableViewController: UITableViewController {
     
     // MARK: - Properties
-    var courses: [SearchCourseViewModel]?
+    var courses: [SearchCourseViewModel] = []
     
     // MARK: - Methods
     
@@ -29,32 +29,13 @@ class SearchTableViewController: UITableViewController {
             case .success(let courses):
                 for course in courses.results {
                     let viewModel = SearchCourseViewModel(course)
-                    self.courses?.append(viewModel)
-                    DispatchQueue.main.async {
-                        self.updateView()
-                    }
+                    self.courses.append(viewModel)
                 }
+                DispatchQueue.main.async { self.tableView.reloadData() }
             case .failure(let error):
                 print("Could not fetch courses: \(error.localizedDescription)")
             }
         }
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int { 1 }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Number of rows
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // TODO: Configure the cell
-
-        return cell
     }
 
     /*
@@ -67,4 +48,44 @@ class SearchTableViewController: UITableViewController {
     }
     */
 
+}
+
+// MARK: - Table view data source
+extension SearchTableViewController {
+    // MARK: - Properties
+    // Matches in IB
+    var cellID: String { "searchCourseCell" }
+    
+    // MARK: - Methods
+    
+    override func numberOfSections(in tableView: UITableView) -> Int { 1 }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return courses.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SearchTableViewCell else {
+            fatalError("The cell must be of type SearchTableViewCell.")
+        }
+
+        cell.course = courses[indexPath.row]
+        return cell
+    }
+    
+    
+    // MARK: - Error handling
+
+//    enum Error: LocalizedError {
+//        case wrongCellType
+//        
+//        var errorDescription: String? {
+//            switch self {
+//            case .wrongCellType:
+//                return "The cell must be of type SearchTableViewCell"
+//            @unknown default:
+//                return "Unknown error"
+//            }
+//        }
+//    }
 }
