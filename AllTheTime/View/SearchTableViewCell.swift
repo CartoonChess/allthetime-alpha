@@ -34,6 +34,14 @@ class SearchTableViewCell: UITableViewCell {
             
         titleLabel.text = course.title
         timeAndDayLabel.text = course.timeAndDate
+        
+//        let attachment = NSTextAttachment()
+//        attachment.image = UIImage(named: "Icons/clock")
+//        let icon = NSAttributedString(attachment: attachment)
+//        let text = NSMutableAttributedString(string: course.timeAndDate)
+//        text.append(icon)
+//        timeAndDayLabel.attributedText = text
+        
         codeLabel.text = course.code
         professorLabel.text = course.professor
         locationLabel.text = course.location

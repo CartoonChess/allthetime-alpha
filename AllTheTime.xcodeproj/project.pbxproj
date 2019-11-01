@@ -27,6 +27,7 @@
 /* Begin PBXFileReference section */
 		AE35CB07236BD9F5008E33F3 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AE35CB09236BE45C008E33F3 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		AE35CB0D236BFA21008E33F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AE366E2D23695E3500B39B99 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		AE366E2F23695E6700B39B99 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusMessage.swift"; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 				AE8B21242367F48D00411C6A /* LaunchScreen.storyboard */,
 				AE8B21272367F48D00411C6A /* Info.plist */,
 				AE8B21322368561100411C6A /* Default-568h@2x.png */,
+				AE35CB0D236BFA21008E33F3 /* README.md */,
 			);
 			path = Other;
 			sourceTree = "<group>";

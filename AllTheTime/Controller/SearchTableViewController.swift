@@ -45,6 +45,9 @@ class SearchTableViewController: UITableViewController {
     
     /// Fetch full course list
     func fetchCourses() {
+        
+        // TODO: Show a loading spinner while waiting
+        
         Courses.fetch() { result in
             switch result {
             case .success(let courses):

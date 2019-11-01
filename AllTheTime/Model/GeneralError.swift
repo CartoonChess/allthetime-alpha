@@ -17,8 +17,6 @@ enum GeneralError: LocalizedError {
         switch self {
         case .unknown:
             return "Unknown error"
-        @unknown default:
-            return "Unknown error"
         }
     }
 }
