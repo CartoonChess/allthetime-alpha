@@ -34,6 +34,8 @@ class SearchTableViewController: UITableViewController {
         let searchController = UISearchController()
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
+            navigationItem.searchController?.searchBar.searchTextField.placeholder = "강의 검색"
+            // Disable search controller hiding, so it shows up on load without scrolling
             navigationItem.hidesSearchBarWhenScrolling = false
         } else {
             // Fallback on earlier versions

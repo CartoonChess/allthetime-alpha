@@ -33,8 +33,7 @@ class SearchTableViewCell: UITableViewCell {
         containerView.layer.borderColor = UIColor.lightGray.cgColor
             
         titleLabel.text = course.title
-//        timeAndDayLabel.text = course.timeAndDate
-        timeAndDayLabel.text = "this is a very long label whose properties will test the specific bounds of our proposed interface builder layout"
+        timeAndDayLabel.text = course.timeAndDate
         codeLabel.text = course.code
         professorLabel.text = course.professor
         locationLabel.text = course.location

@@ -215,7 +215,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boS-do-E6d">
-                                <rect key="frame" x="0.0" y="104.5" width="375" height="516.5"/>
+                                <rect key="frame" x="0.0" y="104.5" width="375" height="504.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLM-O8-kcR">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
@@ -348,16 +348,17 @@
                                     <constraint firstAttribute="bottom" secondItem="gLM-O8-kcR" secondAttribute="bottom" id="20L-XT-vYk"/>
                                     <constraint firstAttribute="trailing" secondItem="gLM-O8-kcR" secondAttribute="trailing" id="FHG-PE-3qn"/>
                                     <constraint firstItem="gLM-O8-kcR" firstAttribute="leading" secondItem="boS-do-E6d" secondAttribute="leading" id="FhT-Hc-jHr"/>
-                                    <constraint firstItem="gLM-O8-kcR" firstAttribute="top" secondItem="boS-do-E6d" secondAttribute="top" id="cVH-XG-ish"/>
+                                    <constraint firstItem="gLM-O8-kcR" firstAttribute="top" secondItem="PCz-Vv-0cp" secondAttribute="top" id="MaW-7L-6Jc"/>
                                     <constraint firstItem="gLM-O8-kcR" firstAttribute="width" secondItem="boS-do-E6d" secondAttribute="width" id="oYN-93-u9j"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="PCz-Vv-0cp"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="JcU-jV-acb"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUh-2Z-4eJ">
-                                <rect key="frame" x="0.0" y="621" width="375" height="46"/>
+                                <rect key="frame" x="0.0" y="609" width="375" height="58"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="강의 추가">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -366,9 +367,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Vmb-vO-9Cp" firstAttribute="trailing" secondItem="boS-do-E6d" secondAttribute="trailing" id="MVI-Wp-gem"/>
+                            <constraint firstItem="boS-do-E6d" firstAttribute="top" secondItem="Vmb-vO-9Cp" secondAttribute="top" id="OOj-ad-ayo"/>
                             <constraint firstItem="lUh-2Z-4eJ" firstAttribute="leading" secondItem="Vmb-vO-9Cp" secondAttribute="leading" id="eIu-cw-Mij"/>
                             <constraint firstItem="Vmb-vO-9Cp" firstAttribute="trailing" secondItem="lUh-2Z-4eJ" secondAttribute="trailing" id="flF-6b-wav"/>
-                            <constraint firstItem="boS-do-E6d" firstAttribute="top" secondItem="Vmb-vO-9Cp" secondAttribute="top" id="mlr-b0-XVg"/>
                             <constraint firstItem="boS-do-E6d" firstAttribute="leading" secondItem="Vmb-vO-9Cp" secondAttribute="leading" id="oNM-gz-7b8"/>
                             <constraint firstItem="lUh-2Z-4eJ" firstAttribute="top" secondItem="boS-do-E6d" secondAttribute="bottom" id="x5e-mg-kga"/>
                             <constraint firstItem="lUh-2Z-4eJ" firstAttribute="bottom" secondItem="Vmb-vO-9Cp" secondAttribute="bottom" id="xdC-96-lJQ"/>
@@ -387,64 +388,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLQ-Ga-3GH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1504.8" y="495.20239880059972"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="M0g-uR-bcd">
-            <objects>
-                <viewController id="dq7-uU-hla" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Tj-3N-51O">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EK5-vF-SnQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diL-gz-p5q">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1276"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPf-oF-umG">
-                                                <rect key="frame" x="10" y="20" width="355" height="1236"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.강의 설명 없음 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae suscipit tellus mauris a diam maecenas. Pharetra convallis posuere morbi leo. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Tristique magna sit amet purus gravida quis blandit. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Id nibh tortor id aliquet lectus proin nibh. Lobortis scelerisque fermentum dui faucibus in ornare quam. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Et netus et malesuada fames ac turpis egestas integer eget. Cursus turpis massa tincidunt dui ut ornare lectus sit. Integer malesuada nunc vel risus commodo. In hac habitasse platea dictumst vestibulum. Penatibus et magnis dis parturient. At imperdiet dui accumsan sit amet. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. At auctor urna nunc id cursus. Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Dui sapien eget mi proin sed libero enim sed. Maecenas pharetra convallis posuere morbi./n/nPlacerat duis ultricies lacus sed turpis tincidunt id aliquet risus. Nulla posuere sollicitudin aliquam ultrices. Consectetur purus ut faucibus pulvinar. Aliquet nec ullamcorper sit amet risus nullam. Purus viverra accumsan in nisl nisi scelerisque eu. Feugiat in ante metus dictum at tempor commodo ullamcorper. Non arcu risus quis varius quam quisque id. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. Fermentum dui faucibus in ornare quam viverra. Purus faucibus ornare suspendisse sed nisi. Non enim praesent elementum facilisis leo vel fringilla. Ut enim blandit volutpat maecenas. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Dolor sit amet consectetur adipiscing elit duis tristique. Semper feugiat nibh sed pulvinar. Porttitor massa id neque aliquam vestibulum morbi. Vehicula ipsum a arcu cursus vitae congue. Nunc lobortis mattis aliquam faucibus./n/nRisus in hendrerit gravida rutrum quisque non tellus orci ac. Amet facilisis magna etiam tempor orci eu lobortis elementum. Tortor condimentum lacinia quis vel. Tellus cras adipiscing enim eu turpis. Ut ornare lectus sit amet est placerat in egestas. Sagittis aliquam malesuada bibendum arcu vitae. Gravida arcu ac tortor dignissim convallis aenean et tortor at. Turpis massa tincidunt dui ut ornare lectus sit. Leo duis ut diam quam nulla porttitor massa id neque. Pretium fusce id velit ut tortor pretium viverra suspendisse. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. At tellus at urna condimentum mattis. Sed id semper risus in. Auctor neque vitae tempus quam pellentesque. Egestas diam in arcu cursus euismod quis viverra nibh cras. Et pharetra pharetra massa massa ultricies mi. Est ante in nibh mauris cursus mattis molestie a. Id eu nisl nunc mi. Nisi vitae suscipit tellus mauris a diam maecenas. Mauris pharetra et ultrices neque ornare aenean euismod.</mutableString>
-                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="sPf-oF-umG" firstAttribute="leading" secondItem="diL-gz-p5q" secondAttribute="leading" constant="10" id="IPh-Eq-0K3"/>
-                                            <constraint firstAttribute="trailing" secondItem="sPf-oF-umG" secondAttribute="trailing" constant="10" id="Sek-xr-h7D"/>
-                                            <constraint firstItem="sPf-oF-umG" firstAttribute="top" secondItem="diL-gz-p5q" secondAttribute="top" constant="20" id="YfN-ZP-BRO"/>
-                                            <constraint firstAttribute="bottom" secondItem="sPf-oF-umG" secondAttribute="bottom" constant="20" id="gf3-59-oR1"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="diL-gz-p5q" secondAttribute="trailing" id="IHO-QC-4Ns"/>
-                                    <constraint firstItem="diL-gz-p5q" firstAttribute="width" secondItem="EK5-vF-SnQ" secondAttribute="width" id="bIW-dE-twK"/>
-                                    <constraint firstAttribute="bottom" secondItem="diL-gz-p5q" secondAttribute="bottom" constant="270" id="kQE-Iw-KbM"/>
-                                    <constraint firstItem="diL-gz-p5q" firstAttribute="leading" secondItem="EK5-vF-SnQ" secondAttribute="leading" id="njv-n5-t25"/>
-                                    <constraint firstItem="diL-gz-p5q" firstAttribute="top" secondItem="EK5-vF-SnQ" secondAttribute="top" id="s9c-gR-8Ge"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="iCH-k0-Zyq"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="KIh-fb-aM9"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="EK5-vF-SnQ" firstAttribute="leading" secondItem="Ysr-mg-j8m" secondAttribute="leading" id="GZm-Vw-ZvL"/>
-                            <constraint firstItem="Ysr-mg-j8m" firstAttribute="trailing" secondItem="EK5-vF-SnQ" secondAttribute="trailing" id="Ys9-QZ-Xuz"/>
-                            <constraint firstItem="Ysr-mg-j8m" firstAttribute="bottom" secondItem="EK5-vF-SnQ" secondAttribute="bottom" id="je3-bd-Qph"/>
-                            <constraint firstItem="EK5-vF-SnQ" firstAttribute="top" secondItem="Ysr-mg-j8m" secondAttribute="top" id="tlj-tE-zE1"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ysr-mg-j8m"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="nO8-kI-dxp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Co5-GK-FML" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2360.8000000000002" y="494.30284857571218"/>
         </scene>
         <!--강의 목록-->
         <scene sceneID="bmz-h1-H7z">
