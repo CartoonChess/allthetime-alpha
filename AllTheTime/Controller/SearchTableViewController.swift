@@ -32,13 +32,19 @@ class SearchTableViewController: UITableViewController {
     /// Show search bar and make sure it's always showing, even when scrolling
     func showSearchController() {
         let searchController = UISearchController()
+        searchController.searchBar.placeholder = "강의 검색"
+        if #available(iOS 9.1, *) { searchController.obscuresBackgroundDuringPresentation = false }
+        // Prevent UI issues in some cases (i.e. search controller overlapping views)
+        definesPresentationContext = true
+        
+        // Listen for user changes
+        searchController.searchResultsUpdater = self
+        
+        
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
-            navigationItem.searchController?.searchBar.searchTextField.placeholder = "강의 검색"
             // Disable search controller hiding, so it shows up on load without scrolling
             navigationItem.hidesSearchBarWhenScrolling = false
-            // Listen for user changes
-            navigationItem.searchController?.searchResultsUpdater = self
         } else {
             // Fallback on earlier versions
             navigationItem.titleView = searchController.searchBar
@@ -112,19 +118,20 @@ extension SearchTableViewController {
     }
 }
 
-// TODO: How to handle iOS<11 search? (UISearchControllerDelegate?)
+// TODO: Case-insensitive searching? This is more a server-side requirement
+// TODO: Right-side search field spinner? (or over table)
+// TODO: Local search?
 
 // MARK: - Search functions
 extension SearchTableViewController: UISearchResultsUpdating {
     // Triggers when search controller gains/loses first responder status and when contents are changed
     // Does NOT trigger when user presses enter
     func updateSearchResults(for searchController: UISearchController) {
+        // Don't filter when user (de)selects controller
+        guard !searchController.isBeingPresented,
+            !searchController.isBeingDismissed else { return }
         
-        // FIXME: Do not trigger when first responder status is lost
-        //- Probably want to avoid triggering when gaining first resp as well
-        //- Currently, losing first resp causes a crash (out-of-range in array)
-        
-        let searchTerms = searchController.searchBar.searchTextField.text
+        let searchTerms = searchController.searchBar.text
         fetchCourses(like: searchTerms)
     }
 }
