@@ -214,34 +214,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="강의 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRs-Lp-dnK">
-                                <rect key="frame" x="16" y="133" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="교과목 코드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2o-5N-uN7">
-                                <rect key="frame" x="16" y="174" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="담당 교수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-ym-JUc">
-                                <rect key="frame" x="16" y="215" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="강의실" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id5-Yc-zCI">
-                                <rect key="frame" x="16" y="260" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-bG-mES">
+                                <rect key="frame" x="16" y="120.5" width="343" height="94"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MqH-fG-rmL">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/clock" translatesAutoresizingMaskIntoConstraints="NO" id="TLQ-Ta-LRm">
+                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="TLQ-Ta-LRm" secondAttribute="height" multiplier="1:1" id="4DN-NS-dUC"/>
+                                                    <constraint firstAttribute="width" constant="16" id="YtY-Vv-abo"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 시간" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRs-Lp-dnK">
+                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gMd-uT-zPr">
+                                        <rect key="frame" x="0.0" y="24.5" width="343" height="20.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/code" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Z-SN-5gk">
+                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="TCp-aS-CU2"/>
+                                                    <constraint firstAttribute="width" secondItem="Y2Z-SN-5gk" secondAttribute="height" multiplier="1:1" id="aGP-hQ-msT"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="교과목 코드" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2o-5N-uN7">
+                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xm5-Ez-ShP">
+                                        <rect key="frame" x="0.0" y="49" width="343" height="20.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/cap" translatesAutoresizingMaskIntoConstraints="NO" id="HFr-7f-LVr">
+                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="erh-hS-YIk"/>
+                                                    <constraint firstAttribute="width" secondItem="HFr-7f-LVr" secondAttribute="height" multiplier="1:1" id="fRk-Ei-1Y4"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="담당 교수" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-ym-JUc">
+                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e1g-QP-oUK">
+                                        <rect key="frame" x="0.0" y="73.5" width="343" height="20.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/school" translatesAutoresizingMaskIntoConstraints="NO" id="dsK-ON-ic0">
+                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dsK-ON-ic0" secondAttribute="height" multiplier="1:1" id="9Yn-88-bgk"/>
+                                                    <constraint firstAttribute="width" constant="16" id="EBe-ni-S9Y"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의실" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id5-Yc-zCI">
+                                                <rect key="frame" x="24" y="0.0" width="319" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="강의 설명" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-DP-enw" customClass="PaddedLabel" customModule="AllTheTime">
                                 <rect key="frame" x="16" y="345" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -281,6 +330,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SqK-bG-mES" firstAttribute="leading" secondItem="Vmb-vO-9Cp" secondAttribute="leading" constant="16" id="H9Q-da-jOJ"/>
+                            <constraint firstItem="SqK-bG-mES" firstAttribute="top" secondItem="Vmb-vO-9Cp" secondAttribute="top" constant="16" id="g6G-Rr-UGY"/>
+                            <constraint firstItem="Vmb-vO-9Cp" firstAttribute="trailing" secondItem="SqK-bG-mES" secondAttribute="trailing" constant="16" id="mxE-Cn-Xhl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Vmb-vO-9Cp"/>
                     </view>
                     <navigationItem key="navigationItem" title="강의 상세" id="JKR-4m-mbS"/>
@@ -305,18 +359,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCourseCell" rowHeight="144" id="rBi-Xl-RGx" customClass="SearchTableViewCell" customModule="AllTheTime" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="144"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCourseCell" id="rBi-Xl-RGx" customClass="SearchTableViewCell" customModule="AllTheTime" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="168.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBi-Xl-RGx" id="ngn-TQ-pKY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="168.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFL-cC-ZhV">
-                                            <rect key="frame" x="20" y="10" width="335" height="124"/>
+                                            <rect key="frame" x="20" y="10" width="335" height="148.5"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u89-TS-QbL">
-                                                    <rect key="frame" x="20" y="20" width="295" height="84"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="u89-TS-QbL">
+                                                    <rect key="frame" x="20" y="20" width="295" height="108.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="강의 이름" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onU-Ea-6n2">
                                                             <rect key="frame" x="0.0" y="0.0" width="295" height="24"/>
@@ -324,46 +378,52 @@
                                                             <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="강의 시간" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rs-GW-xFL">
-                                                            <rect key="frame" x="0.0" y="24" width="295" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="교과목 코드" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-Ao-CLj">
-                                                            <rect key="frame" x="0.0" y="44.5" width="295" height="16"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-I9-Y5t">
+                                                            <rect key="frame" x="0.0" y="28" width="295" height="20.5"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icons/clock" translatesAutoresizingMaskIntoConstraints="NO" id="KR4-zu-R3B">
+                                                                    <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="16" id="TNQ-at-kKv"/>
+                                                                        <constraint firstAttribute="width" secondItem="KR4-zu-R3B" secondAttribute="height" multiplier="1:1" id="UFj-Bk-j8o"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="강의 시간" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rs-GW-xFL">
+                                                                    <rect key="frame" x="20" y="0.0" width="275" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="교과목 코드" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-Ao-CLj">
+                                                            <rect key="frame" x="0.0" y="52.5" width="295" height="16"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="담당 교수" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbB-JU-e1v">
-                                                            <rect key="frame" x="0.0" y="60.5" width="295" height="7.5"/>
+                                                            <rect key="frame" x="0.0" y="72.5" width="295" height="16"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="강의실" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DK-Ul-OOy">
-                                                            <rect key="frame" x="0.0" y="68" width="295" height="16"/>
+                                                            <rect key="frame" x="0.0" y="92.5" width="295" height="16"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="9rs-GW-xFL" firstAttribute="top" secondItem="onU-Ea-6n2" secondAttribute="bottom" id="1E1-08-BTl"/>
                                                         <constraint firstItem="onU-Ea-6n2" firstAttribute="top" secondItem="u89-TS-QbL" secondAttribute="top" id="5fJ-qx-jmW"/>
                                                         <constraint firstAttribute="trailing" secondItem="onU-Ea-6n2" secondAttribute="trailing" id="643-R3-EsJ"/>
                                                         <constraint firstItem="3DK-Ul-OOy" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="A4A-DT-EIR"/>
                                                         <constraint firstAttribute="trailing" secondItem="rbB-JU-e1v" secondAttribute="trailing" id="Jr1-7G-nvb"/>
-                                                        <constraint firstItem="gs6-Ao-CLj" firstAttribute="top" secondItem="9rs-GW-xFL" secondAttribute="bottom" id="MeD-QZ-IEV"/>
-                                                        <constraint firstItem="9rs-GW-xFL" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="NWN-xe-sEP"/>
                                                         <constraint firstAttribute="trailing" secondItem="3DK-Ul-OOy" secondAttribute="trailing" id="OR8-ws-XIE"/>
-                                                        <constraint firstAttribute="trailing" secondItem="9rs-GW-xFL" secondAttribute="trailing" id="QTX-it-L2S"/>
                                                         <constraint firstAttribute="trailing" secondItem="gs6-Ao-CLj" secondAttribute="trailing" id="TCZ-Ex-bn8"/>
                                                         <constraint firstItem="onU-Ea-6n2" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="W0E-L1-gr7"/>
-                                                        <constraint firstItem="3DK-Ul-OOy" firstAttribute="top" secondItem="rbB-JU-e1v" secondAttribute="bottom" id="WIP-36-4b0"/>
                                                         <constraint firstItem="gs6-Ao-CLj" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="acW-9d-Lc2"/>
-                                                        <constraint firstItem="rbB-JU-e1v" firstAttribute="top" secondItem="gs6-Ao-CLj" secondAttribute="bottom" id="jS7-ua-n4c"/>
                                                         <constraint firstItem="rbB-JU-e1v" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="oeH-Hf-8XA"/>
                                                     </constraints>
                                                 </stackView>
@@ -431,4 +491,10 @@
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icons/cap" width="480" height="384"/>
+        <image name="Icons/clock" width="384" height="384"/>
+        <image name="Icons/code" width="480" height="384"/>
+        <image name="Icons/school" width="480" height="384"/>
+    </resources>
 </document>
