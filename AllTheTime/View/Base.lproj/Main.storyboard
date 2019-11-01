@@ -191,7 +191,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="시간표" id="ENp-Lo-Ss6"/>
+                    <navigationItem key="navigationItem" title="시간표" id="ENp-Lo-Ss6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="7p6-si-rgg">
+                            <connections>
+                                <segue destination="9Wh-c2-lPb" kind="show" id="3TB-zK-Zav"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mondayStackView" destination="0VB-EG-AkV" id="IHi-fW-4VX"/>
                     </connections>
@@ -288,7 +294,121 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLQ-Ga-3GH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511.2" y="120.98950524737631"/>
+            <point key="canvasLocation" x="1505" y="496"/>
+        </scene>
+        <!--강의 목록-->
+        <scene sceneID="bmz-h1-H7z">
+            <objects>
+                <tableViewController id="9Wh-c2-lPb" customClass="SearchTableViewController" customModule="AllTheTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pBa-wi-wte">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="강의 검색" id="C5r-cZ-whx">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="144" id="rBi-Xl-RGx">
+                                <rect key="frame" x="0.0" y="72" width="375" height="144"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBi-Xl-RGx" id="ngn-TQ-pKY">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFL-cC-ZhV">
+                                            <rect key="frame" x="8" y="4" width="359" height="136"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u89-TS-QbL">
+                                                    <rect key="frame" x="12" y="12" width="335" height="112"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="강의 이름" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onU-Ea-6n2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 시간" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rs-GW-xFL">
+                                                            <rect key="frame" x="0.0" y="43.5" width="335" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="교과목 시간" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-Ao-CLj">
+                                                            <rect key="frame" x="0.0" y="64" width="335" height="16"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="담당 교수" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbB-JU-e1v">
+                                                            <rect key="frame" x="0.0" y="80" width="335" height="16"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의실" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DK-Ul-OOy">
+                                                            <rect key="frame" x="0.0" y="96" width="335" height="16"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="9rs-GW-xFL" firstAttribute="top" secondItem="onU-Ea-6n2" secondAttribute="bottom" id="1E1-08-BTl"/>
+                                                        <constraint firstItem="onU-Ea-6n2" firstAttribute="top" secondItem="u89-TS-QbL" secondAttribute="top" id="5fJ-qx-jmW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="onU-Ea-6n2" secondAttribute="trailing" id="643-R3-EsJ"/>
+                                                        <constraint firstItem="3DK-Ul-OOy" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="A4A-DT-EIR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="rbB-JU-e1v" secondAttribute="trailing" id="Jr1-7G-nvb"/>
+                                                        <constraint firstItem="gs6-Ao-CLj" firstAttribute="top" secondItem="9rs-GW-xFL" secondAttribute="bottom" id="MeD-QZ-IEV"/>
+                                                        <constraint firstItem="9rs-GW-xFL" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="NWN-xe-sEP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3DK-Ul-OOy" secondAttribute="trailing" id="OR8-ws-XIE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9rs-GW-xFL" secondAttribute="trailing" id="QTX-it-L2S"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gs6-Ao-CLj" secondAttribute="trailing" id="TCZ-Ex-bn8"/>
+                                                        <constraint firstItem="onU-Ea-6n2" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="W0E-L1-gr7"/>
+                                                        <constraint firstItem="3DK-Ul-OOy" firstAttribute="top" secondItem="rbB-JU-e1v" secondAttribute="bottom" id="WIP-36-4b0"/>
+                                                        <constraint firstItem="gs6-Ao-CLj" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="acW-9d-Lc2"/>
+                                                        <constraint firstItem="rbB-JU-e1v" firstAttribute="top" secondItem="gs6-Ao-CLj" secondAttribute="bottom" id="jS7-ua-n4c"/>
+                                                        <constraint firstItem="rbB-JU-e1v" firstAttribute="leading" secondItem="u89-TS-QbL" secondAttribute="leading" id="oeH-Hf-8XA"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="u89-TS-QbL" secondAttribute="bottom" constant="12" id="X7B-aF-drX"/>
+                                                <constraint firstItem="u89-TS-QbL" firstAttribute="leading" secondItem="GFL-cC-ZhV" secondAttribute="leading" constant="12" id="bvx-3K-9s8"/>
+                                                <constraint firstAttribute="trailing" secondItem="u89-TS-QbL" secondAttribute="trailing" constant="12" id="kzl-V0-xQy"/>
+                                                <constraint firstItem="u89-TS-QbL" firstAttribute="top" secondItem="GFL-cC-ZhV" secondAttribute="top" constant="12" id="mgo-K1-RMe"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="GFL-cC-ZhV" secondAttribute="bottom" constant="4" id="Hvg-eF-Y7b"/>
+                                        <constraint firstAttribute="trailing" secondItem="GFL-cC-ZhV" secondAttribute="trailing" constant="8" id="aIk-zF-YaT"/>
+                                        <constraint firstItem="GFL-cC-ZhV" firstAttribute="leading" secondItem="ngn-TQ-pKY" secondAttribute="leading" constant="8" id="ajw-aX-i1U"/>
+                                        <constraint firstItem="GFL-cC-ZhV" firstAttribute="top" secondItem="ngn-TQ-pKY" secondAttribute="top" constant="4" id="lg8-eJ-WQd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Wh-c2-lPb" id="Bd2-33-538"/>
+                            <outlet property="delegate" destination="9Wh-c2-lPb" id="mt3-Aw-zsP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="강의 목록" id="lyW-SU-Icz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kM8-EG-wPK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1504.8" y="-188.45577211394306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ziu-f4-N9B">
@@ -296,7 +416,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQx-dw-kfl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kKh-Hd-2Ib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

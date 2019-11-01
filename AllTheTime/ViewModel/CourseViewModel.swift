@@ -7,7 +7,6 @@
 //
 
 class CourseViewModel {
-    
     // MARK: - Properties
     
     /// The `Course` model owned by this view model.
@@ -23,26 +22,29 @@ class CourseViewModel {
         self.course = course
         self.title = course.title
     }
-    
 }
 
 
-class CourseDetailsCourseViewModel: CourseViewModel {
-    
-    // MARK: - Properties
-    
+class SearchCourseViewModel: CourseViewModel {
     // FIXME: Sort days of week in order (enum?)
+    //- Pass fix to CourseDetails VM
     
     var timeAndDate: String {
         let time = "\(course.startTime) - \(course.endTime)"
         let date = "(\(course.days.joined(separator: "), (")))"
-        return "강의실 : \(time) | \(date)"
+        return "\(time) | \(date)"
     }
     
     var code: String { return "교과목 코드 : \(course.code)" }
     var professor: String { return "담당 교수 : \(course.professor)" }
     override var location: String { return "강의실 : \(super.location)" }
+}
+
+
+class CourseDetailsCourseViewModel: SearchCourseViewModel {
+    // MARK: - Properties
     
+    override var timeAndDate: String { return "강의실 : \(super.timeAndDate)" }
     let description: String
     
     // MARK: - Methods
@@ -51,10 +53,4 @@ class CourseDetailsCourseViewModel: CourseViewModel {
         self.description = course.description
         super.init(course)
     }
-    
-}
-
-
-class SearchCourseViewModel: CourseViewModel {
-    // TODO: Implement
 }
