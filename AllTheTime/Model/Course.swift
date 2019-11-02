@@ -41,49 +41,20 @@ struct Courses: Codable {
     
     // MARK: Fetch
     
-    enum QueryType: String {
-        case title = "lecture"
-        case code
-    }
-    
     /// Returns matching courses from the server if `query` and `queryType` are specified, otherwise returns all courses.
-    static func fetch(queryType: QueryType? = nil, query: String? = nil, completion: @escaping (Result<Courses, Error>) -> Void) {
-        assert((queryType == nil) == (query == nil), "queryType and query must be specified together.")
-        
-        var urlString = "https://k03c8j1o5a.execute-api.ap-northeast-2.amazonaws.com/v1/programmers/lectures"
-        
-        // Add the query, if applicable
-        if let type = queryType?.rawValue,
-            let query = query {
-            urlString += "?\(type)=\(query)"
-        }
-        
-        guard let url = URL(string: urlString) else {
-            print("Can't form API request with URL \"\(urlString)\".")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.addValue("QJuHAX8evMY24jvpHfHQ4pHGetlk5vn8FJbk70O6", forHTTPHeaderField: "x-api-key")
-        // Content-Type: application/json
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
-                if let response = response as? HTTPURLResponse {
-                    print("Response code \(response.statusCode): \(response.statusMessage)")
-                }
-                print("Error retrieving courses from backend.")
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.failure(GeneralError.unknown))
-                }
-                return
+    static func fetch(queryType: Keys.QueryType? = nil, query: String? = nil, completion: @escaping (Result<Courses, Error>) -> Void) {
+        NetworkRequest.execute(queryType: queryType,
+                               query: query,
+                               method: .get) {
+            result in
+                                
+            switch result {
+            case .success(let data):
+                completion(getCourses(from: data))
+            case .failure(let error):
+                print("Failed to fetch courses: \(error.localizedDescription)")
             }
-
-            // Get course data
-            completion(getCourses(from: data))
-        }.resume()
+        }
     }
     
     private static func getCourses(from data: Data) -> Result<Courses, Error> {
