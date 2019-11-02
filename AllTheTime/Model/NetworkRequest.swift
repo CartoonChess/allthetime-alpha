@@ -16,14 +16,26 @@ struct NetworkRequest {
         case delete = "DELETE"
     }
     
-    static func execute(queryType: Keys.QueryType? = nil,
-                      query: String? = nil,
-                      method: Method = .post,
-                      completion: @escaping (Result<Data, Error>) -> Void) {
+    enum NetworkError: LocalizedError {
+        case badURL(String)
+        
+        var errorDescription: String? {
+            switch self {
+            case .badURL(let urlString):
+                return "Can't form API request with URL \"\(urlString)\""
+            }
+        }
+    }
+    
+    static func execute(urlString: Keys.URLString,
+                        queryType: Keys.QueryType? = nil,
+                        query: String? = nil,
+                        method: Method = .post,
+                        completion: @escaping (Result<Data, Error>) -> Void) {
         
         assert((queryType == nil) == (query == nil), "queryType and query must be specified together.")
         
-        var urlString = Keys.URL.baseString
+        var urlString = urlString
         
         // Add the query, if applicable
         if let type = queryType,
@@ -32,7 +44,7 @@ struct NetworkRequest {
         }
         
         guard let url = URL(string: urlString) else {
-            print("Can't form API request with URL \"\(urlString)\".")
+            completion(.failure(NetworkError.badURL(urlString)))
             return
         }
         

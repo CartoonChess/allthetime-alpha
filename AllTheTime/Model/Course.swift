@@ -43,7 +43,8 @@ struct Courses: Codable {
     
     /// Returns matching courses from the server if `query` and `queryType` are specified, otherwise returns all courses.
     static func fetch(queryType: Keys.QueryType? = nil, query: String? = nil, completion: @escaping (Result<Courses, Error>) -> Void) {
-        NetworkRequest.execute(queryType: queryType,
+        NetworkRequest.execute(urlString: Keys.URL.allCourses,
+                               queryType: queryType,
                                query: query,
                                method: .get) {
             result in

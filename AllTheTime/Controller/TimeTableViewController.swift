@@ -12,6 +12,7 @@ class TimeTableViewController: UIViewController {
     
     // MARK: - Properties
     var courses: Courses?
+    var timeTable: TimeTable?
     
     // 18 30-minute blocks, plus two blocks for weekday + day number
     let rowsPerDay = 20
@@ -36,12 +37,21 @@ class TimeTableViewController: UIViewController {
         toggleSearch(enable: false)
         
         // Get all courses from API
-        fetchCourses() { error in
+        fetchAllCourses() { error in
             if let error = error {
                 print("Could not fetch courses: \(error.localizedDescription)")
                 return
             }
-            DispatchQueue.main.async { self.updateView() }
+            // Get user's timetable next
+            self.fetchTimeTable() { error in
+                if let error = error {
+                    print("Could not fetch user timetable: \(error.localizedDescription)")
+                    return
+                }
+                DispatchQueue.main.async { self.updateView() }
+                // TODO: Sort by day, time?
+                // TODO: Get memos via Memos object, then via API
+            }
         }
     }
     
@@ -176,10 +186,10 @@ class TimeTableViewController: UIViewController {
 }
 
 
-// MARK: - Initial data fetch
+// MARK: - Data fetch
 extension TimeTableViewController {
     /// Fetch full course list
-    func fetchCourses(completion: @escaping (Error?) -> Void) {
+    func fetchAllCourses(completion: @escaping (Error?) -> Void) {
         
         // TODO: Show a loading spinner while waiting
         
@@ -188,6 +198,21 @@ extension TimeTableViewController {
             case .success(let courses):
                 self.courses = courses
                 print("Fetched courses.")
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+    
+    /// Fetch user's timetable
+    func fetchTimeTable(completion: @escaping (Error?) -> Void) {
+        TimeTable.fetch() { result in
+            switch result {
+            case .success(let timeTable):
+                self.timeTable = timeTable
+                print("Fetched time table.")
+                print(timeTable)
                 completion(nil)
             case .failure(let error):
                 completion(error)

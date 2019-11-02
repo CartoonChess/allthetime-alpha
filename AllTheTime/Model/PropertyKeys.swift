@@ -11,14 +11,19 @@ import Foundation
 /// Static strings used throughout the app
 struct Keys {
     
+    typealias URLString = String
     struct URL {
-        static let baseString = "https://k03c8j1o5a.execute-api.ap-northeast-2.amazonaws.com/v1/programmers/lectures"
+        private static let base = "https://k03c8j1o5a.execute-api.ap-northeast-2.amazonaws.com/v1/programmers/"
+        static var allCourses: URLString { base + "lectures" }
+        static var userCourses: URLString { base + "timetable" }
+        static var memos: URLString { base + "memo" }
     }
     
     typealias QueryType = String
     struct Query {
         static let title: QueryType = "lecture"
         static let code: QueryType = "code"
+        static let userKey: QueryType = "user_key"
     }
     
     struct API {
