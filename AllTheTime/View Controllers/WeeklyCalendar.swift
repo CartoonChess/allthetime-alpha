@@ -8,20 +8,30 @@
 
 import UIKit
 
-struct CalendarCourse {
-    let course: Course
+struct CalendarBlock {
     // 5-minute intervals
     let startBlock: Int
     let endBlock: Int
+    // Empty blocks won't have an associated course
+    let course: Course?
     
+    
+    /// Creates a calendar block with an associated course.
     init(course: Course) {
         self.course = course
         startBlock = WeeklyCalendar.blocksFromTime(course.startTime)
         endBlock = WeeklyCalendar.blocksFromTime(course.endTime)
     }
+    
+    /// Creates an empty calendar block.
+    init(startBlock: Int, endBlock: Int) {
+        self.startBlock = startBlock
+        self.endBlock = endBlock
+        self.course = nil
+    }
 }
 
-typealias DaySchedule = [CalendarCourse]
+typealias DaySchedule = [CalendarBlock]
 
 
 /// Creates the calendar in the time table view.
@@ -88,7 +98,7 @@ class WeeklyCalendar {
         }
         
         for day in schedules.indices {
-            makeDaySchedule(for: day)
+            updateDay(day)
         }
     }
     
@@ -97,13 +107,13 @@ class WeeklyCalendar {
     func addCourse(_ course: Course) {
         appendCourse(course)
         for day in course.dayNumbers {
-            makeDaySchedule(for: day)
+            updateDay(day)
         }
     }
     
     private func appendCourse(_ course: Course) {
         for day in course.dayNumbers {
-            let calendarCourse = CalendarCourse(course: course)
+            let calendarCourse = CalendarBlock(course: course)
             schedules[day].append(calendarCourse)
         }
     }
@@ -111,36 +121,92 @@ class WeeklyCalendar {
     /// Removes a course from the calendar when the user has unregistered.
     func removeCourse(_ course: Course) {
         for day in course.dayNumbers {
-            schedules[day].removeAll { $0.course.code == course.code }
-            makeDaySchedule(for: day)
+            schedules[day].removeAll { $0.course?.code == course.code }
+            updateDay(day)
         }
     }
     
     /// Updates a course when it has had a change of memos.
     func updateCourse(_ course: Course) {
         for day in course.dayNumbers {
-            guard let index = schedules[day].firstIndex(where: { $0.course.code == course.code }) else { return }
-            schedules[day][index] = CalendarCourse(course: course)
-            makeDaySchedule(for: day)
+            guard let index = schedules[day].firstIndex(where: { $0.course?.code == course.code }) else { return }
+            schedules[day][index] = CalendarBlock(course: course)
+            updateDay(day)
         }
     }
     
-    /// Makes a visual representation of one day of the user's time table.
-    private func makeDaySchedule(for day: Int) {
-        // Arrange courses as startBlock:endBlock
-        var courses: [Int: Int] = [:]
+    /// Creates all rectangular calendar entries, including empty spaces, for one day.
+    private func makeBlocksForDay(_ day: Int) -> DaySchedule {
+        // Classes from 9:00 ~
+        // TODO: Should be 9:00
+        let startOfDay = blocksFromTime("8:00")
+        var start = startOfDay
+        let endOfDay = blocksFromTime("18:00")
+
+        // Set grid line times (fixed 30-minute intervals)
+        // TODO: Make this a global constant, essentially
+        var grid: [Int] = []
+        for start in (start + 1)...endOfDay {
+            // 30min / 5min = 6
+            if start % 6 == 0 {
+                grid.append(start)
+            }
+        }
+
+        // Set up schedule to first include all course times
+        var emptyBlocks: [Int: Int] = [:]
+        var courseBlocks: [Int: Int] = [:]
         for course in schedules[day] {
-            courses[course.startBlock] = course.endBlock
+            courseBlocks[course.startBlock] = course.endBlock
+        }
+
+        // Empty block placeholder
+        var emptyBlock = 0
+
+        // Check each five-minute interval for course or empty time
+        while start <= endOfDay {
+            // Add empty time where there is no course scheduled
+            if let endOfCourse = courseBlocks[start] {
+                // End empty block here, as long as it isn't the start of the day
+                if start != startOfDay {
+                    emptyBlocks[emptyBlock] = start
+                    // Note: Use `start` instead of `endOfCourse` to create blocks for ALL items, including courses
+                    // This will double up when the two arrays are combined
+                    // However, if can be useful if we change the implementation
+                    // Also note: `endOfCourse` will not work if two courses overlap
+                    // Using `start` and not combining arrays will simply use one course and ignore the other
+                    emptyBlock = endOfCourse
+                }
+                // Go to end of this course block
+                start = endOfCourse
+            } else if grid.contains(start) && emptyBlock != start {
+                // End empty block and begin new one
+                emptyBlocks[emptyBlock] = start
+                emptyBlock = start
+                start += 1
+            } else {
+                // If we were already in an empty block and found no course, just check the next block
+                start += 1
+            }
+        }
+
+        // Create new schedule with courses and empty blocks
+        var scheduleWithEmptyBlocks: DaySchedule = schedules[day]
+        // Convert empty block dictionary to objects
+        for (start, end) in emptyBlocks {
+            let block = CalendarBlock(startBlock: start, endBlock: end)
+            scheduleWithEmptyBlocks.append(block)
         }
         
-        let stackView = dayStacks[day]
-        updateDayStack(stackView, courses: courses)
+        return scheduleWithEmptyBlocks
     }
     
     /// Updates one day stack with all the subviews representing that day's schedule.
-    private func updateDayStack(_ stackView: UIStackView, courses: [Int: Int]) {
+    private func updateDay(_ day: Int) {
         // Add empty times into schedule
-        let schedule = makeDayBlocks(courses)
+        let schedule = makeBlocksForDay(day)
+        
+        let stackView = dayStacks[day]
         
         // We will active all height constraints simultaneously
         var constraints: [NSLayoutConstraint] = []
@@ -148,7 +214,7 @@ class WeeklyCalendar {
         var grey: CGFloat = 0.0
         
         // Go through each item, in order, and add them to the stack
-        for calendarItem in schedule.sorted(by: { $0.key < $1.key }) {
+        for block in schedule.sorted(by: { $0.startBlock < $1.startBlock }) {
             let calendarItemView = UIView()
                 grey += 0.05
                 let color = UIColor(white: grey, alpha: 1)
@@ -156,11 +222,11 @@ class WeeklyCalendar {
             stackView.addArrangedSubview(calendarItemView)
             
             // Get height of view based on how long the time period is
-            let blocks = calendarItem.value - calendarItem.key
+            let blocks = block.endBlock - block.startBlock
             let height = CGFloat(Float(blocks) / Float(blocksPerDay))
             
             // Set height constraint, but not on last cell, to avoid math errors
-            if calendarItem.value < blocksPerDay {
+            if block.endBlock < blocksPerDay {
                 // Constant accounts for size of stack spacing (row border)
                 constraints.append(calendarItemView.heightAnchor.constraint(equalTo: calendarItemView.superview!.heightAnchor, multiplier: height, constant: -1))
             }
@@ -171,55 +237,6 @@ class WeeklyCalendar {
         // FIXME: We probably need to erase previous blocks when updating (e.g. adding a course)
         
         NSLayoutConstraint.activate(constraints)
-    }
-    
-    /// Creates all rectangular calendar entries, including empty spaces, for one day.
-    private func makeDayBlocks(_ courses: [Int: Int]) -> [Int: Int] {
-        // Classes from 9:00 ~
-        // TODO: Should be 9:00
-        let startOfDay = blocksFromTime("8:00")
-        var start = startOfDay
-        let endOfDay = blocksFromTime("18:00")
-        
-        // Set grid line times (fixed 30-minute intervals)
-        // TODO: Make this a global constant, essentially
-        var grid: [Int] = []
-        for start in (start + 1)...endOfDay {
-            // 30min / 5min = 6
-            if start % 6 == 0 {
-                grid.append(start)
-            }
-        }
-        
-        // Set up schedule to first include all course times
-        var schedule: [Int: Int] = courses
-        
-        // Empty block placeholder
-        var emptyBlock = 0
-        
-        // Check each five-minute interval for course or empty time
-        while start <= endOfDay {
-            // Add empty time where there is no course scheduled
-            if let endOfCourse = courses[start] {
-                // End empty block here, as long as it isn't the start of the day
-                if start != startOfDay {
-                    schedule[emptyBlock] = start
-                    emptyBlock = start
-                }
-                // Go to end of this course block
-                start = endOfCourse
-            } else if grid.contains(start) && emptyBlock != start {
-                // End empty block and begin new one
-                schedule[emptyBlock] = start
-                emptyBlock = start
-                start += 1
-            } else {
-                // If we were already in an empty block and found no course, just check the next block
-                start += 1
-            }
-        }
-        
-        return schedule
     }
     
 }
