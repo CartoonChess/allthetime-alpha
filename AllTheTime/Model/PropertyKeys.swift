@@ -15,7 +15,7 @@ struct Keys {
     struct URL {
         private static let base = "https://k03c8j1o5a.execute-api.ap-northeast-2.amazonaws.com/v1/programmers/"
         static var allCourses: URLString { base + "lectures" }
-        static var userCourses: URLString { base + "timetable" }
+        static var timeTable: URLString { base + "timetable" }
         static var memos: URLString { base + "memo" }
     }
     

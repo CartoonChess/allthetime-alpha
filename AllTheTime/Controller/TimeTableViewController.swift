@@ -49,7 +49,6 @@ class TimeTableViewController: UIViewController {
                     return
                 }
                 DispatchQueue.main.async { self.updateView() }
-                print("course codes:", self.timeTable?.courseCodes)
                 // TODO: Sort by day, time?
                 // TODO: Get memos via Memos object, then via API
             }
@@ -181,6 +180,9 @@ class TimeTableViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SearchTableViewController {
             destination.courses = courses
+            destination.courseDetailsDelegate = self
+        } else if let destination = segue.destination as? CourseDetailsViewController {
+            destination.delegate = self
         }
     }
 
@@ -213,11 +215,24 @@ extension TimeTableViewController {
             case .success(let timeTable):
                 self.timeTable = timeTable
                 print("Fetched time table.")
-                print(timeTable)
                 completion(nil)
             case .failure(let error):
                 completion(error)
             }
         }
+    }
+}
+
+
+// MARK: - Course details delegate
+extension TimeTableViewController: CourseDetailsViewControllerDelegate {
+    func didRegisterCourse(code: String) {
+        timeTable?.courseCodes.append(code)
+        // Refresh timetable
+        DispatchQueue.main.async { self.getDaySchedule() }
+    }
+    
+    func didUpdateMemo() {
+        // TODO: Implement
     }
 }

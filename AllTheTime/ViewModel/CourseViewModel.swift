@@ -54,6 +54,9 @@ class CourseDetailsCourseViewModel: SearchCourseViewModel {
     override var timeAndDate: String { return "강의실 : \(super.timeAndDate)" }
     let description: String
     
+    /// Provides the course code without any formatting. Should not be used for display purposes.
+    var unformattedCode: String { return course.code }
+    
     // MARK: - Methods
     
     required init(_ course: Course) {

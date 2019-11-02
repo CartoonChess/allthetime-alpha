@@ -17,6 +17,9 @@ class SearchTableViewController: UITableViewController {
     // Results from user search, or all if no filter is applied
     var filteredCourses: [SearchCourseViewModel] = []
     
+    // Pass a reference to the time table VC to any course details VC
+    var courseDetailsDelegate: CourseDetailsViewControllerDelegate?
+    
     // MARK: - Methods
     
     // MARK: Lifecycle
@@ -79,6 +82,7 @@ class SearchTableViewController: UITableViewController {
         if let destination = segue.destination as? CourseDetailsViewController,
             let row = tableView.indexPathForSelectedRow?.row {
             destination.course = filteredCourses[row].convert(to: CourseDetailsCourseViewModel.self)
+            destination.delegate = courseDetailsDelegate
         }
     }
 

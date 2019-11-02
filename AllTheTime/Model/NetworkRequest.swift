@@ -31,9 +31,10 @@ struct NetworkRequest {
                         queryType: Keys.QueryType? = nil,
                         query: String? = nil,
                         method: Method = .post,
+                        postProperties: [String: String]? = nil,
                         completion: @escaping (Result<Data, Error>) -> Void) {
         
-        assert((queryType == nil) == (query == nil), "queryType and query must be specified together.")
+        checkAssertions(queryType: queryType, query: query, method: method, postProperties: postProperties)
         
         var urlString = urlString
         
@@ -48,7 +49,19 @@ struct NetworkRequest {
             return
         }
         
-        let request = URLRequest(url: url, usingAPI: true)
+        var request = URLRequest(url: url, usingAPI: true)
+        request.httpMethod = method.rawValue
+        
+        // Encode JSON, if applicable
+        if let properties = postProperties {
+            do {
+                let jsonData = try JSONEncoder().encode(properties)
+                request.httpBody = jsonData
+            } catch {
+                completion(.failure(error))
+                return
+            }
+        }
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
@@ -66,6 +79,17 @@ struct NetworkRequest {
             // Return data to await custom actions
             completion(.success(data))
         }.resume()
+    }
+    
+    private static func checkAssertions(queryType: Keys.QueryType? = nil,
+                                 query: String? = nil,
+                                 method: Method = .post,
+                                 postProperties: [String: String]? = nil) {
+        assert((queryType == nil) == (query == nil),
+               "queryType and query must be specified together.")
+        
+        assert((method == .post && postProperties != nil) || (method != .post && postProperties == nil),
+              "POST and JSON data must be specified together.")
     }
     
 }

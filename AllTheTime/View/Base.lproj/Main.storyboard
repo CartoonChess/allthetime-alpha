@@ -362,6 +362,9 @@
                                 <state key="normal" title="강의 추가">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerCourseButtonTapped" destination="Llf-OE-Qrn" eventType="primaryActionTriggered" id="eAz-jo-efn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -382,6 +385,7 @@
                         <outlet property="descriptionLabel" destination="Lvf-DP-enw" id="qph-pb-tQm"/>
                         <outlet property="locationLabel" destination="Id5-Yc-zCI" id="6da-BS-Xdj"/>
                         <outlet property="professorLabel" destination="tp6-ym-JUc" id="egY-K4-Ric"/>
+                        <outlet property="registerCourseButton" destination="lUh-2Z-4eJ" id="Zwk-o2-erb"/>
                         <outlet property="timeAndDayLabel" destination="sRs-Lp-dnK" id="Rr5-WZ-xhF"/>
                     </connections>
                 </viewController>
