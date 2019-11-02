@@ -31,6 +31,12 @@ class CourseViewModel {
 
 
 // MARK: -
+class TimeTableCourseViewModel: CourseViewModel {
+    // TODO: Implement
+}
+
+
+// MARK: -
 class SearchCourseViewModel: CourseViewModel {
     var timeAndDate: String {
         let time = "\(course.startTime) - \(course.endTime)"

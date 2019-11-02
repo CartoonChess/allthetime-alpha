@@ -30,6 +30,7 @@
 		AEB3F00D236D701A0011D8D3 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00C236D701A0011D8D3 /* Memo.swift */; };
 		AEB3F00F236D748D0011D8D3 /* Date+fromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */; };
 		AEB3F011236D96C00011D8D3 /* APIDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F010236D96C00011D8D3 /* APIDataFetcher.swift */; };
+		AEB3F017236DBEB40011D8D3 /* WeeklyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F016236DBEB40011D8D3 /* WeeklyCalendar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		AEB3F00C236D701A0011D8D3 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+fromString.swift"; sourceTree = "<group>"; };
 		AEB3F010236D96C00011D8D3 /* APIDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataFetcher.swift; sourceTree = "<group>"; };
+		AEB3F016236DBEB40011D8D3 /* WeeklyCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeeklyCalendar.swift; path = AllTheTime/Controller/WeeklyCalendar.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				AEB3F008236D38DC0011D8D3 /* TimeTable.swift */,
 				AE366E2D23695E3500B39B99 /* Course.swift */,
 				AEB3F00C236D701A0011D8D3 /* Memo.swift */,
+				AEB3F016236DBEB40011D8D3 /* WeeklyCalendar.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				AEB3F00F236D748D0011D8D3 /* Date+fromString.swift in Sources */,
 				AEB3F00D236D701A0011D8D3 /* Memo.swift in Sources */,
 				AE366E342369BB7400B39B99 /* GeneralError.swift in Sources */,
+				AEB3F017236DBEB40011D8D3 /* WeeklyCalendar.swift in Sources */,
 				AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */,
 				AE64E18E2369CEF500F15FCE /* PaddedLabel.swift in Sources */,
 				AE35CB08236BD9F5008E33F3 /* SearchTableViewController.swift in Sources */,
