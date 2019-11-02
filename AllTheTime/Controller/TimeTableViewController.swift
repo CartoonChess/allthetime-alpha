@@ -15,6 +15,8 @@ class TimeTableViewController: UIViewController {
     var timeTable: TimeTable?
     var memos: Memos?
     
+    var days: [TimeTableDay] = []
+    
     // 18 30-minute blocks, plus two blocks for weekday + day number
     let rowsPerDay = 20
     var blocksPerDay: Int {
@@ -64,7 +66,7 @@ class TimeTableViewController: UIViewController {
     
     func updateView() {
         toggleSearch(enable: true)
-        getDaySchedule()
+        updateCalendar()
     }
     
     func toggleSearch(enable: Bool) {
@@ -87,20 +89,68 @@ class TimeTableViewController: UIViewController {
 
 // MARK: - Calendar generation
 extension TimeTableViewController {
-    func getWeekSchedule() {
+    /// Sets up all five day views in the calendar.
+    func updateCalendar() {
+        guard let courses = courses,
+            let timeTable = timeTable else { return }
         
+        var daySchedules: [[Int: Int]] = []
+        
+        // Set up days
+        for _ in 0...4 {
+            days.append(TimeTableDay(courses: []))
+            daySchedules.append([:])
+        }
+        
+        // Group time table courses by day
+        for code in timeTable.courseCodes {
+            // Get course from full list to find day and end time
+            guard let course = courses.results.first(where: { $0.code == code }) else { continue }
+            for day in course.dayNumbers {
+                let item = TimeTableItem(courseCode: course.code, startTime: course.startTime)
+                let startBlock = blocksFromTime(course.startTime)
+                daySchedules[day][startBlock] = blocksFromTime(course.endTime)
+                days[day].courses.append(item)
+            }
+        }
+        
+        for day in 0...4 {
+            getDaySchedule(daySchedules[day], for: day)
+        }
     }
     
     /// Gets the user's time table from the model.
-    func getDaySchedule() {
-        let daySchedule: [Int: Int] = [
-            blocksFromTime("10:00"): blocksFromTime("11:00"),
-            blocksFromTime("12:00"): blocksFromTime("12:30"),
-            blocksFromTime("13:30"): blocksFromTime("15:00")
-        ]
+    func getDaySchedule(_ schedule: [Int: Int], for day: Int) {
+        // test
+//        let daySchedule: [Int: Int] = [
+//            blocksFromTime("10:00"): blocksFromTime("11:00"),
+//            blocksFromTime("12:00"): blocksFromTime("12:30"),
+//            blocksFromTime("13:30"): blocksFromTime("15:00")
+//        ]
         
-        // Update view
-        updateDay(mondayStackView, courses: daySchedule)
+        // Get end times and convert both times to blocks; will be sorted later
+//        var schedule: [Int: Int] = [:]
+//
+//        for course in days[day].courses {
+//            let startBlock = blocksFromTime(course.startTime!)
+//            // Find the matching course
+//            guard let sameCourse = courses!.results.first(where: { $0.code == course.courseCode }) else { continue }
+//            // Get the block for end time
+//            schedule[startBlock] = blocksFromTime(sameCourse.endTime)
+//        }
+        
+        var stackView = UIStackView()
+        switch day {
+        case 0: stackView = mondayStackView
+        case 1: stackView = tuesdayStackView
+        case 2: stackView = wednesdayStackView
+        case 3: stackView = thursdayStackView
+        case 4: stackView = fridayStackView
+        default:
+            fatalError("Cannot populate stack view: Day out of five-day range.")
+        }
+        print("day \(day): \(schedule)")
+        updateDay(stackView, courses: schedule)
     }
     
     /// Calculates the vertical position on the calendar for a given time.
@@ -143,7 +193,6 @@ extension TimeTableViewController {
         var emptyBlock = 0
         
         // Check each five-minute interval for course or empty time
-        // FIXME: First (empty) block goes until first course, ignoring grid
         while start <= endOfDay {
             // Add empty time where there is no course scheduled
             if let endOfCourse = courses[start] {
@@ -211,7 +260,8 @@ extension TimeTableViewController: CourseDetailsViewControllerDelegate {
     func didRegisterCourse(code: String) {
         timeTable?.courseCodes.append(code)
         // Refresh timetable
-        DispatchQueue.main.async { self.getDaySchedule() }
+        // TODO: Have this update only the relevant day
+        DispatchQueue.main.async { self.updateCalendar() }
     }
     
     func didUpdateMemo() {

@@ -32,9 +32,6 @@ class CourseViewModel {
 
 // MARK: -
 class SearchCourseViewModel: CourseViewModel {
-    // FIXME: Sort days of week in order (enum?)
-    //- Pass fix to CourseDetails VM
-    
     var timeAndDate: String {
         let time = "\(course.startTime) - \(course.endTime)"
         let date = "(\(course.dayStrings.joined(separator: "), (")))"

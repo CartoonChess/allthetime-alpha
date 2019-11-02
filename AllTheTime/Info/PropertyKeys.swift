@@ -33,7 +33,8 @@ struct Keys {
     
     struct User {
         // Demo app is single-user
-        static let token = "c7da787941750f09b1d7f46afb671cd4" // in 설명 as `token_key_grepp`
+//        static let token = "c7da787941750f09b1d7f46afb671cd4"
+        static let token = "token_key_grepp" // test
     }
     
 }

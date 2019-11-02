@@ -8,9 +8,17 @@
 
 import Foundation
 
+// TODO: Give this a view model
+struct TimeTableDay {
+//    let dayNumber: DayNumber
+    var courses: [TimeTableItem]
+}
+
 // Items from TimeTable call have only one property
 struct TimeTableItem: Codable {
     let courseCode: String
+    // This is not grabbed from the server, but found later
+    var startTime: String? = nil
     
     enum CodingKeys: String, CodingKey {
         case courseCode = "lecture_code"
