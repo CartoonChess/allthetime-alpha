@@ -23,6 +23,10 @@ class TimeTableViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet weak var mondayStackView: UIStackView!
+    @IBOutlet weak var tuesdayStackView: UIStackView!
+    @IBOutlet weak var wednesdayStackView: UIStackView!
+    @IBOutlet weak var thursdayStackView: UIStackView!
+    @IBOutlet weak var fridayStackView: UIStackView!
     
     
     // MARK: - Methods
@@ -67,8 +71,39 @@ class TimeTableViewController: UIViewController {
         navigationItem.rightBarButtonItem?.isEnabled = enable
     }
     
-    // MARK: Calendar
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SearchTableViewController {
+            destination.courses = courses
+            destination.courseDetailsDelegate = self
+        } else if let destination = segue.destination as? CourseDetailsViewController {
+            destination.delegate = self
+        }
+    }
+
+}
+
+
+// MARK: - Calendar generation
+extension TimeTableViewController {
+    func getWeekSchedule() {
+        
+    }
     
+    /// Gets the user's time table from the model.
+    func getDaySchedule() {
+        let daySchedule: [Int: Int] = [
+            blocksFromTime("10:00"): blocksFromTime("11:00"),
+            blocksFromTime("12:00"): blocksFromTime("12:30"),
+            blocksFromTime("13:30"): blocksFromTime("15:00")
+        ]
+        
+        // Update view
+        updateDay(mondayStackView, courses: daySchedule)
+    }
+    
+    /// Calculates the vertical position on the calendar for a given time.
     func blocksFromTime(_ time: String) -> Int {
         let components = time.split(separator: ":")
         let hour = Int(components.first!)
@@ -83,17 +118,7 @@ class TimeTableViewController: UIViewController {
         return hourBlocks + minuteBlocks
     }
     
-    func getDaySchedule() {
-        let daySchedule: [Int: Int] = [
-            blocksFromTime("10:00"): blocksFromTime("11:00"),
-            blocksFromTime("12:00"): blocksFromTime("12:30"),
-            blocksFromTime("13:30"): blocksFromTime("15:00")
-        ]
-        
-        // Update view
-        updateDay(mondayStackView, courses: daySchedule)
-    }
-    
+    /// Creates all rectangular calendar entries, including empty spaces, for one day.
     func makeDayBlocks(_ courses: [Int: Int]) -> [Int: Int] {
         // Classes from 9:00 ~
         // TODO: Should be 9:00
@@ -143,6 +168,7 @@ class TimeTableViewController: UIViewController {
         return schedule
     }
     
+    /// Updates one day stack with all the subviews representing that day's schedule.
     func updateDay(_ stackView: UIStackView, courses: [Int: Int]) {
         // Add empty times into schedule
         let schedule = makeDayBlocks(courses)
@@ -173,20 +199,10 @@ class TimeTableViewController: UIViewController {
 
 //        stackView.translatesAutoresizingMaskIntoConstraints = false
         
+        // FIXME: We probably need to erase previous blocks when updating (e.g. adding a course)
+        
         NSLayoutConstraint.activate(constraints)
     }
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? SearchTableViewController {
-            destination.courses = courses
-            destination.courseDetailsDelegate = self
-        } else if let destination = segue.destination as? CourseDetailsViewController {
-            destination.delegate = self
-        }
-    }
-
 }
 
 

@@ -37,7 +37,6 @@ class APIDataFetcher {
         
         // Return when all tasks have completed
         taskGroup.notify(queue: .main) {
-            print("notified")
             if let courses = self.courses,
                 let timeTable = self.timeTable,
                 let memos = self.memos {

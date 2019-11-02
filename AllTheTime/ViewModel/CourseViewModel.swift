@@ -37,7 +37,7 @@ class SearchCourseViewModel: CourseViewModel {
     
     var timeAndDate: String {
         let time = "\(course.startTime) - \(course.endTime)"
-        let date = "(\(course.days.joined(separator: "), (")))"
+        let date = "(\(course.dayStrings.joined(separator: "), (")))"
         return "\(time) | \(date)"
     }
     

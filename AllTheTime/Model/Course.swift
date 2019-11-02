@@ -8,9 +8,48 @@
 
 import Foundation
 
+typealias DayNumber = Int
+extension String {
+    var dayNumber: DayNumber {
+        switch self {
+        case "월":
+            return 0
+        case "화":
+            return 1
+        case "수":
+            return 2
+        case "목":
+            return 3
+        case "금":
+            return 4
+        default:
+            fatalError("Days must be one of the following: 월 화 수 목 금")
+        }
+    }
+}
+extension DayNumber {
+    var string: String {
+        switch self {
+        case 0:
+            return "월"
+        case 1:
+            return "화"
+        case 2:
+            return "수"
+        case 3:
+            return "목"
+        case 4:
+            return "금"
+        default:
+            fatalError("Day numbers must be between 0 and 4 inclusive.")
+        }
+    }
+}
+
 struct Course: Codable {
     let title, code, location, professor, startTime, endTime: String
-    let days: [String]
+    var dayStrings: [String]
+    let dayNumbers: [DayNumber]
     // API does not provide course descriptions at this time
     let description = "강의 설명 없음"
 
@@ -19,7 +58,26 @@ struct Course: Codable {
         case title = "lecture"
         case startTime = "start_time"
         case endTime = "end_time"
-        case days = "dayofweek"
+        case dayStrings = "dayofweek"
+    }
+    
+    init(from decoder: Decoder) throws {
+        // Manually decode so we can assign day numbers
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // Raw values from decode
+        self.title = try container.decode(String.self, forKey: .title)
+        self.code = try container.decode(String.self, forKey: .code)
+        self.location = try container.decode(String.self, forKey: .location)
+        self.professor = try container.decode(String.self, forKey: .professor)
+        self.startTime = try container.decode(String.self, forKey: .startTime)
+        self.endTime = try container.decode(String.self, forKey: .endTime)
+        
+        // Convert days to numbers
+        self.dayStrings = try container.decode([String].self, forKey: .dayStrings)
+        self.dayNumbers = self.dayStrings.map({ $0.dayNumber }).sorted()
+        // Update strings with sorted version
+        self.dayStrings = self.dayNumbers.map { $0.string }
     }
 }
 
@@ -105,7 +163,7 @@ struct Courses: Codable {
         case .full:
             // Full searches on everything (inlcudes normal, below)
             properties.append(contentsOf: [course.description, course.startTime, course.endTime])
-            properties.append(contentsOf: course.days)
+            properties.append(contentsOf: course.dayStrings)
             fallthrough
         default:
             // Normal searches quick plus the following
