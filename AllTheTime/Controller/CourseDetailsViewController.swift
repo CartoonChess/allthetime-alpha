@@ -61,6 +61,7 @@ class CourseDetailsViewController: UIViewController {
         descriptionLabel.text = course.description
         
         // TODO: Change button to memo button if course is registered
+        // TODO: Disable memo button if course already has three memos
     }
     
     // MARK: Registration
@@ -82,5 +83,9 @@ class CourseDetailsViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: Navigation
+    
+    // TODO: Segue to memo VC and pass course code
 
 }

@@ -11,7 +11,6 @@ import UIKit
 class TimeTableViewController: UIViewController {
     
     // MARK: - Properties
-    // TODO: Break API objects + fetch methods (in ext) into own struct
     var courses: Courses?
     var timeTable: TimeTable?
     var memos: Memos?
@@ -39,27 +38,20 @@ class TimeTableViewController: UIViewController {
         toggleSearch(enable: false)
         
         // Get all courses from API
-        fetchAllCourses() { error in
-            if let error = error {
-                print("Could not fetch courses: \(error.localizedDescription)")
-                return
-            }
-            // Get user's timetable next
-            self.fetchTimeTable() { error in
-                if let error = error {
-                    print("Could not fetch user timetable: \(error.localizedDescription)")
-                    return
-                }
-                // TODO: Sort by day, time?
-                
-                // Finally, get memos
-                self.fetchMemos() { error in
-                    if let error = error {
-                        print("Could not fetch memos: \(error.localizedDescription)")
-                        return
-                    }
-                    DispatchQueue.main.async { self.updateView() }
-                }
+        fetchData()
+    }
+    
+    func fetchData() {
+        let dataFetcher = APIDataFetcher()
+        dataFetcher.fetchAll { result in
+            switch result {
+            case .success(let courses, let timeTable, let memos):
+                self.courses = courses
+                self.timeTable = timeTable
+                self.memos = memos
+                self.updateView()
+            case .failure(let error):
+                print("Failed to fetch API data: \(error.localizedDescription)")
             }
         }
     }
@@ -195,57 +187,6 @@ class TimeTableViewController: UIViewController {
         }
     }
 
-}
-
-
-// MARK: - Data fetch
-extension TimeTableViewController {
-    /// Fetch full course list
-    func fetchAllCourses(completion: @escaping (Error?) -> Void) {
-        
-        // TODO: Show a loading spinner while waiting
-        
-        Courses.fetch() { result in
-            switch result {
-            case .success(let courses):
-                self.courses = courses
-                print("Fetched courses.")
-                completion(nil)
-            case .failure(let error):
-                completion(error)
-            }
-        }
-    }
-    
-    /// Fetch user's timetable
-    func fetchTimeTable(completion: @escaping (Error?) -> Void) {
-        TimeTable.fetch() { result in
-            switch result {
-            case .success(let timeTable):
-                self.timeTable = timeTable
-                print("Fetched time table.")
-                completion(nil)
-            case .failure(let error):
-                completion(error)
-            }
-        }
-    }
-    
-    /// Fetch memos
-    func fetchMemos(completion: @escaping (Error?) -> Void) {
-        Memos.fetch() { result in
-            switch result {
-            case .success(let memos):
-                self.memos = memos
-                print("Fetched memos.")
-                print(memos)
-                print(memos.all)
-                completion(nil)
-            case .failure(let error):
-                completion(error)
-            }
-        }
-    }
 }
 
 

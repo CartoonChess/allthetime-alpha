@@ -10,16 +10,26 @@ import Foundation
 
 extension Date {
     
+    enum Format: String {
+        case memo = "yyyy-MM-dd"
+    }
+    
+    var string: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = Format.memo.rawValue
+        return formatter.string(from: self)
+    }
+    
     /// Returns a `Date` object from a string formatted `YYYY-MM-DD`.
     ///
     /// Not immediately suitable for user-viewable spaces, as timezone is not taken into consideration.
     init(string dateString: String) {
         // Specify expected format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let formatter = DateFormatter()
+        formatter.dateFormat = Format.memo.rawValue
         
         // If the format is wrong, just use the current date
-        guard let date = dateFormatter.date(from: dateString) else { self.init(); return }
+        guard let date = formatter.date(from: dateString) else { self.init(); return }
         
         self = date
     }

@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol NetworkRequestResponse: Codable {
+    var message: String { get }
+}
+
 struct NetworkRequest {
     
     enum Method: String {

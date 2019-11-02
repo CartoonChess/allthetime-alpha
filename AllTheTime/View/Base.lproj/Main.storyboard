@@ -217,7 +217,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boS-do-E6d">
                                 <rect key="frame" x="0.0" y="104.5" width="375" height="504.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLM-O8-kcR">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLM-O8-kcR" userLabel="Container View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-bG-mES">
@@ -403,9 +403,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zm9-kk-Uju">
-                                <rect key="frame" x="0.0" y="104.5" width="375" height="562.5"/>
+                                <rect key="frame" x="0.0" y="104.5" width="375" height="504.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrd-FT-ISP">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrd-FT-ISP" userLabel="Container View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HIY-C0-K7n">
@@ -422,6 +422,9 @@
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="titleTextFieldDidChange" destination="B8Y-xw-pLi" eventType="editingChanged" id="aJf-M5-gaQ"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfU-4q-rbu">
                                                         <rect key="frame" x="0.0" y="74" width="343" height="24"/>
@@ -455,42 +458,47 @@
                                             <constraint firstItem="HIY-C0-K7n" firstAttribute="leading" secondItem="Zrd-FT-ISP" secondAttribute="leading" constant="16" id="z3u-W5-wji"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxI-FE-mf1">
-                                        <rect key="frame" x="0.0" y="504.5" width="375" height="58"/>
-                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                        <state key="normal" title="메모 추가">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="5Vu-uk-FVf" firstAttribute="bottom" secondItem="vxI-FE-mf1" secondAttribute="bottom" id="FGu-du-ALn"/>
-                                    <constraint firstAttribute="bottom" secondItem="Zrd-FT-ISP" secondAttribute="bottom" constant="435" id="IxH-vc-4Mj"/>
-                                    <constraint firstItem="vxI-FE-mf1" firstAttribute="leading" secondItem="4hg-0n-D9o" secondAttribute="leading" id="KRS-jQ-Zhq"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zrd-FT-ISP" secondAttribute="bottom" constant="334" id="7Lr-gr-oeu"/>
                                     <constraint firstItem="Zrd-FT-ISP" firstAttribute="top" secondItem="zm9-kk-Uju" secondAttribute="top" id="UGg-Lq-jaZ"/>
                                     <constraint firstItem="Zrd-FT-ISP" firstAttribute="leading" secondItem="zm9-kk-Uju" secondAttribute="leading" id="UI7-gl-jxZ"/>
                                     <constraint firstAttribute="trailing" secondItem="Zrd-FT-ISP" secondAttribute="trailing" id="cZg-ch-VXl"/>
-                                    <constraint firstItem="4hg-0n-D9o" firstAttribute="trailing" secondItem="vxI-FE-mf1" secondAttribute="trailing" id="fK5-Di-vmA"/>
                                     <constraint firstItem="Zrd-FT-ISP" firstAttribute="width" secondItem="zm9-kk-Uju" secondAttribute="width" id="gWU-Vs-haR"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="4hg-0n-D9o"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="5Vu-uk-FVf"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxI-FE-mf1">
+                                <rect key="frame" x="0.0" y="609" width="375" height="58"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                <state key="normal" title="메모 추가">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTouched" destination="B8Y-xw-pLi" eventType="primaryActionTriggered" id="3G4-CD-Ijg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="vxI-FE-mf1" firstAttribute="bottom" secondItem="Lnq-QC-trD" secondAttribute="bottom" id="8TC-R5-dk0"/>
+                            <constraint firstItem="vxI-FE-mf1" firstAttribute="trailing" secondItem="Lnq-QC-trD" secondAttribute="trailing" id="Ah1-NV-HhH"/>
+                            <constraint firstItem="vxI-FE-mf1" firstAttribute="top" secondItem="zm9-kk-Uju" secondAttribute="bottom" id="FFK-f3-LDv"/>
                             <constraint firstItem="Lnq-QC-trD" firstAttribute="trailing" secondItem="zm9-kk-Uju" secondAttribute="trailing" id="Hlj-mZ-zzC"/>
                             <constraint firstItem="zm9-kk-Uju" firstAttribute="leading" secondItem="Lnq-QC-trD" secondAttribute="leading" id="K3g-Jr-OFe"/>
+                            <constraint firstItem="vxI-FE-mf1" firstAttribute="leading" secondItem="Lnq-QC-trD" secondAttribute="leading" id="jHk-I6-cwI"/>
                             <constraint firstItem="zm9-kk-Uju" firstAttribute="top" secondItem="Lnq-QC-trD" secondAttribute="top" id="thU-2b-bso"/>
-                            <constraint firstItem="Lnq-QC-trD" firstAttribute="bottom" secondItem="zm9-kk-Uju" secondAttribute="bottom" id="uUI-Gh-vnq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lnq-QC-trD"/>
                     </view>
                     <navigationItem key="navigationItem" title="메모 등록하기" id="Jnx-sy-Wfr"/>
                     <connections>
+                        <outlet property="addButton" destination="vxI-FE-mf1" id="o31-gt-LAe"/>
                         <outlet property="bodyTextView" destination="yJc-MC-hGx" id="NH4-bc-d5K"/>
+                        <outlet property="titleTextField" destination="Ido-Fi-h2l" id="amT-bE-zMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSO-zR-Ne7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -626,7 +634,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQx-dw-kfl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kKh-Hd-2Ib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

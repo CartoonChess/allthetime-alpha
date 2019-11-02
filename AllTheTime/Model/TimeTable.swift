@@ -17,7 +17,7 @@ struct TimeTableItem: Codable {
     }
 }
 
-struct TimeTableResponse: Codable {
+struct TimeTableResponse: NetworkRequestResponse {
     let message: String
 }
 

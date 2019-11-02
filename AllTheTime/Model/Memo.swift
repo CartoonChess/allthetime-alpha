@@ -33,7 +33,7 @@ struct Memo: Codable {
     }
     
     enum MemoType: String {
-        case assignment = "ASSIGNMENT"
+        case assignment = "HOMEWORK"
         case exam = "EXAM"
         case study = "STUDY"
     }
@@ -56,7 +56,7 @@ struct Memo: Codable {
         self.date = Date(string: dateString)
         
         switch rawType {
-        case "ASSIGNMENT":
+        case "HOMEWORK":
             self.type = .assignment
         case "EXAM":
             self.type = .exam
@@ -66,7 +66,25 @@ struct Memo: Codable {
         }
     }
     
-    // TODO: Constructor for entered by user in app
+    /// Create a new memo to be sent to the server.
+    init(title: String,
+         body: String,
+         type: MemoType,
+         courseCode: String) {
+        self.title = title
+        self.body = body
+        self.type = type
+        self.courseCode = courseCode
+        
+        self.rawType = type.rawValue
+        self.date = Date()
+        self.dateString = date.string
+        self.userKey = Keys.User.token
+    }
+}
+
+struct MemoResponse: NetworkRequestResponse {
+    let message: String
 }
 
 /// Contains only the courses to which the user has registered.
@@ -84,6 +102,8 @@ struct Memos: Codable {
     }
     
     // MARK: - Methods
+    
+    // MARK: Fetch
     
     static func fetch(completion: @escaping (Result<Memos, Error>) -> Void) {
         NetworkRequest.execute(urlString: Keys.URL.memos,
@@ -134,32 +154,38 @@ struct Memos: Codable {
         return allMemos
     }
     
-//    static func register(for courseCode: String, completion: @escaping (Result<String, Error>) -> Void) {
-//        let postProperties = [
-//            "user_key": Keys.User.token,
-//            "code": courseCode
-//        ]
-//
-//        NetworkRequest.execute(urlString: Keys.URL.timeTable,
-//                               method: .post,
-//                               postProperties: postProperties) {
-//            result in
-//
-//            switch result {
-//            case .success(let data):
-//                completion(getRegistrationResponse(from: data))
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
-//    }
-//
-//    private static func getRegistrationResponse(from data: Data) -> Result<String, Error> {
-//        do {
-//            let response = try JSONDecoder().decode(TimeTableResponse.self, from: data)
-//            return .success(response.message)
-//        } catch {
-//            return .failure(error)
-//        }
-//    }
+    // MARK: Add
+    
+    static func add(_ memo: Memo, completion: @escaping (Result<String, Error>) -> Void) {
+        let postProperties = [
+            "user_key": Keys.User.token,
+            "code": memo.courseCode,
+            "type": memo.type.rawValue,
+            "title": memo.title,
+            "description": memo.body,
+            "date": memo.date.string
+        ]
+
+        NetworkRequest.execute(urlString: Keys.URL.memos,
+                               method: .post,
+                               postProperties: postProperties) {
+            result in
+
+            switch result {
+            case .success(let data):
+                completion(getResponse(from: data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    private static func getResponse(from data: Data) -> Result<String, Error> {
+        do {
+            let response = try JSONDecoder().decode(TimeTableResponse.self, from: data)
+            return .success(response.message)
+        } catch {
+            return .failure(error)
+        }
+    }
 }
