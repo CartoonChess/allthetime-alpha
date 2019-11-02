@@ -29,20 +29,20 @@ class WeeklyCalendar {
     
     // MARK: - Properties
     
-    let dayStacks: [UIStackView]
+    private let dayStacks: [UIStackView]
     
-    var mondaySchedule: DaySchedule = []
-    var tuesdaySchedule: DaySchedule = []
-    var wednesdaySchedule: DaySchedule = []
-    var thursdaySchedule: DaySchedule = []
-    var fridaySchedule: DaySchedule = []
+    private var mondaySchedule: DaySchedule = []
+    private var tuesdaySchedule: DaySchedule = []
+    private var wednesdaySchedule: DaySchedule = []
+    private var thursdaySchedule: DaySchedule = []
+    private var fridaySchedule: DaySchedule = []
     
-    var schedules: [DaySchedule] = []
+    private var schedules: [DaySchedule] = []
     
     // 18 30-minute blocks, plus two blocks for weekday + day number
-    let rowsPerDay = 20
+    private let rowsPerDay = 20
     // 5-minute intervals
-    var blocksPerDay: Int { 30 / 5 * rowsPerDay }
+    private var blocksPerDay: Int { 30 / 5 * rowsPerDay }
     
     
     // MARK: - Methods
@@ -126,7 +126,7 @@ class WeeklyCalendar {
     }
     
     /// Makes a visual representation of one day of the user's time table.
-    func makeDaySchedule(for day: Int) {
+    private func makeDaySchedule(for day: Int) {
         // Arrange courses as startBlock:endBlock
         var courses: [Int: Int] = [:]
         for course in schedules[day] {
