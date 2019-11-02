@@ -8,12 +8,6 @@
 
 import Foundation
 
-//// Courses and TimeTable return identical results, minus the specific contents of `item`
-//protocol CourseItemsContainer: Codable {
-//    var count: Int { get }
-//    var scannedCount: Int { get }
-//}
-
 // Items from TimeTable call have only one property
 struct TimeTableItem: Codable {
     let courseCode: String

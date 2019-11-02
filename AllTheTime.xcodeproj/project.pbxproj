@@ -27,6 +27,8 @@
 		AEB3F007236D327D0011D8D3 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */; };
 		AEB3F009236D38DC0011D8D3 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F008236D38DC0011D8D3 /* TimeTable.swift */; };
 		AEB3F00B236D66420011D8D3 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00A236D66420011D8D3 /* MemoViewController.swift */; };
+		AEB3F00D236D701A0011D8D3 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00C236D701A0011D8D3 /* Memo.swift */; };
+		AEB3F00F236D748D0011D8D3 /* Date+fromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		AEB3F008236D38DC0011D8D3 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		AEB3F00A236D66420011D8D3 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		AEB3F00C236D701A0011D8D3 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+fromString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +101,13 @@
 		AE8B212D236854D500411C6A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AE366E2D23695E3500B39B99 /* Course.swift */,
 				AEB3F008236D38DC0011D8D3 /* TimeTable.swift */,
+				AE366E2D23695E3500B39B99 /* Course.swift */,
+				AEB3F00C236D701A0011D8D3 /* Memo.swift */,
 				AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */,
 				AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */,
 				AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */,
+				AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */,
 				AE366E332369BB7400B39B99 /* GeneralError.swift */,
 				AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */,
 			);
@@ -233,6 +239,8 @@
 				AE366E3023695E6700B39B99 /* CourseViewModel.swift in Sources */,
 				AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */,
 				AE35CB0A236BE45C008E33F3 /* SearchTableViewCell.swift in Sources */,
+				AEB3F00F236D748D0011D8D3 /* Date+fromString.swift in Sources */,
+				AEB3F00D236D701A0011D8D3 /* Memo.swift in Sources */,
 				AE366E342369BB7400B39B99 /* GeneralError.swift in Sources */,
 				AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */,
 				AE64E18E2369CEF500F15FCE /* PaddedLabel.swift in Sources */,

@@ -11,8 +11,10 @@ import UIKit
 class TimeTableViewController: UIViewController {
     
     // MARK: - Properties
+    // TODO: Break API objects + fetch methods (in ext) into own struct
     var courses: Courses?
     var timeTable: TimeTable?
+    var memos: Memos?
     
     // 18 30-minute blocks, plus two blocks for weekday + day number
     let rowsPerDay = 20
@@ -48,9 +50,16 @@ class TimeTableViewController: UIViewController {
                     print("Could not fetch user timetable: \(error.localizedDescription)")
                     return
                 }
-                DispatchQueue.main.async { self.updateView() }
                 // TODO: Sort by day, time?
-                // TODO: Get memos via Memos object, then via API
+                
+                // Finally, get memos
+                self.fetchMemos() { error in
+                    if let error = error {
+                        print("Could not fetch memos: \(error.localizedDescription)")
+                        return
+                    }
+                    DispatchQueue.main.async { self.updateView() }
+                }
             }
         }
     }
@@ -215,6 +224,22 @@ extension TimeTableViewController {
             case .success(let timeTable):
                 self.timeTable = timeTable
                 print("Fetched time table.")
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+    
+    /// Fetch memos
+    func fetchMemos(completion: @escaping (Error?) -> Void) {
+        Memos.fetch() { result in
+            switch result {
+            case .success(let memos):
+                self.memos = memos
+                print("Fetched memos.")
+                print(memos)
+                print(memos.all)
                 completion(nil)
             case .failure(let error):
                 completion(error)
