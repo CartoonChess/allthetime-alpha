@@ -20,6 +20,8 @@ class CourseDetailsViewController: UIViewController {
     var course: CourseDetailsCourseViewModel?
     var delegate: CourseDetailsViewControllerDelegate?
     
+    let memoSegue = "addMemo"
+    
     // MARK: IBOutlets
     // Labels
     @IBOutlet weak var timeAndDayLabel: UILabel!
