@@ -29,7 +29,7 @@ struct Courses: Codable {
     
     var results: [Course]
     // scannedCount does not appear to have a use at this time
-    let count, scannedCount: Int
+    private let count, scannedCount: Int
 
     enum CodingKeys: String, CodingKey {
         case results = "Items"

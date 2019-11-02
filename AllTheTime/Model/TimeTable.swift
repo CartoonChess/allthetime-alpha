@@ -8,11 +8,11 @@
 
 import Foundation
 
-// Courses and TimeTable return identical results, minus the specific contents of `item`
-protocol CourseItemsContainer: Codable {
-    var count: Int { get }
-    var scannedCount: Int { get }
-}
+//// Courses and TimeTable return identical results, minus the specific contents of `item`
+//protocol CourseItemsContainer: Codable {
+//    var count: Int { get }
+//    var scannedCount: Int { get }
+//}
 
 // Items from TimeTable call have only one property
 struct TimeTableItem: Codable {
@@ -32,9 +32,9 @@ struct TimeTableItem_: Codable {
 }
 
 /// Contains only the courses to which the user has registered.
-struct TimeTable: CourseItemsContainer {
-    let items: [TimeTableItem]
-    let count, scannedCount: Int
+struct TimeTable: Codable {
+    private var items: [TimeTableItem]
+    private let count, scannedCount: Int
     var courseCodes: [String] = []
 
     enum CodingKeys: String, CodingKey {
@@ -45,7 +45,7 @@ struct TimeTable: CourseItemsContainer {
     
     init(from data: Data) throws {
         self = try JSONDecoder().decode(TimeTable.self, from: data)
-        self.courseCodes = items.map { $0.courseCode }
+        self.courseCodes = self.items.map { $0.courseCode }
     }
     
     static func fetch(completion: @escaping (Result<TimeTable, Error>) -> Void) {
@@ -66,9 +66,7 @@ struct TimeTable: CourseItemsContainer {
     
     private static func getCourseCodes(from data: Data) -> Result<TimeTable, Error> {
         do {
-            print("Getting timetable from data: \(data)")
             let timeTable = try TimeTable(from: data)
-            print("timeTable: \(timeTable)")
             return .success(timeTable)
         } catch {
             return .failure(error)

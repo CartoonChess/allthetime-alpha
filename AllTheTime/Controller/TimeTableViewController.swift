@@ -49,6 +49,7 @@ class TimeTableViewController: UIViewController {
                     return
                 }
                 DispatchQueue.main.async { self.updateView() }
+                print("course codes:", self.timeTable?.courseCodes)
                 // TODO: Sort by day, time?
                 // TODO: Get memos via Memos object, then via API
             }
