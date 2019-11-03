@@ -53,13 +53,6 @@ class MemoViewController: UIViewController {
     func toggleAddButton() {
         let enable = (!titleTextField.text!.isEmpty || !bodyTextView.text!.isEmpty)
         addButton.isEnabled = enable
-        // Dim when disabled
-        // TODO: Create UIButton extension
-        if enable {
-            addButton.alpha = 1.0
-        } else {
-            addButton.alpha = 0.5
-        }
     }
     
     @IBAction func addButtonTouched() {

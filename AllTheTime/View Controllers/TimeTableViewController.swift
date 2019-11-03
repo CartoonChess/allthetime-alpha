@@ -40,8 +40,9 @@ class TimeTableViewController: UIViewController {
         // Do any additional setup after loading the view.
         print("Main view loaded.")
         
-        // Disable search until after courses are loaded
+        // Disable most functions until after courses are loaded
         toggleSearch(enable: false)
+        toggleDateChangeButtons(enable: false)
         
         // Get all courses from API
         fetchData()
@@ -81,6 +82,7 @@ class TimeTableViewController: UIViewController {
     func updateView() {
         updateDateLabel()
         toggleSearch(enable: true)
+        toggleDateChangeButtons(enable: true)
         
         guard let courses = courses,
             let timeTable = timeTable else { return }
@@ -89,6 +91,12 @@ class TimeTableViewController: UIViewController {
     
     func toggleSearch(enable: Bool) {
         navigationItem.rightBarButtonItem?.isEnabled = enable
+    }
+    
+    func toggleDateChangeButtons(enable: Bool) {
+        previousWeekButton.isEnabled = enable
+        thisWeekButton.isEnabled = enable
+        nextWeekButton.isEnabled = enable
     }
     
     

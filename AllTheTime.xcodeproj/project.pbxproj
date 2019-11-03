@@ -26,6 +26,7 @@
 		AEA7011D236EA6B7008580EC /* CalendarHeaderBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */; };
 		AEA7011F236EA907008580EC /* CalendarHeaderBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */; };
 		AEA70121236EB45E008580EC /* DisplayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70120236EB45E008580EC /* DisplayDate.swift */; };
+		AEA70123236ECE60008580EC /* UIButton+dimmableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70122236ECE60008580EC /* UIButton+dimmableButton.swift */; };
 		AEB3F003236D2ADE0011D8D3 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */; };
 		AEB3F005236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */; };
 		AEB3F007236D327D0011D8D3 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */; };
@@ -63,6 +64,7 @@
 		AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderBlockView.swift; sourceTree = "<group>"; };
 		AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderBlockViewModel.swift; sourceTree = "<group>"; };
 		AEA70120236EB45E008580EC /* DisplayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDate.swift; sourceTree = "<group>"; };
+		AEA70122236ECE60008580EC /* UIButton+dimmableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+dimmableButton.swift"; sourceTree = "<group>"; };
 		AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
 		AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+initUsingAPI.swift"; sourceTree = "<group>"; };
 		AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */,
 				AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */,
 				AEB3F01C236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift */,
+				AEA70122236ECE60008580EC /* UIButton+dimmableButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				AEB3F005236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift in Sources */,
 				AE366E3023695E6700B39B99 /* CourseViewModel.swift in Sources */,
 				AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */,
+				AEA70123236ECE60008580EC /* UIButton+dimmableButton.swift in Sources */,
 				AEA7011D236EA6B7008580EC /* CalendarHeaderBlockView.swift in Sources */,
 				AEB3F011236D96C00011D8D3 /* APIDataFetcher.swift in Sources */,
 				AE35CB0A236BE45C008E33F3 /* SearchTableViewCell.swift in Sources */,
