@@ -214,10 +214,14 @@ class WeeklyCalendar {
     
     /// Updates one day stack with all the subviews representing that day's schedule.
     private func updateDay(_ day: Int) {
+        let stackView = dayStacks[day]
+        // FIXME: We probably need to erase previous blocks when updating (e.g. adding a course)
+        for view in stackView.subviews {
+            stackView.removeArrangedSubview(view)
+        }
+        
         // Add empty times into schedule
         let schedule = makeBlocksForDay(day)
-        
-        let stackView = dayStacks[day]
         
         // We will active all height constraints simultaneously
         var constraints: [NSLayoutConstraint] = []
@@ -241,8 +245,6 @@ class WeeklyCalendar {
         }
         
 //        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // FIXME: We probably need to erase previous blocks when updating (e.g. adding a course)
         
         NSLayoutConstraint.activate(constraints)
     }

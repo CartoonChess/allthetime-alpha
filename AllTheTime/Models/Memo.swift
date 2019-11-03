@@ -188,4 +188,31 @@ struct Memos: Codable {
             return .failure(error)
         }
     }
+    
+    // MARK: Check
+    
+    /// Returns memo types not yet associated with a course
+    func unregisteredMemos(courseCode: String) -> [Memo.MemoType] {
+        let memos = self.all[courseCode] ?? []
+        
+        var types: [Memo.MemoType] = []
+        
+        if memos.count > 0 {
+            // Get possible memos
+            if memos.first(where: { $0.type == .study }) == nil {
+                types.append(.study)
+            }
+            if memos.first(where: { $0.type == .assignment }) == nil {
+                types.append(.assignment)
+            }
+            if memos.first(where: { $0.type == .exam }) == nil {
+                types.append(.exam)
+            }
+        } else {
+            return [.study, .assignment, .exam]
+        }
+        
+        return types
+    }
+    
 }

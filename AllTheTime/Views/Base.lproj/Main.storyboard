@@ -310,7 +310,7 @@
                                 <rect key="frame" x="0.0" y="104.5" width="375" height="504.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLM-O8-kcR" userLabel="Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-bG-mES">
                                                 <rect key="frame" x="16" y="16" width="343" height="94"/>
@@ -390,13 +390,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메모" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is0-CZ-x01">
-                                                <rect key="frame" x="16" y="194.5" width="343" height="20.5"/>
+                                                <rect key="frame" x="16" y="162.5" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 설명" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-DP-enw" customClass="PaddedLabel" customModule="AllTheTime">
-                                                <rect key="frame" x="16" y="126" width="343" height="52.5"/>
+                                                <rect key="frame" x="16" y="126" width="343" height="20.5"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -498,10 +498,10 @@
                                 <rect key="frame" x="0.0" y="104.5" width="375" height="504.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrd-FT-ISP" userLabel="Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HIY-C0-K7n">
-                                                <rect key="frame" x="16" y="16" width="343" height="139"/>
+                                                <rect key="frame" x="16" y="16" width="343" height="137"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqT-00-kgU">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
@@ -509,23 +509,39 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목 추가" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ido-Fi-h2l">
-                                                        <rect key="frame" x="0.0" y="32" width="343" height="34"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <action selector="titleTextFieldDidChange" destination="B8Y-xw-pLi" eventType="editingChanged" id="aJf-M5-gaQ"/>
-                                                        </connections>
-                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B3q-sm-cV2">
+                                                        <rect key="frame" x="0.0" y="32" width="343" height="32"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목 추가" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ido-Fi-h2l">
+                                                                <rect key="frame" x="0.0" y="0.0" width="303" height="32"/>
+                                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <action selector="titleTextFieldDidChange" destination="B8Y-xw-pLi" eventType="editingChanged" id="aJf-M5-gaQ"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEh-ho-dLI">
+                                                                <rect key="frame" x="311" y="0.0" width="32" height="32"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="32" id="HAy-Ny-bAQ"/>
+                                                                    <constraint firstAttribute="width" constant="32" id="WNd-pX-mVa"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button" image="Icons/book"/>
+                                                                <connections>
+                                                                    <action selector="typeButtonTouched" destination="B8Y-xw-pLi" eventType="primaryActionTriggered" id="FZY-eo-V9E"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfU-4q-rbu">
-                                                        <rect key="frame" x="0.0" y="74" width="343" height="24"/>
+                                                        <rect key="frame" x="0.0" y="72" width="343" height="24"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yJc-MC-hGx">
-                                                        <rect key="frame" x="0.0" y="106" width="343" height="33"/>
+                                                        <rect key="frame" x="0.0" y="104" width="343" height="33"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -591,6 +607,7 @@
                         <outlet property="addButton" destination="vxI-FE-mf1" id="o31-gt-LAe"/>
                         <outlet property="bodyTextView" destination="yJc-MC-hGx" id="NH4-bc-d5K"/>
                         <outlet property="titleTextField" destination="Ido-Fi-h2l" id="amT-bE-zMa"/>
+                        <outlet property="typeButton" destination="YEh-ho-dLI" id="vIU-45-T95"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSO-zR-Ne7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -726,7 +743,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQx-dw-kfl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kKh-Hd-2Ib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -740,6 +757,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icons/book" width="432" height="384"/>
         <image name="Icons/cap" width="480" height="384"/>
         <image name="Icons/clock" width="384" height="384"/>
         <image name="Icons/code" width="480" height="384"/>

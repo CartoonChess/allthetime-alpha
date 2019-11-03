@@ -76,6 +76,8 @@ class CalendarBlockView: UIControl {
     }
     
     func updateMemos() {
+        // FIXME: This doesn't respect label order!
+        
         // We will check whether we have each kind of memo
         var enableStudy = false
         var enableAssignment = false

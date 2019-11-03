@@ -13,7 +13,8 @@ protocol CourseDetailsViewControllerDelegate {
     func userIsRegisteredInCourse(code: String) -> Bool
     func didRegisterCourse(code: String)
     func canAddMemo(for course: String) -> Bool
-    func didUpdateMemo()
+    func didUpdateMemo(for course: String)
+    var memos: Memos? { get set }
 }
 
 class CourseDetailsViewController: UIViewController {
@@ -82,7 +83,6 @@ class CourseDetailsViewController: UIViewController {
             // Disable memo button if course already has three memos
             // TODO: Toggle this again when adding memo, in case we go over
             if !delegate.canAddMemo(for: code) {
-                print("can't add memo")
                 registerCourseButton.isEnabled = false
             }
         }
@@ -117,16 +117,23 @@ class CourseDetailsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MemoViewController {
+            destination.possibleTypes = getMemoTypes()
             destination.courseCode = course?.unformattedCode
             destination.delegate = self
         }
+    }
+    
+    func getMemoTypes() -> [Memo.MemoType] {
+        delegate!.memos!.unregisteredMemos(courseCode: course!.unformattedCode)
     }
     
 }
 
 extension CourseDetailsViewController: MemoViewControllerDelegate {
     func didUpdateMemo() {
-        // TODO: Update registration button
+        updateRegisterCourseButton()
+        // TODO: Update memo list here
         // TODO: Inform own delegate to update time table view
+        delegate?.didUpdateMemo(for: course!.unformattedCode)
     }
 }

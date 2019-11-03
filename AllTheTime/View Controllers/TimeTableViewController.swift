@@ -166,8 +166,11 @@ extension TimeTableViewController: CourseDetailsViewControllerDelegate {
 //        DispatchQueue.main.async { self.updateCalendar() }
     }
     
-    func didUpdateMemo() {
-        // TODO: Implement
+    func didUpdateMemo(for course: String) {
+        // Refresh timetable
+        // TODO: Update single course
+//        let course = courses!.results.first { $0.code == course }
+//        weeklyCalendar?.updateCourse(course!)
     }
     
     func userIsRegisteredInCourse(code: String) -> Bool {
