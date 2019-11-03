@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarBlockView" customModule="AllTheTime" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="PxG-is-EJK"/>
+                <outlet property="leftBarView" destination="GJW-B2-An2" id="tNv-Fa-xAb"/>
+                <outlet property="locationLabel" destination="NbJ-xx-fRo" id="kRo-E2-pbB"/>
+                <outlet property="memo1Image" destination="HjW-LN-VVv" id="cgg-78-USN"/>
+                <outlet property="memo1Label" destination="mZq-bH-td1" id="mJz-0z-gbl"/>
+                <outlet property="memo2Image" destination="ggd-Bb-4xZ" id="euH-KA-LcU"/>
+                <outlet property="memo2Label" destination="cVh-aX-Gik" id="CC4-iG-uJJ"/>
+                <outlet property="memo3Image" destination="MSR-xv-FYn" id="CTI-C7-2bN"/>
+                <outlet property="memo3Label" destination="Pd2-ar-y47" id="isU-Ot-kIe"/>
+                <outlet property="titleLabel" destination="8d5-Q4-dCt" id="4Xl-YX-5om"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="99" height="128"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJW-B2-An2" userLabel="Left Bar">
+                    <rect key="frame" x="0.0" y="0.0" width="4" height="128"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="4" id="OKq-Ix-yCb"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 이름" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d5-Q4-dCt">
+                    <rect key="frame" x="6" y="2" width="93" height="13.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의실" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbJ-xx-fRo">
+                    <rect key="frame" x="6" y="17.5" width="93" height="13.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/book" translatesAutoresizingMaskIntoConstraints="NO" id="HjW-LN-VVv">
+                    <rect key="frame" x="6" y="36" width="8" height="8"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="C2P-uf-4ZQ"/>
+                        <constraint firstAttribute="width" constant="8" id="qyH-cd-5wW"/>
+                    </constraints>
+                </imageView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-bH-td1">
+                    <rect key="frame" x="16" y="33" width="83" height="13.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/clipboard" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-Bb-4xZ">
+                    <rect key="frame" x="6" y="49.5" width="8" height="8"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="L0q-nt-ACh"/>
+                        <constraint firstAttribute="height" constant="8" id="PXL-lu-Ry7"/>
+                    </constraints>
+                </imageView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignment" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVh-aX-Gik">
+                    <rect key="frame" x="16" y="46.5" width="83" height="13.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/chart" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-xv-FYn">
+                    <rect key="frame" x="6" y="63" width="8" height="8"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="Szy-W5-IP5"/>
+                        <constraint firstAttribute="height" constant="8" id="vVa-Vw-A6P"/>
+                    </constraints>
+                </imageView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-ar-y47">
+                    <rect key="frame" x="16" y="60" width="83" height="13.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MSR-xv-FYn" firstAttribute="top" secondItem="cVh-aX-Gik" secondAttribute="bottom" constant="3" id="4Sw-wT-9QV"/>
+                <constraint firstItem="GJW-B2-An2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5UE-Tc-RHy"/>
+                <constraint firstItem="cVh-aX-Gik" firstAttribute="leading" secondItem="ggd-Bb-4xZ" secondAttribute="trailing" constant="2" id="9JM-jr-55h"/>
+                <constraint firstItem="8d5-Q4-dCt" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="Bvv-eo-vAY"/>
+                <constraint firstItem="Pd2-ar-y47" firstAttribute="leading" secondItem="MSR-xv-FYn" secondAttribute="trailing" constant="2" id="C2l-bP-TWf"/>
+                <constraint firstItem="HjW-LN-VVv" firstAttribute="top" secondItem="NbJ-xx-fRo" secondAttribute="bottom" constant="5" id="Fjl-um-Edx"/>
+                <constraint firstItem="GJW-B2-An2" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="KXZ-3I-f8P"/>
+                <constraint firstItem="NbJ-xx-fRo" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="L8o-sd-IeH"/>
+                <constraint firstItem="HjW-LN-VVv" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="M2n-1h-c0j"/>
+                <constraint firstItem="cVh-aX-Gik" firstAttribute="top" secondItem="mZq-bH-td1" secondAttribute="bottom" id="Mhe-Eo-3X6"/>
+                <constraint firstItem="ggd-Bb-4xZ" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="NXb-wB-2UZ"/>
+                <constraint firstItem="Pd2-ar-y47" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Nau-2Q-MKX"/>
+                <constraint firstItem="cVh-aX-Gik" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="UNg-fa-AI4"/>
+                <constraint firstItem="mZq-bH-td1" firstAttribute="top" secondItem="NbJ-xx-fRo" secondAttribute="bottom" constant="2" id="Z16-yN-5ye"/>
+                <constraint firstItem="ggd-Bb-4xZ" firstAttribute="top" secondItem="mZq-bH-td1" secondAttribute="bottom" constant="3" id="bIX-GQ-iEH"/>
+                <constraint firstItem="GJW-B2-An2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="doX-7C-iTw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mZq-bH-td1" secondAttribute="trailing" id="eOH-QQ-Kqu"/>
+                <constraint firstItem="NbJ-xx-fRo" firstAttribute="top" secondItem="8d5-Q4-dCt" secondAttribute="bottom" constant="2" id="eol-Zs-Od5"/>
+                <constraint firstItem="MSR-xv-FYn" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="gxw-7Z-qNT"/>
+                <constraint firstItem="mZq-bH-td1" firstAttribute="leading" secondItem="HjW-LN-VVv" secondAttribute="trailing" constant="2" id="kbb-Dc-Sl1"/>
+                <constraint firstItem="8d5-Q4-dCt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="lmA-KK-R3i"/>
+                <constraint firstAttribute="trailing" secondItem="NbJ-xx-fRo" secondAttribute="trailing" id="qcc-9w-11b"/>
+                <constraint firstAttribute="trailing" secondItem="8d5-Q4-dCt" secondAttribute="trailing" id="r7W-Ox-jWl"/>
+                <constraint firstItem="Pd2-ar-y47" firstAttribute="top" secondItem="cVh-aX-Gik" secondAttribute="bottom" id="zD4-Iy-xdV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <action selector="didTouchUpInsideContentView:" destination="-1" eventType="touchUpInside" id="cDK-fx-LUQ"/>
+            </connections>
+            <point key="canvasLocation" x="-96.376811594202906" y="-33.482142857142854"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Icons/book" width="432" height="384"/>
+        <image name="Icons/chart" width="384" height="384"/>
+        <image name="Icons/clipboard" width="288" height="384"/>
+    </resources>
+</document>

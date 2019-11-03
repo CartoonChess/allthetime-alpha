@@ -7,25 +7,76 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE35CB08236BD9F5008E33F3 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35CB07236BD9F5008E33F3 /* SearchTableViewController.swift */; };
+		AE35CB0A236BE45C008E33F3 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35CB09236BE45C008E33F3 /* SearchTableViewCell.swift */; };
+		AE366E2E23695E3500B39B99 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E2D23695E3500B39B99 /* Course.swift */; };
+		AE366E3023695E6700B39B99 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E2F23695E6700B39B99 /* CourseViewModel.swift */; };
+		AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */; };
+		AE366E342369BB7400B39B99 /* GeneralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E332369BB7400B39B99 /* GeneralError.swift */; };
+		AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */; };
 		AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B21192367F48000411C6A /* AppDelegate.swift */; };
 		AE8B211C2367F48000411C6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211B2367F48000411C6A /* SceneDelegate.swift */; };
-		AE8B211E2367F48000411C6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211D2367F48000411C6A /* ViewController.swift */; };
+		AE8B211E2367F48000411C6A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211D2367F48000411C6A /* TimeTableViewController.swift */; };
 		AE8B21212367F48000411C6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8B211F2367F48000411C6A /* Main.storyboard */; };
 		AE8B21232367F48D00411C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21222367F48D00411C6A /* Assets.xcassets */; };
 		AE8B21262367F48D00411C6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21242367F48D00411C6A /* LaunchScreen.storyboard */; };
 		AE8B21332368561100411C6A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21322368561100411C6A /* Default-568h@2x.png */; };
+		AEA7011B236EA675008580EC /* CalendarHeaderBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA7011A236EA675008580EC /* CalendarHeaderBlockView.xib */; };
+		AEA7011D236EA6B7008580EC /* CalendarHeaderBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */; };
+		AEA7011F236EA907008580EC /* CalendarHeaderBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */; };
+		AEA70121236EB45E008580EC /* DisplayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70120236EB45E008580EC /* DisplayDate.swift */; };
+		AEA70123236ECE60008580EC /* DimmableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70122236ECE60008580EC /* DimmableButton.swift */; };
+		AEA70125236ED163008580EC /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70124236ED163008580EC /* PaddedLabel.swift */; };
+		AEB3F003236D2ADE0011D8D3 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */; };
+		AEB3F005236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */; };
+		AEB3F007236D327D0011D8D3 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */; };
+		AEB3F009236D38DC0011D8D3 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F008236D38DC0011D8D3 /* TimeTable.swift */; };
+		AEB3F00B236D66420011D8D3 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00A236D66420011D8D3 /* MemoViewController.swift */; };
+		AEB3F00D236D701A0011D8D3 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00C236D701A0011D8D3 /* Memo.swift */; };
+		AEB3F00F236D748D0011D8D3 /* Date+fromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */; };
+		AEB3F011236D96C00011D8D3 /* APIDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F010236D96C00011D8D3 /* APIDataFetcher.swift */; };
+		AEB3F01B236DE7F50011D8D3 /* WeeklyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F01A236DE7F50011D8D3 /* WeeklyCalendar.swift */; };
+		AEB3F01D236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F01C236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift */; };
+		AEB3F020236E5DE60011D8D3 /* CalendarBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3F01F236E5DE60011D8D3 /* CalendarBlockView.xib */; };
+		AEB3F024236E5ED50011D8D3 /* CalendarBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F023236E5ED50011D8D3 /* CalendarBlockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE35CB07236BD9F5008E33F3 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		AE35CB09236BE45C008E33F3 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		AE35CB0D236BFA21008E33F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AE366E2D23695E3500B39B99 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		AE366E2F23695E6700B39B99 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
+		AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusMessage.swift"; sourceTree = "<group>"; };
+		AE366E332369BB7400B39B99 /* GeneralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralError.swift; sourceTree = "<group>"; };
+		AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
 		AE8B21162367F48000411C6A /* AllTheTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllTheTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8B21192367F48000411C6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8B211B2367F48000411C6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE8B211D2367F48000411C6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE8B211D2367F48000411C6A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		AE8B21202367F48000411C6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE8B21222367F48D00411C6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE8B21252367F48D00411C6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE8B21272367F48D00411C6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8B21322368561100411C6A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AEA7011A236EA675008580EC /* CalendarHeaderBlockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarHeaderBlockView.xib; sourceTree = "<group>"; };
+		AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderBlockView.swift; sourceTree = "<group>"; };
+		AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderBlockViewModel.swift; sourceTree = "<group>"; };
+		AEA70120236EB45E008580EC /* DisplayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDate.swift; sourceTree = "<group>"; };
+		AEA70122236ECE60008580EC /* DimmableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmableButton.swift; sourceTree = "<group>"; };
+		AEA70124236ED163008580EC /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
+		AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+initUsingAPI.swift"; sourceTree = "<group>"; };
+		AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		AEB3F008236D38DC0011D8D3 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
+		AEB3F00A236D66420011D8D3 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		AEB3F00C236D701A0011D8D3 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+fromString.swift"; sourceTree = "<group>"; };
+		AEB3F010236D96C00011D8D3 /* APIDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataFetcher.swift; sourceTree = "<group>"; };
+		AEB3F01A236DE7F50011D8D3 /* WeeklyCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeeklyCalendar.swift; path = "AllTheTime/View Controllers/WeeklyCalendar.swift"; sourceTree = SOURCE_ROOT; };
+		AEB3F01C236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+systemAppearanceBackground.swift"; sourceTree = "<group>"; };
+		AEB3F01F236E5DE60011D8D3 /* CalendarBlockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarBlockView.xib; sourceTree = "<group>"; };
+		AEB3F023236E5ED50011D8D3 /* CalendarBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBlockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,43 +109,57 @@
 		AE8B21182367F48000411C6A /* AllTheTime */ = {
 			isa = PBXGroup;
 			children = (
-				AE8B212D236854D500411C6A /* Model */,
-				AE8B212E236854DE00411C6A /* ViewModel */,
-				AE8B212F236854E200411C6A /* Controller */,
-				AE8B2130236854E800411C6A /* View */,
+				AE8B2130236854E800411C6A /* Views */,
+				AE8B212F236854E200411C6A /* View Controllers */,
+				AE8B212E236854DE00411C6A /* View Models */,
+				AE8B212D236854D500411C6A /* Models */,
+				AEB3F015236D97CF0011D8D3 /* Controllers */,
+				AEB3F014236D97890011D8D3 /* Info */,
+				AEB3F013236D96E00011D8D3 /* Extensions */,
 				AE8B2131236854ED00411C6A /* Other */,
 			);
 			path = AllTheTime;
 			sourceTree = "<group>";
 		};
-		AE8B212D236854D500411C6A /* Model */ = {
+		AE8B212D236854D500411C6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AEB3F008236D38DC0011D8D3 /* TimeTable.swift */,
+				AE366E2D23695E3500B39B99 /* Course.swift */,
+				AEB3F00C236D701A0011D8D3 /* Memo.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		AE8B212E236854DE00411C6A /* ViewModel */ = {
+		AE8B212E236854DE00411C6A /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				AE366E2F23695E6700B39B99 /* CourseViewModel.swift */,
+				AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */,
 			);
-			path = ViewModel;
+			path = "View Models";
 			sourceTree = "<group>";
 		};
-		AE8B212F236854E200411C6A /* Controller */ = {
+		AE8B212F236854E200411C6A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AE8B211D2367F48000411C6A /* ViewController.swift */,
+				AE8B211D2367F48000411C6A /* TimeTableViewController.swift */,
+				AE35CB07236BD9F5008E33F3 /* SearchTableViewController.swift */,
+				AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */,
+				AEB3F00A236D66420011D8D3 /* MemoViewController.swift */,
 			);
-			path = Controller;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		AE8B2130236854E800411C6A /* View */ = {
+		AE8B2130236854E800411C6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AEB3F01E236E5DBC0011D8D3 /* Calendar Block */,
+				AEA70119236EA64A008580EC /* Calendar Header Block */,
 				AE8B211F2367F48000411C6A /* Main.storyboard */,
+				AE35CB09236BE45C008E33F3 /* SearchTableViewCell.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AE8B2131236854ED00411C6A /* Other */ = {
@@ -106,8 +171,60 @@
 				AE8B21242367F48D00411C6A /* LaunchScreen.storyboard */,
 				AE8B21272367F48D00411C6A /* Info.plist */,
 				AE8B21322368561100411C6A /* Default-568h@2x.png */,
+				AE35CB0D236BFA21008E33F3 /* README.md */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		AEA70119236EA64A008580EC /* Calendar Header Block */ = {
+			isa = PBXGroup;
+			children = (
+				AEA7011A236EA675008580EC /* CalendarHeaderBlockView.xib */,
+				AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */,
+			);
+			path = "Calendar Header Block";
+			sourceTree = "<group>";
+		};
+		AEB3F013236D96E00011D8D3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */,
+				AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */,
+				AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */,
+				AEB3F01C236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift */,
+				AEA70122236ECE60008580EC /* DimmableButton.swift */,
+				AEA70124236ED163008580EC /* PaddedLabel.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AEB3F014236D97890011D8D3 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				AE366E332369BB7400B39B99 /* GeneralError.swift */,
+				AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		AEB3F015236D97CF0011D8D3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AEB3F01A236DE7F50011D8D3 /* WeeklyCalendar.swift */,
+				AEA70120236EB45E008580EC /* DisplayDate.swift */,
+				AEB3F010236D96C00011D8D3 /* APIDataFetcher.swift */,
+				AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AEB3F01E236E5DBC0011D8D3 /* Calendar Block */ = {
+			isa = PBXGroup;
+			children = (
+				AEB3F01F236E5DE60011D8D3 /* CalendarBlockView.xib */,
+				AEB3F023236E5ED50011D8D3 /* CalendarBlockView.swift */,
+			);
+			path = "Calendar Block";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE8B21262367F48D00411C6A /* LaunchScreen.storyboard in Resources */,
+				AEB3F020236E5DE60011D8D3 /* CalendarBlockView.xib in Resources */,
+				AEA7011B236EA675008580EC /* CalendarHeaderBlockView.xib in Resources */,
 				AE8B21332368561100411C6A /* Default-568h@2x.png in Resources */,
 				AE8B21232367F48D00411C6A /* Assets.xcassets in Resources */,
 				AE8B21212367F48000411C6A /* Main.storyboard in Resources */,
@@ -182,8 +301,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE8B211E2367F48000411C6A /* ViewController.swift in Sources */,
+				AEB3F00B236D66420011D8D3 /* MemoViewController.swift in Sources */,
+				AEB3F007236D327D0011D8D3 /* NetworkRequest.swift in Sources */,
+				AEB3F009236D38DC0011D8D3 /* TimeTable.swift in Sources */,
+				AE366E2E23695E3500B39B99 /* Course.swift in Sources */,
+				AE8B211E2367F48000411C6A /* TimeTableViewController.swift in Sources */,
+				AEB3F003236D2ADE0011D8D3 /* PropertyKeys.swift in Sources */,
+				AEA70125236ED163008580EC /* PaddedLabel.swift in Sources */,
+				AEB3F024236E5ED50011D8D3 /* CalendarBlockView.swift in Sources */,
+				AEA70121236EB45E008580EC /* DisplayDate.swift in Sources */,
+				AEB3F01B236DE7F50011D8D3 /* WeeklyCalendar.swift in Sources */,
+				AEB3F005236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift in Sources */,
+				AE366E3023695E6700B39B99 /* CourseViewModel.swift in Sources */,
 				AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */,
+				AEA70123236ECE60008580EC /* DimmableButton.swift in Sources */,
+				AEA7011D236EA6B7008580EC /* CalendarHeaderBlockView.swift in Sources */,
+				AEB3F011236D96C00011D8D3 /* APIDataFetcher.swift in Sources */,
+				AE35CB0A236BE45C008E33F3 /* SearchTableViewCell.swift in Sources */,
+				AEB3F01D236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift in Sources */,
+				AEB3F00F236D748D0011D8D3 /* Date+fromString.swift in Sources */,
+				AEB3F00D236D701A0011D8D3 /* Memo.swift in Sources */,
+				AE366E342369BB7400B39B99 /* GeneralError.swift in Sources */,
+				AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */,
+				AEA7011F236EA907008580EC /* CalendarHeaderBlockViewModel.swift in Sources */,
+				AE35CB08236BD9F5008E33F3 /* SearchTableViewController.swift in Sources */,
+				AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */,
 				AE8B211C2367F48000411C6A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -314,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -329,12 +471,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V7WZHBVH5B;
-				INFOPLIST_FILE = AllTheTime/Info.plist;
+				INFOPLIST_FILE = AllTheTime/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.distantlabs.AllTheTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -347,12 +491,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V7WZHBVH5B;
-				INFOPLIST_FILE = AllTheTime/Info.plist;
+				INFOPLIST_FILE = AllTheTime/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.distantlabs.AllTheTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
