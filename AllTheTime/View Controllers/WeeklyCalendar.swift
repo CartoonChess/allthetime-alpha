@@ -55,7 +55,7 @@ class WeeklyCalendar {
     // 5-minute intervals
     private var blocksPerDay: Int { 30 / 5 * rowsPerDay }
     
-    private let displayDate = DisplayDate()
+    let displayDate = DisplayDate()
     
     var delegate: WeeklyCalendarDelegate?
     
@@ -291,7 +291,6 @@ class WeeklyCalendar {
             let headerView = dayStack.subviews[0] as! CalendarHeaderBlockView
             headerView.dayNumberLabel.text = String(displayDate.dayNumbers[day])
         }
-        // TODO: Implement "today" button
     }
     
 }

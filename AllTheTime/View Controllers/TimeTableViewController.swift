@@ -18,6 +18,8 @@ class TimeTableViewController: UIViewController {
     var weeklyCalendar: WeeklyCalendar?
     
     // MARK: IBOutlets
+    @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet weak var previousWeekButton: UIButton!
     @IBOutlet weak var thisWeekButton: UIButton!
     @IBOutlet weak var nextWeekButton: UIButton!
@@ -77,6 +79,7 @@ class TimeTableViewController: UIViewController {
     // MARK: - View
     
     func updateView() {
+        updateDateLabel()
         toggleSearch(enable: true)
         
         guard let courses = courses,
@@ -92,15 +95,27 @@ class TimeTableViewController: UIViewController {
     // MARK: - Change date
     
     @IBAction func previousWeekButtonTapped() {
-        weeklyCalendar?.changeWeek(by: -1)
+        updateDate(offsetWeekBy: -1)
     }
     
     @IBAction func nextWeekButtonTapped() {
-        weeklyCalendar?.changeWeek(by: 1)
+        updateDate(offsetWeekBy: 1)
     }
     
     @IBAction func thisWeekButtonTapped() {
-        
+        updateDate(offsetWeekBy: 0)
+    }
+    
+    // Changes the display of the year and month, as well as day numbers.
+    func updateDate(offsetWeekBy offset: Int) {
+        weeklyCalendar?.changeWeek(by: offset)
+        updateDateLabel()
+    }
+    
+    func updateDateLabel() {
+        guard let year = weeklyCalendar?.displayDate.year,
+            let month = weeklyCalendar?.displayDate.month else { return }
+        dateLabel.text = "\(year)년 \(month)월"
     }
     
     

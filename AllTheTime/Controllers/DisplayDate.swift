@@ -33,8 +33,13 @@ class DisplayDate {
     }
     
     func changeWeek(by offset: Int) {
-        let interval = oneWeek * Double(offset)
-        displayDate = Date(timeInterval: interval, since: displayDate)
+        if offset == 0 {
+            // Show current week
+            displayDate = Date()
+        } else {
+            let interval = oneWeek * Double(offset)
+            displayDate = Date(timeInterval: interval, since: displayDate)
+        }
         updateDayNumbers()
     }
     

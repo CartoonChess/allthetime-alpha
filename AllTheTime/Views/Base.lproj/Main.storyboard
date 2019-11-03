@@ -22,8 +22,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0IN-9c-TEO">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1999년 01월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgl-2A-d1H">
-                                                <rect key="frame" x="16" y="8" width="148.5" height="33.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgl-2A-d1H">
+                                                <rect key="frame" x="16" y="8" width="6.5" height="33.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -251,6 +251,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateLabel" destination="vgl-2A-d1H" id="gxy-yo-504"/>
                         <outlet property="fridayStackView" destination="Gne-y2-HEc" id="7Ww-AQ-Vul"/>
                         <outlet property="hoursStackView" destination="Of3-Gd-VIe" id="0yM-0Q-hTM"/>
                         <outlet property="mondayStackView" destination="0VB-EG-AkV" id="IHi-fW-4VX"/>
@@ -695,7 +696,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQx-dw-kfl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kKh-Hd-2Ib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
