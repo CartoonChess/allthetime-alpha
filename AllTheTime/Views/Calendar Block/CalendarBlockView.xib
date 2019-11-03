@@ -13,6 +13,12 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="PxG-is-EJK"/>
                 <outlet property="leftBarView" destination="GJW-B2-An2" id="tNv-Fa-xAb"/>
                 <outlet property="locationLabel" destination="NbJ-xx-fRo" id="kRo-E2-pbB"/>
+                <outlet property="memo1Image" destination="HjW-LN-VVv" id="cgg-78-USN"/>
+                <outlet property="memo1Label" destination="mZq-bH-td1" id="mJz-0z-gbl"/>
+                <outlet property="memo2Image" destination="ggd-Bb-4xZ" id="euH-KA-LcU"/>
+                <outlet property="memo2Label" destination="cVh-aX-Gik" id="CC4-iG-uJJ"/>
+                <outlet property="memo3Image" destination="MSR-xv-FYn" id="CTI-C7-2bN"/>
+                <outlet property="memo3Label" destination="Pd2-ar-y47" id="isU-Ot-kIe"/>
                 <outlet property="titleLabel" destination="8d5-Q4-dCt" id="4Xl-YX-5om"/>
             </connections>
         </placeholder>
@@ -40,40 +46,40 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/book" translatesAutoresizingMaskIntoConstraints="NO" id="HjW-LN-VVv">
-                    <rect key="frame" x="6" y="32" width="8" height="16"/>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/book" translatesAutoresizingMaskIntoConstraints="NO" id="HjW-LN-VVv">
+                    <rect key="frame" x="6" y="36" width="8" height="8"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="16" id="C2P-uf-4ZQ"/>
+                        <constraint firstAttribute="height" constant="8" id="C2P-uf-4ZQ"/>
                         <constraint firstAttribute="width" constant="8" id="qyH-cd-5wW"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-bH-td1">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-bH-td1">
                     <rect key="frame" x="16" y="33" width="83" height="13.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/clipboard" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-Bb-4xZ">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/clipboard" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-Bb-4xZ">
                     <rect key="frame" x="6" y="49.5" width="8" height="8"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="8" id="L0q-nt-ACh"/>
                         <constraint firstAttribute="height" constant="8" id="PXL-lu-Ry7"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignment" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVh-aX-Gik">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignment" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVh-aX-Gik">
                     <rect key="frame" x="16" y="46.5" width="83" height="13.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/chart" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-xv-FYn">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icons/chart" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-xv-FYn">
                     <rect key="frame" x="6" y="63" width="8" height="8"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="8" id="Szy-W5-IP5"/>
                         <constraint firstAttribute="height" constant="8" id="vVa-Vw-A6P"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-ar-y47">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-ar-y47">
                     <rect key="frame" x="16" y="60" width="83" height="13.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                     <nil key="textColor"/>
@@ -87,7 +93,7 @@
                 <constraint firstItem="cVh-aX-Gik" firstAttribute="leading" secondItem="ggd-Bb-4xZ" secondAttribute="trailing" constant="2" id="9JM-jr-55h"/>
                 <constraint firstItem="8d5-Q4-dCt" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="Bvv-eo-vAY"/>
                 <constraint firstItem="Pd2-ar-y47" firstAttribute="leading" secondItem="MSR-xv-FYn" secondAttribute="trailing" constant="2" id="C2l-bP-TWf"/>
-                <constraint firstItem="HjW-LN-VVv" firstAttribute="top" secondItem="NbJ-xx-fRo" secondAttribute="bottom" constant="1" id="Fjl-um-Edx"/>
+                <constraint firstItem="HjW-LN-VVv" firstAttribute="top" secondItem="NbJ-xx-fRo" secondAttribute="bottom" constant="5" id="Fjl-um-Edx"/>
                 <constraint firstItem="GJW-B2-An2" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="KXZ-3I-f8P"/>
                 <constraint firstItem="NbJ-xx-fRo" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="L8o-sd-IeH"/>
                 <constraint firstItem="HjW-LN-VVv" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="M2n-1h-c0j"/>

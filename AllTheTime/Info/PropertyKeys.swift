@@ -37,4 +37,10 @@ struct Keys {
 //        static let token = "token_key_grepp" // test
     }
     
+    struct Image {
+        static let studyMemo = "Icons/book"
+        static let assignmentMemo = "Icons/clipboard"
+        static let examMemo = "Icons/chart"
+    }
+    
 }
