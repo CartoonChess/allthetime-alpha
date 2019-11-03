@@ -22,6 +22,9 @@
 		AE8B21232367F48D00411C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21222367F48D00411C6A /* Assets.xcassets */; };
 		AE8B21262367F48D00411C6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21242367F48D00411C6A /* LaunchScreen.storyboard */; };
 		AE8B21332368561100411C6A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE8B21322368561100411C6A /* Default-568h@2x.png */; };
+		AEA7011B236EA675008580EC /* CalendarHeaderBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA7011A236EA675008580EC /* CalendarHeaderBlockView.xib */; };
+		AEA7011D236EA6B7008580EC /* CalendarHeaderBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */; };
+		AEA7011F236EA907008580EC /* CalendarHeaderBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */; };
 		AEB3F003236D2ADE0011D8D3 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */; };
 		AEB3F005236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */; };
 		AEB3F007236D327D0011D8D3 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */; };
@@ -55,6 +58,9 @@
 		AE8B21252367F48D00411C6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE8B21272367F48D00411C6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8B21322368561100411C6A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AEA7011A236EA675008580EC /* CalendarHeaderBlockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarHeaderBlockView.xib; sourceTree = "<group>"; };
+		AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderBlockView.swift; sourceTree = "<group>"; };
+		AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderBlockViewModel.swift; sourceTree = "<group>"; };
 		AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
 		AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+initUsingAPI.swift"; sourceTree = "<group>"; };
 		AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				AE366E2F23695E6700B39B99 /* CourseViewModel.swift */,
+				AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -144,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB3F01E236E5DBC0011D8D3 /* Calendar Block */,
+				AEA70119236EA64A008580EC /* Calendar Header Block */,
 				AE8B211F2367F48000411C6A /* Main.storyboard */,
 				AE35CB09236BE45C008E33F3 /* SearchTableViewCell.swift */,
 				AE64E18D2369CEF500F15FCE /* PaddedLabel.swift */,
@@ -163,6 +171,15 @@
 				AE35CB0D236BFA21008E33F3 /* README.md */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		AEA70119236EA64A008580EC /* Calendar Header Block */ = {
+			isa = PBXGroup;
+			children = (
+				AEA7011A236EA675008580EC /* CalendarHeaderBlockView.xib */,
+				AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */,
+			);
+			path = "Calendar Header Block";
 			sourceTree = "<group>";
 		};
 		AEB3F013236D96E00011D8D3 /* Extensions */ = {
@@ -264,6 +281,7 @@
 			files = (
 				AE8B21262367F48D00411C6A /* LaunchScreen.storyboard in Resources */,
 				AEB3F020236E5DE60011D8D3 /* CalendarBlockView.xib in Resources */,
+				AEA7011B236EA675008580EC /* CalendarHeaderBlockView.xib in Resources */,
 				AE8B21332368561100411C6A /* Default-568h@2x.png in Resources */,
 				AE8B21232367F48D00411C6A /* Assets.xcassets in Resources */,
 				AE8B21212367F48000411C6A /* Main.storyboard in Resources */,
@@ -288,6 +306,7 @@
 				AEB3F005236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift in Sources */,
 				AE366E3023695E6700B39B99 /* CourseViewModel.swift in Sources */,
 				AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */,
+				AEA7011D236EA6B7008580EC /* CalendarHeaderBlockView.swift in Sources */,
 				AEB3F011236D96C00011D8D3 /* APIDataFetcher.swift in Sources */,
 				AE35CB0A236BE45C008E33F3 /* SearchTableViewCell.swift in Sources */,
 				AEB3F01D236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift in Sources */,
@@ -295,6 +314,7 @@
 				AEB3F00D236D701A0011D8D3 /* Memo.swift in Sources */,
 				AE366E342369BB7400B39B99 /* GeneralError.swift in Sources */,
 				AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */,
+				AEA7011F236EA907008580EC /* CalendarHeaderBlockViewModel.swift in Sources */,
 				AE64E18E2369CEF500F15FCE /* PaddedLabel.swift in Sources */,
 				AE35CB08236BD9F5008E33F3 /* SearchTableViewController.swift in Sources */,
 				AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */,

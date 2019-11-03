@@ -194,9 +194,7 @@ class WeeklyCalendar {
         // Create new schedule with courses and empty blocks
         var scheduleWithEmptyBlocks: DaySchedule = schedules[day]
         // Replace first two empty blocks with one empty block for day header
-//        emptyBlocks[0] = blocksFromTime("9:00")
-//        emptyBlocks[blocksFromTime("8:30")] = nil
-        emptyBlocks[0] = nil
+        emptyBlocks[0] = blocksFromTime("9:00")
         emptyBlocks[blocksFromTime("8:30")] = nil
         // Convert empty block dictionary to objects
         for (start, end) in emptyBlocks {
@@ -234,7 +232,7 @@ class WeeklyCalendar {
                 constraints.append(calendarItemView.heightAnchor.constraint(equalTo: calendarItemView.superview!.heightAnchor, multiplier: height, constant: -1))
             }
         }
-
+        
 //        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // FIXME: We probably need to erase previous blocks when updating (e.g. adding a course)
@@ -244,15 +242,10 @@ class WeeklyCalendar {
     
     /// Creates the UIView for a calendar block.
     private func createView(for block: CalendarBlock) -> UIView {
-//        // Different procedure for day headers
-//        if block.startBlock == 0 {
-//            // Create day header
-//        } else if block.startBlock == blocksFromTime("8:30") {
-//            // Ignore s
-//        } else {
-//            let calendarItemView = createView(for: block)
-//            stackView.addArrangedSubview(calendarItemView)
-//        }
+        // Different procedure for day headers
+        guard block.startBlock != 0 else {
+            return updateDayHeader()
+        }
         
         // Empty views need only their bg colour
         guard block.course != nil else {
@@ -267,6 +260,27 @@ class WeeklyCalendar {
         view.delegate = self
         
         return view
+    }
+    
+    
+    // MARK: - Day headers
+    
+    private func updateDayHeader() -> CalendarHeaderBlockView {
+        let viewModel = CalendarHeaderBlockViewModel(dayName: "Mon",
+                                                     dayNumber: 1,
+                                                     isToday: false)
+        let view = CalendarHeaderBlockView()
+        view.viewModel = viewModel
+        return view
+    }
+    
+    /// Change all day headers to reflect a different week.
+    func changeWeek() {
+        // TODO: Implement
+        for stackView in dayStacks {
+            let header = stackView.subviews[0]
+            
+        }
     }
     
 }
