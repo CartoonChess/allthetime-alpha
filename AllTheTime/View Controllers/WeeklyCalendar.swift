@@ -87,6 +87,7 @@ class WeeklyCalendar {
         WeeklyCalendar.blocksFromTime(time)
     }
     
+    
     /// Sets up all five day views in the calendar.
     func reloadWeek(courses: Courses, timeTable: TimeTable) {
         // Group time table courses by day
@@ -101,7 +102,6 @@ class WeeklyCalendar {
             updateDay(day)
         }
     }
-    
     
     /// Sets up a single day or set of days.
     func addCourse(_ course: Course) {
@@ -211,14 +211,20 @@ class WeeklyCalendar {
         // We will active all height constraints simultaneously
         var constraints: [NSLayoutConstraint] = []
         
-        var grey: CGFloat = 0.0
+//        var grey: CGFloat = 0.0
         
         // Go through each item, in order, and add them to the stack
         for block in schedule.sorted(by: { $0.startBlock < $1.startBlock }) {
             let calendarItemView = UIView()
-                grey += 0.05
-                let color = UIColor(white: grey, alpha: 1)
-            calendarItemView.backgroundColor = color
+//                grey += 0.05
+//                let color = UIColor(white: grey, alpha: 1)
+//            calendarItemView.backgroundColor = color
+//            if let course = block.course {
+//                calendarItemView.backgroundColor = .orange
+//            } else {
+//                calendarItemView.backgroundColor = .systemBackground
+//            }
+            calendarItemView.backgroundColor = UIColor.calendarBlock(block)
             stackView.addArrangedSubview(calendarItemView)
             
             // Get height of view based on how long the time period is

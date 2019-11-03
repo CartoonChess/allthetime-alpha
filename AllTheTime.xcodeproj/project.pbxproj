@@ -31,6 +31,7 @@
 		AEB3F00F236D748D0011D8D3 /* Date+fromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */; };
 		AEB3F011236D96C00011D8D3 /* APIDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F010236D96C00011D8D3 /* APIDataFetcher.swift */; };
 		AEB3F01B236DE7F50011D8D3 /* WeeklyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F01A236DE7F50011D8D3 /* WeeklyCalendar.swift */; };
+		AEB3F01D236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F01C236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+fromString.swift"; sourceTree = "<group>"; };
 		AEB3F010236D96C00011D8D3 /* APIDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataFetcher.swift; sourceTree = "<group>"; };
 		AEB3F01A236DE7F50011D8D3 /* WeeklyCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeeklyCalendar.swift; path = "AllTheTime/View Controllers/WeeklyCalendar.swift"; sourceTree = SOURCE_ROOT; };
+		AEB3F01C236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+systemAppearanceBackground.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */,
 				AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */,
 				AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */,
+				AEB3F01C236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */,
 				AEB3F011236D96C00011D8D3 /* APIDataFetcher.swift in Sources */,
 				AE35CB0A236BE45C008E33F3 /* SearchTableViewCell.swift in Sources */,
+				AEB3F01D236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift in Sources */,
 				AEB3F00F236D748D0011D8D3 /* Date+fromString.swift in Sources */,
 				AEB3F00D236D701A0011D8D3 /* Memo.swift in Sources */,
 				AE366E342369BB7400B39B99 /* GeneralError.swift in Sources */,
