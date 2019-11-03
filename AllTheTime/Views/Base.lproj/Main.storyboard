@@ -42,9 +42,6 @@
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="   오늘   "/>
-                                                        <connections>
-                                                            <segue destination="B8Y-xw-pLi" kind="show" id="lxn-rN-PKU"/>
-                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keP-73-TpR">
                                                         <rect key="frame" x="93" y="0.5" width="30" height="33"/>
@@ -124,6 +121,7 @@
                         <outlet property="thursdayStackView" destination="evj-cd-Ae6" id="j01-QL-yhm"/>
                         <outlet property="tuesdayStackView" destination="HKg-wD-NcV" id="MZ7-gs-fQB"/>
                         <outlet property="wednesdayStackView" destination="Yro-hJ-1OM" id="rs3-Pj-Idt"/>
+                        <segue destination="Llf-OE-Qrn" kind="show" identifier="courseDetails" id="rKO-FX-fBi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -558,7 +556,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQx-dw-kfl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kKh-Hd-2Ib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -578,6 +576,6 @@
         <image name="Icons/school" width="480" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lxn-rN-PKU"/>
+        <segue reference="rKO-FX-fBi"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -33,7 +33,6 @@ struct CalendarBlock {
 
 typealias DaySchedule = [CalendarBlock]
 
-
 /// Creates the calendar in the time table view.
 class WeeklyCalendar {
     
@@ -53,6 +52,8 @@ class WeeklyCalendar {
     private let rowsPerDay = 20
     // 5-minute intervals
     private var blocksPerDay: Int { 30 / 5 * rowsPerDay }
+    
+    var delegate: WeeklyCalendarDelegate?
     
     
     // MARK: - Methods
@@ -248,8 +249,22 @@ class WeeklyCalendar {
         let viewModel = CalendarBlockCourseViewModel(block)
         let view = CalendarBlockView()
         view.viewModel = viewModel
+        view.delegate = self
         
         return view
     }
     
+}
+
+
+// MARK: - Delegation
+
+protocol WeeklyCalendarDelegate {
+    func didTapCalendarBlock(_ block: CalendarBlockView)
+}
+
+extension WeeklyCalendar: CalendarBlockViewDelegate {
+    func didTapCalendarBlock(_ block: CalendarBlockView) {
+        delegate?.didTapCalendarBlock(block)
+    }
 }

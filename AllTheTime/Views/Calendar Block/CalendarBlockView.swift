@@ -8,12 +8,18 @@
 
 import UIKit
 
-class CalendarBlockView: UIView {
+protocol CalendarBlockViewDelegate {
+    func didTapCalendarBlock(_ block: CalendarBlockView)
+}
+
+// We subclass UIControl to get touchUpInside
+class CalendarBlockView: UIControl {
     
     // MARK: - Properties
     var viewModel: CalendarBlockCourseViewModel? {
         didSet { updateView() }
     }
+    var delegate: CalendarBlockViewDelegate?
     // IBOutlets
     @IBOutlet var contentView: CalendarBlockView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,6 +27,8 @@ class CalendarBlockView: UIView {
     
     
     // MARK: - Methods
+    
+    // MARK: Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +48,7 @@ class CalendarBlockView: UIView {
         addSubview(contentView)
     }
     
-    func updateView() {
+    private func updateView() {
         guard let viewModel = viewModel else { return }
         
         // TODO: Have this not alpha on top of grey
@@ -52,5 +60,10 @@ class CalendarBlockView: UIView {
         titleLabel.textColor = viewModel.color
         locationLabel.textColor = viewModel.color
     }
+    
+    // MARK: Gestures
 
+    @IBAction func didTouchUpInsideContentView(_ sender: Any) {
+        delegate?.didTapCalendarBlock(self)
+    }
 }

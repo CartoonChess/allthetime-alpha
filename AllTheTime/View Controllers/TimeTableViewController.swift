@@ -49,6 +49,7 @@ class TimeTableViewController: UIViewController {
             fridayStackView
         ]
         weeklyCalendar = WeeklyCalendar(dayStacks: dayStacks)
+        weeklyCalendar?.delegate = self
     }
     
     func fetchData() {
@@ -86,7 +87,9 @@ class TimeTableViewController: UIViewController {
         if let destination = segue.destination as? SearchTableViewController {
             destination.courses = courses
             destination.courseDetailsDelegate = self
-        } else if let destination = segue.destination as? CourseDetailsViewController {
+        } else if let destination = segue.destination as? CourseDetailsViewController,
+            let viewModel = sender as? CourseDetailsCourseViewModel {
+            destination.course = viewModel
             destination.delegate = self
         }
     }
@@ -94,7 +97,7 @@ class TimeTableViewController: UIViewController {
 }
 
 
-// MARK: - Course details delegate
+// MARK: - Delegation
 extension TimeTableViewController: CourseDetailsViewControllerDelegate {
     func didRegisterCourse(code: String) {
         timeTable?.courseCodes.append(code)
@@ -105,5 +108,14 @@ extension TimeTableViewController: CourseDetailsViewControllerDelegate {
     
     func didUpdateMemo() {
         // TODO: Implement
+    }
+}
+
+extension TimeTableViewController: WeeklyCalendarDelegate {
+    var courseDetailsSegue: String { "courseDetails" }
+    
+    func didTapCalendarBlock(_ block: CalendarBlockView) {
+        guard let viewModel = block.viewModel?.convert(to: CourseDetailsCourseViewModel.self) else { return }
+        performSegue(withIdentifier: courseDetailsSegue, sender: viewModel)
     }
 }
