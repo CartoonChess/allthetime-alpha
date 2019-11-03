@@ -41,7 +41,7 @@ extension DayNumber {
         case 4:
             return "금"
         default:
-            fatalError("Day numbers must be between 0 and 4 inclusive.")
+            return "주말"
         }
     }
 }

@@ -53,6 +53,23 @@ class TimeTableViewController: UIViewController {
         
         // Remove background/links from hour stack
         hoursStackView.addBackground(color: .systemAppearanceBackground)
+        
+        
+        
+        let dateDetails = DisplayDate()
+        print("init:", dateDetails.displayDayNumbers)
+        dateDetails.changeWeek(by: 1)
+        print("+1:", dateDetails.displayDayNumbers)
+        dateDetails.changeWeek(by: 2)
+        print("+3:", dateDetails.displayDayNumbers)
+        dateDetails.changeWeek(by: -3)
+        print("0:", dateDetails.displayDayNumbers)
+        print("year: \(dateDetails.displayYear)")
+        print("month: \(dateDetails.displayMonth)")
+        dateDetails.changeWeek(by: -20)
+        print("super old month: \(dateDetails.displayMonth)")
+        dateDetails.changeWeek(by: -1)
+        print("-1:", dateDetails.displayDayNumbers)
     }
     
     func fetchData() {

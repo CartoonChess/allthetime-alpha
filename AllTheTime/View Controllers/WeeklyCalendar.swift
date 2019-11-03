@@ -48,6 +48,8 @@ class WeeklyCalendar {
     
     private var schedules: [DaySchedule] = []
     
+    private var showingWeek = Date()
+    
     // 18 30-minute blocks, plus two blocks for weekday + day number
     private let rowsPerDay = 20
     // 5-minute intervals
@@ -219,7 +221,7 @@ class WeeklyCalendar {
         
         // Go through each item, in order, and add them to the stack
         for block in schedule.sorted(by: { $0.startBlock < $1.startBlock }) {
-            let calendarItemView = createView(for: block)
+            let calendarItemView = createView(for: block, day: day)
             stackView.addArrangedSubview(calendarItemView)
             
             // Get height of view based on how long the time period is
@@ -241,10 +243,10 @@ class WeeklyCalendar {
     }
     
     /// Creates the UIView for a calendar block.
-    private func createView(for block: CalendarBlock) -> UIView {
+    private func createView(for block: CalendarBlock, day: Int) -> UIView {
         // Different procedure for day headers
         guard block.startBlock != 0 else {
-            return updateDayHeader()
+            return updateDayHeader(day: day)
         }
         
         // Empty views need only their bg colour
@@ -265,9 +267,18 @@ class WeeklyCalendar {
     
     // MARK: - Day headers
     
-    private func updateDayHeader() -> CalendarHeaderBlockView {
-        let viewModel = CalendarHeaderBlockViewModel(dayName: "Mon",
-                                                     dayNumber: 1,
+    private func updateDayHeader(day: Int) -> CalendarHeaderBlockView {
+        let date = Date()
+        let calendar = Calendar.current
+//        calendar.component(.year, from: date)
+//        calendar.component(.month, from: date)
+        let dayNum = calendar.component(.day, from: date)
+
+        let weekday = (calendar.component(.weekday, from: date) - 2).string
+        
+        
+        let viewModel = CalendarHeaderBlockViewModel(dayName: weekday, //day.string,
+                                                     dayNumber: dayNum,
                                                      isToday: false)
         let view = CalendarHeaderBlockView()
         view.viewModel = viewModel
