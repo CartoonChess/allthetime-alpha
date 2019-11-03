@@ -18,6 +18,9 @@ class TimeTableViewController: UIViewController {
     var weeklyCalendar: WeeklyCalendar?
     
     // MARK: IBOutlets
+    
+    @IBOutlet weak var hourStackView: UIStackView!
+    
     @IBOutlet weak var mondayStackView: UIStackView!
     @IBOutlet weak var tuesdayStackView: UIStackView!
     @IBOutlet weak var wednesdayStackView: UIStackView!
