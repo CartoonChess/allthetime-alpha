@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol MemoViewControllerDelegate {
+    func didUpdateMemo()
+}
+
 class MemoViewController: UIViewController {
     
     // MARK: - Properties
     var courseCode: String?
+    var delegate: MemoViewControllerDelegate?
     // IBOutlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: UITextView!
@@ -56,7 +61,6 @@ class MemoViewController: UIViewController {
     }
     
     @IBAction func addButtonTouched() {
-        print("button touched")
         addMemo()
     }
     
@@ -70,9 +74,8 @@ class MemoViewController: UIViewController {
 // MARK: - Networking
 extension MemoViewController {
     func addMemo() {
-        // FIXME: Use real course code!
-//        guard let courseCode = courseCode else { return }
-        let courseCode = "PG1807-11"
+        guard let courseCode = courseCode else { return }
+        
         var title = titleTextField.text ?? ""
         if title.isEmpty { title = "메모" }
         var body = bodyTextView.text ?? ""

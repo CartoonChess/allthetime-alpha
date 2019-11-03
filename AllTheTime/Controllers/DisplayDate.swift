@@ -16,6 +16,7 @@ class DisplayDate {
     
     // Currently displaying on the time table
     private var displayDate = Date()
+    // TODO: Have these two values based on the Monday of the displayDate
     var year: Int { calendar.component(.year, from: displayDate) }
     var month: Int { calendar.component(.month, from: displayDate) }
     var dayNumbers: [Int] = [0, 0, 0, 0, 0]

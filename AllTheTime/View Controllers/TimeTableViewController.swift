@@ -169,6 +169,14 @@ extension TimeTableViewController: CourseDetailsViewControllerDelegate {
     func didUpdateMemo() {
         // TODO: Implement
     }
+    
+    func userIsRegisteredInCourse(code: String) -> Bool {
+        timeTable?.courseCodes.contains(code) ?? true
+    }
+    
+    func canAddMemo(for course: String) -> Bool {
+        memos?.all[course]?.count ?? 0 < 3
+    }
 }
 
 extension TimeTableViewController: WeeklyCalendarDelegate {
