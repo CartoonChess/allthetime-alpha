@@ -46,10 +46,9 @@ extension UIColor {
         let roomString: String = course.location.trimmingCharacters(in: nonNumberic)
         let room = Float((Float(roomString) ?? 101.0) - 100.0)
         
-//        let red = CGFloat.random(in: 0.0...1.0)
-        let red = CGFloat(code / 50.0)
-        let green = CGFloat(Float(block.startBlock - 12) / 108.0)
-        let blue = CGFloat(room / 519.0)
+        let red = CGFloat(code / 50.0) - 0.2
+        let green = CGFloat(Float(block.startBlock - 12) / 108.0) - 0.2
+        let blue = CGFloat(room / 519.0) - 0.2
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     

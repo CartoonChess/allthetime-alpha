@@ -31,13 +31,25 @@ class TimeTableViewController: UIViewController {
     @IBOutlet weak var thursdayStackView: UIStackView!
     @IBOutlet weak var fridayStackView: UIStackView!
     
+    // Hour labels
+    @IBOutlet weak var hour9Label: UILabel!
+    @IBOutlet weak var hour10Label: UILabel!
+    @IBOutlet weak var hour11Label: UILabel!
+    @IBOutlet weak var hour12Label: UILabel!
+    @IBOutlet weak var hour13Label: UILabel!
+    @IBOutlet weak var hour14Label: UILabel!
+    @IBOutlet weak var hour15Label: UILabel!
+    @IBOutlet weak var hour16Label: UILabel!
+    @IBOutlet weak var hour17Label: UILabel!
+    
+    
     // MARK: - Methods
     
     // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         print("Main view loaded.")
         
         // Disable most functions until after courses are loaded
@@ -60,6 +72,7 @@ class TimeTableViewController: UIViewController {
         
         // Remove background/lines from hour stack
         hoursStackView.addBackground(color: .systemAppearanceBackground)
+        offsetHourLabels()
     }
     
     func fetchData() {
@@ -163,6 +176,28 @@ extension TimeTableViewController: WeeklyCalendarDelegate {
     func didTapCalendarBlock(_ block: CalendarBlockView) {
         guard let viewModel = block.viewModel?.convert(to: CourseDetailsCourseViewModel.self) else { return }
         performSegue(withIdentifier: courseDetailsSegue, sender: viewModel)
+    }
+}
+
+// Hour labels
+extension TimeTableViewController {
+    func offsetHourLabels() {
+        let hourLabels = [
+            hour9Label!,
+            hour10Label!,
+            hour11Label!,
+            hour12Label!,
+            hour13Label!,
+            hour14Label!,
+            hour15Label!,
+            hour16Label!,
+            hour17Label!
+        ]
+        
+        for label in hourLabels {
+            let currentText = label.text!
+            label.text = "\(currentText)\n"
+        }
     }
 }
 
