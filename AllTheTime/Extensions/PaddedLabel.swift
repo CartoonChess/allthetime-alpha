@@ -2,13 +2,13 @@
 //  PaddedLabel.swift
 //  AllTheTime
 //
-//  Created by Xcode on ’19/10/30.
+//  Created by Xcode on ’19/11/03.
 //  Copyright © 2019 Distant Labs. All rights reserved.
 //
 
-/* Lovingly adapted from SOf.
+/* SOf reference:
  https://stackoverflow.com/questions/21167226/resizing-a-uilabel-to-accommodate-insets/55577228#55577228
- */
+*/
 
 import UIKit
 

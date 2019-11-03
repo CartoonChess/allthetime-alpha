@@ -289,7 +289,10 @@ class WeeklyCalendar {
         for day in dayStacks.indices {
             let dayStack = dayStacks[day]
             let headerView = dayStack.subviews[0] as! CalendarHeaderBlockView
-            headerView.dayNumberLabel.text = String(displayDate.dayNumbers[day])
+//            headerView.dayNumberLabel.text = String(displayDate.dayNumbers[day])
+            let dayNumber = displayDate.dayNumbers[day]
+            let isToday = displayDate.isToday(dayNumber)
+            headerView.updateDayNumber(String(dayNumber), isToday: isToday)
         }
     }
     

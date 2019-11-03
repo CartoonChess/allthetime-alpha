@@ -10,12 +10,24 @@ import UIKit
 
 extension UIColor {
     
+    // MARK: Fallback colors
     static var systemAppearanceBackground: UIColor {
         get {
             if #available(iOS 13, *) {
                 return .systemBackground
             } else {
                 return .white
+            }
+        }
+    }
+    
+    static var linkColor: UIColor {
+        get {
+            if #available(iOS 13, *) {
+                return .link
+            } else {
+                // Approximate
+                return UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 1.0)
             }
         }
     }

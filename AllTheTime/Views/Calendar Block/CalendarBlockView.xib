@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarBlockView" customModule="AllTheTime" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="PxG-is-EJK"/>
+                <outlet property="leftBarView" destination="GJW-B2-An2" id="tNv-Fa-xAb"/>
                 <outlet property="locationLabel" destination="NbJ-xx-fRo" id="kRo-E2-pbB"/>
                 <outlet property="titleLabel" destination="8d5-Q4-dCt" id="4Xl-YX-5om"/>
             </connections>
@@ -20,23 +21,33 @@
             <rect key="frame" x="0.0" y="0.0" width="104" height="157"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d5-Q4-dCt">
-                    <rect key="frame" x="2" y="2" width="102" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJW-B2-An2" userLabel="Left Bar">
+                    <rect key="frame" x="0.0" y="0.0" width="4" height="157"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="4" id="OKq-Ix-yCb"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의 이름" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d5-Q4-dCt">
+                    <rect key="frame" x="6" y="2" width="98" height="13.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강의실" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbJ-xx-fRo">
-                    <rect key="frame" x="2" y="25" width="102" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="6" y="17.5" width="98" height="13.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="8d5-Q4-dCt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="Bvv-eo-vAY"/>
-                <constraint firstItem="NbJ-xx-fRo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="L8o-sd-IeH"/>
+                <constraint firstItem="GJW-B2-An2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5UE-Tc-RHy"/>
+                <constraint firstItem="8d5-Q4-dCt" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="Bvv-eo-vAY"/>
+                <constraint firstItem="GJW-B2-An2" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="KXZ-3I-f8P"/>
+                <constraint firstItem="NbJ-xx-fRo" firstAttribute="leading" secondItem="GJW-B2-An2" secondAttribute="trailing" constant="2" id="L8o-sd-IeH"/>
+                <constraint firstItem="GJW-B2-An2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="doX-7C-iTw"/>
                 <constraint firstItem="NbJ-xx-fRo" firstAttribute="top" secondItem="8d5-Q4-dCt" secondAttribute="bottom" constant="2" id="eol-Zs-Od5"/>
                 <constraint firstItem="8d5-Q4-dCt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="lmA-KK-R3i"/>
                 <constraint firstAttribute="trailing" secondItem="NbJ-xx-fRo" secondAttribute="trailing" id="qcc-9w-11b"/>

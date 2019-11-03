@@ -36,7 +36,7 @@ class CourseViewModel {
 class CalendarBlockCourseViewModel: CourseViewModel {
     let color: UIColor
     var backgroundColor: UIColor {
-        color.withAlphaComponent(0.5)
+        color.withAlphaComponent(0.25)
     }
     
     required init?(_ block: CalendarBlock) {

@@ -14,7 +14,6 @@
 		AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */; };
 		AE366E342369BB7400B39B99 /* GeneralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E332369BB7400B39B99 /* GeneralError.swift */; };
 		AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */; };
-		AE64E18E2369CEF500F15FCE /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE64E18D2369CEF500F15FCE /* PaddedLabel.swift */; };
 		AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B21192367F48000411C6A /* AppDelegate.swift */; };
 		AE8B211C2367F48000411C6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211B2367F48000411C6A /* SceneDelegate.swift */; };
 		AE8B211E2367F48000411C6A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8B211D2367F48000411C6A /* TimeTableViewController.swift */; };
@@ -26,7 +25,8 @@
 		AEA7011D236EA6B7008580EC /* CalendarHeaderBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */; };
 		AEA7011F236EA907008580EC /* CalendarHeaderBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */; };
 		AEA70121236EB45E008580EC /* DisplayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70120236EB45E008580EC /* DisplayDate.swift */; };
-		AEA70123236ECE60008580EC /* UIButton+dimmableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70122236ECE60008580EC /* UIButton+dimmableButton.swift */; };
+		AEA70123236ECE60008580EC /* DimmableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70122236ECE60008580EC /* DimmableButton.swift */; };
+		AEA70125236ED163008580EC /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA70124236ED163008580EC /* PaddedLabel.swift */; };
 		AEB3F003236D2ADE0011D8D3 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */; };
 		AEB3F005236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */; };
 		AEB3F007236D327D0011D8D3 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */; };
@@ -50,7 +50,6 @@
 		AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusMessage.swift"; sourceTree = "<group>"; };
 		AE366E332369BB7400B39B99 /* GeneralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralError.swift; sourceTree = "<group>"; };
 		AE366E352369BED300B39B99 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
-		AE64E18D2369CEF500F15FCE /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		AE8B21162367F48000411C6A /* AllTheTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllTheTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8B21192367F48000411C6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8B211B2367F48000411C6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +63,8 @@
 		AEA7011C236EA6B7008580EC /* CalendarHeaderBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderBlockView.swift; sourceTree = "<group>"; };
 		AEA7011E236EA907008580EC /* CalendarHeaderBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderBlockViewModel.swift; sourceTree = "<group>"; };
 		AEA70120236EB45E008580EC /* DisplayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDate.swift; sourceTree = "<group>"; };
-		AEA70122236ECE60008580EC /* UIButton+dimmableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+dimmableButton.swift"; sourceTree = "<group>"; };
+		AEA70122236ECE60008580EC /* DimmableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmableButton.swift; sourceTree = "<group>"; };
+		AEA70124236ED163008580EC /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		AEB3F002236D2ADE0011D8D3 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
 		AEB3F004236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+initUsingAPI.swift"; sourceTree = "<group>"; };
 		AEB3F006236D327D0011D8D3 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -158,7 +158,6 @@
 				AEA70119236EA64A008580EC /* Calendar Header Block */,
 				AE8B211F2367F48000411C6A /* Main.storyboard */,
 				AE35CB09236BE45C008E33F3 /* SearchTableViewCell.swift */,
-				AE64E18D2369CEF500F15FCE /* PaddedLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,7 +192,8 @@
 				AE366E312369A64800B39B99 /* HTTPURLResponse+statusMessage.swift */,
 				AEB3F00E236D748D0011D8D3 /* Date+fromString.swift */,
 				AEB3F01C236E54540011D8D3 /* UIColor+systemAppearanceBackground.swift */,
-				AEA70122236ECE60008580EC /* UIButton+dimmableButton.swift */,
+				AEA70122236ECE60008580EC /* DimmableButton.swift */,
+				AEA70124236ED163008580EC /* PaddedLabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,13 +307,14 @@
 				AE366E2E23695E3500B39B99 /* Course.swift in Sources */,
 				AE8B211E2367F48000411C6A /* TimeTableViewController.swift in Sources */,
 				AEB3F003236D2ADE0011D8D3 /* PropertyKeys.swift in Sources */,
+				AEA70125236ED163008580EC /* PaddedLabel.swift in Sources */,
 				AEB3F024236E5ED50011D8D3 /* CalendarBlockView.swift in Sources */,
 				AEA70121236EB45E008580EC /* DisplayDate.swift in Sources */,
 				AEB3F01B236DE7F50011D8D3 /* WeeklyCalendar.swift in Sources */,
 				AEB3F005236D2E7D0011D8D3 /* URLRequest+initUsingAPI.swift in Sources */,
 				AE366E3023695E6700B39B99 /* CourseViewModel.swift in Sources */,
 				AE8B211A2367F48000411C6A /* AppDelegate.swift in Sources */,
-				AEA70123236ECE60008580EC /* UIButton+dimmableButton.swift in Sources */,
+				AEA70123236ECE60008580EC /* DimmableButton.swift in Sources */,
 				AEA7011D236EA6B7008580EC /* CalendarHeaderBlockView.swift in Sources */,
 				AEB3F011236D96C00011D8D3 /* APIDataFetcher.swift in Sources */,
 				AE35CB0A236BE45C008E33F3 /* SearchTableViewCell.swift in Sources */,
@@ -323,7 +324,6 @@
 				AE366E342369BB7400B39B99 /* GeneralError.swift in Sources */,
 				AE366E322369A64800B39B99 /* HTTPURLResponse+statusMessage.swift in Sources */,
 				AEA7011F236EA907008580EC /* CalendarHeaderBlockViewModel.swift in Sources */,
-				AE64E18E2369CEF500F15FCE /* PaddedLabel.swift in Sources */,
 				AE35CB08236BD9F5008E33F3 /* SearchTableViewController.swift in Sources */,
 				AE366E362369BED300B39B99 /* CourseDetailsViewController.swift in Sources */,
 				AE8B211C2367F48000411C6A /* SceneDelegate.swift in Sources */,

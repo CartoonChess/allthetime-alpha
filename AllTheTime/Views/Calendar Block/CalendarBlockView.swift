@@ -22,6 +22,7 @@ class CalendarBlockView: UIControl {
     var delegate: CalendarBlockViewDelegate?
     // IBOutlets
     @IBOutlet var contentView: CalendarBlockView!
+    @IBOutlet weak var leftBarView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -51,8 +52,8 @@ class CalendarBlockView: UIControl {
     private func updateView() {
         guard let viewModel = viewModel else { return }
         
-        // TODO: Have this not alpha on top of grey
         contentView.backgroundColor = viewModel.backgroundColor
+        leftBarView.backgroundColor = viewModel.color
         
         titleLabel.text = viewModel.title
         locationLabel.text = viewModel.location

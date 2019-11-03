@@ -1,5 +1,5 @@
 //
-//  UIButton+dimmableButton.swift
+//  DimmableButton.swift
 //  AllTheTime
 //
 //  Created by Xcode on ’19/11/03.
