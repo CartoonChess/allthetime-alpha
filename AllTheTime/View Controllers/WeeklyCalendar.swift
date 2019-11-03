@@ -215,16 +215,7 @@ class WeeklyCalendar {
         
         // Go through each item, in order, and add them to the stack
         for block in schedule.sorted(by: { $0.startBlock < $1.startBlock }) {
-            let calendarItemView = UIView()
-//                grey += 0.05
-//                let color = UIColor(white: grey, alpha: 1)
-//            calendarItemView.backgroundColor = color
-//            if let course = block.course {
-//                calendarItemView.backgroundColor = .orange
-//            } else {
-//                calendarItemView.backgroundColor = .systemBackground
-//            }
-            calendarItemView.backgroundColor = UIColor.calendarBlock(block)
+            let calendarItemView = createView(for: block)
             stackView.addArrangedSubview(calendarItemView)
             
             // Get height of view based on how long the time period is
@@ -243,6 +234,25 @@ class WeeklyCalendar {
         // FIXME: We probably need to erase previous blocks when updating (e.g. adding a course)
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    /// Creates the UIView for a calendar block.
+    private func createView(for block: CalendarBlock) -> UIView {
+        let view = CalendarBlockView()
+        
+        // Empty views need only their bg colour
+        guard let course = block.course else {
+            view.backgroundColor = .systemAppearanceBackground
+            return view
+        }
+        
+        let viewModel = CourseViewModel(course)
+        
+        view.backgroundColor = UIColor.calendarBlock(block)
+        view.titleLabel.text = viewModel.title
+        view.locationLabel.text = course.location
+        
+        return view
     }
     
 }
