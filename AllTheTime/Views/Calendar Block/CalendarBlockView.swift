@@ -71,15 +71,17 @@ class CalendarBlockView: UIControl {
         memo1Label.textColor = viewModel.color
         memo2Label.textColor = viewModel.color
         memo3Label.textColor = viewModel.color
+        
+        updateMemos()
     }
     
-    func updateMemos(_ mixedMemos: [Memo]) {
+    func updateMemos() {
         // We will check whether we have each kind of memo
         var enableStudy = false
         var enableAssignment = false
         var enableExam = false
         // Put them in order
-        var memos: [Memo] = []
+        var memos = viewModel?.memos ?? []
         
         if memos.count > 0 {
             // Get possible memos
@@ -125,14 +127,14 @@ class CalendarBlockView: UIControl {
     }
     
     private func toggleMemoVisibility(study: Bool, assignment: Bool, exam: Bool) {
-        memo1Label.isHidden = study
-        memo1Image.isHidden = study
+        memo1Label.isHidden = !study
+        memo1Image.isHidden = !study
         
-        memo2Label.isHidden = assignment
-        memo2Image.isHidden = assignment
+        memo2Label.isHidden = !assignment
+        memo2Image.isHidden = !assignment
         
-        memo3Label.isHidden = exam
-        memo3Image.isHidden = exam
+        memo3Label.isHidden = !exam
+        memo3Image.isHidden = !exam
     }
     
     // MARK: Gestures

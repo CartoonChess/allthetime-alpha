@@ -38,10 +38,12 @@ class CalendarBlockCourseViewModel: CourseViewModel {
     var backgroundColor: UIColor {
         color.withAlphaComponent(0.25)
     }
+    let memos: [Memo]
     
-    required init?(_ block: CalendarBlock) {
+    required init?(_ block: CalendarBlock, memos: [Memo] = []) {
         guard let course = block.course else { return nil }
         color = UIColor.calendarBlock(block)
+        self.memos = memos
         super.init(course)
     }
     

@@ -98,8 +98,9 @@ class TimeTableViewController: UIViewController {
         toggleDateChangeButtons(enable: true)
         
         guard let courses = courses,
-            let timeTable = timeTable else { return }
-        weeklyCalendar?.reloadWeek(courses: courses, timeTable: timeTable)
+            let timeTable = timeTable,
+            let memos = memos else { return }
+        weeklyCalendar?.reloadWeek(courses: courses, timeTable: timeTable, memos: memos)
     }
     
     func toggleSearch(enable: Bool) {

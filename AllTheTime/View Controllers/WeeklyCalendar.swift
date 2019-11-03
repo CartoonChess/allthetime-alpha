@@ -59,6 +59,8 @@ class WeeklyCalendar {
     
     var delegate: WeeklyCalendarDelegate?
     
+    var memos: Memos?
+    
     
     // MARK: - Methods
     
@@ -94,7 +96,8 @@ class WeeklyCalendar {
     
     
     /// Sets up all five day views in the calendar.
-    func reloadWeek(courses: Courses, timeTable: TimeTable) {
+    func reloadWeek(courses: Courses, timeTable: TimeTable, memos: Memos) {
+        self.memos = memos
         // Group time table courses by day
         for code in timeTable.courseCodes {
             // Get course from full list
@@ -252,13 +255,16 @@ class WeeklyCalendar {
         }
         
         // Empty views need only their bg colour
-        guard block.course != nil else {
+        guard let course = block.course else {
             let view = UIView()
             view.backgroundColor = .systemAppearanceBackground
             return view
         }
         
-        let viewModel = CalendarBlockCourseViewModel(block)
+        // Get any memos for the course
+        let memos: [Memo] = self.memos?.all[course.code] ?? []
+        
+        let viewModel = CalendarBlockCourseViewModel(block, memos: memos)
         let view = CalendarBlockView()
         view.viewModel = viewModel
         view.delegate = self
@@ -289,7 +295,6 @@ class WeeklyCalendar {
         for day in dayStacks.indices {
             let dayStack = dayStacks[day]
             let headerView = dayStack.subviews[0] as! CalendarHeaderBlockView
-//            headerView.dayNumberLabel.text = String(displayDate.dayNumbers[day])
             let dayNumber = displayDate.dayNumbers[day]
             let isToday = displayDate.isToday(dayNumber)
             headerView.updateDayNumber(String(dayNumber), isToday: isToday)
