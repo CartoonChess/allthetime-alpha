@@ -18,15 +18,12 @@ class TimeTableViewController: UIViewController {
     var weeklyCalendar: WeeklyCalendar?
     
     // MARK: IBOutlets
-    
-    @IBOutlet weak var hourStackView: UIStackView!
-    
+    @IBOutlet weak var hoursStackView: UIStackView!
     @IBOutlet weak var mondayStackView: UIStackView!
     @IBOutlet weak var tuesdayStackView: UIStackView!
     @IBOutlet weak var wednesdayStackView: UIStackView!
     @IBOutlet weak var thursdayStackView: UIStackView!
     @IBOutlet weak var fridayStackView: UIStackView!
-    
     
     // MARK: - Methods
     
@@ -53,6 +50,9 @@ class TimeTableViewController: UIViewController {
         ]
         weeklyCalendar = WeeklyCalendar(dayStacks: dayStacks)
         weeklyCalendar?.delegate = self
+        
+        // Remove background/links from hour stack
+        hoursStackView.addBackground(color: .systemAppearanceBackground)
     }
     
     func fetchData() {
@@ -120,5 +120,14 @@ extension TimeTableViewController: WeeklyCalendarDelegate {
     func didTapCalendarBlock(_ block: CalendarBlockView) {
         guard let viewModel = block.viewModel?.convert(to: CourseDetailsCourseViewModel.self) else { return }
         performSegue(withIdentifier: courseDetailsSegue, sender: viewModel)
+    }
+}
+
+extension UIStackView {
+    func addBackground(color: UIColor) {
+        let subView = UIView(frame: bounds)
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(subView, at: 0)
     }
 }
