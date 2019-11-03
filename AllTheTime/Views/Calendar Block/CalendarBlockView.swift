@@ -11,6 +11,10 @@ import UIKit
 class CalendarBlockView: UIView {
     
     // MARK: - Properties
+    var viewModel: CalendarBlockCourseViewModel? {
+        didSet { updateView() }
+    }
+    // IBOutlets
     @IBOutlet var contentView: CalendarBlockView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -20,20 +24,33 @@ class CalendarBlockView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        construct()
+        initAny()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        construct()
+        initAny()
     }
     
-    func construct() {
+    private func initAny() {
         // Init nib
         Bundle(for: CalendarBlockView.self).loadNibNamed("CalendarBlockView", owner: self, options: nil)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)
+    }
+    
+    func updateView() {
+        guard let viewModel = viewModel else { return }
+        
+        // TODO: Have this not alpha on top of grey
+        contentView.backgroundColor = viewModel.backgroundColor
+        
+        titleLabel.text = viewModel.title
+        locationLabel.text = viewModel.location
+        
+        titleLabel.textColor = viewModel.color
+        locationLabel.textColor = viewModel.color
     }
 
 }

@@ -238,19 +238,16 @@ class WeeklyCalendar {
     
     /// Creates the UIView for a calendar block.
     private func createView(for block: CalendarBlock) -> UIView {
-        let view = CalendarBlockView()
-        
         // Empty views need only their bg colour
-        guard let course = block.course else {
+        guard block.course != nil else {
+            let view = UIView()
             view.backgroundColor = .systemAppearanceBackground
             return view
         }
         
-        let viewModel = CourseViewModel(course)
-        
-        view.backgroundColor = UIColor.calendarBlock(block)
-        view.titleLabel.text = viewModel.title
-        view.locationLabel.text = course.location
+        let viewModel = CalendarBlockCourseViewModel(block)
+        let view = CalendarBlockView()
+        view.viewModel = viewModel
         
         return view
     }

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Distant Labs. All rights reserved.
 //
 
+import UIKit
+
 class CourseViewModel {
     // MARK: - Properties
     
@@ -31,8 +33,21 @@ class CourseViewModel {
 
 
 // MARK: -
-class TimeTableCourseViewModel: CourseViewModel {
-    // TODO: Implement
+class CalendarBlockCourseViewModel: CourseViewModel {
+    let color: UIColor
+    var backgroundColor: UIColor {
+        color.withAlphaComponent(0.5)
+    }
+    
+    required init?(_ block: CalendarBlock) {
+        guard let course = block.course else { return nil }
+        color = UIColor.calendarBlock(block)
+        super.init(course)
+    }
+    
+    required init(_ course: Course) {
+        fatalError("Must init with init(_ block:).")
+    }
 }
 
 
