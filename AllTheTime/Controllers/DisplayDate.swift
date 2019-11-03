@@ -14,13 +14,11 @@ class DisplayDate {
     
     // MARK: - Properties
     
-    let today = Date()
-    
     // Currently displaying on the time table
-    var displayDate = Date()
-    var displayYear: Int { calendar.component(.year, from: displayDate) }
-    var displayMonth: Int { calendar.component(.month, from: displayDate) }
-    var displayDayNumbers: [Int] = [0, 0, 0, 0, 0]
+    private var displayDate = Date()
+    var year: Int { calendar.component(.year, from: displayDate) }
+    var month: Int { calendar.component(.month, from: displayDate) }
+    var dayNumbers: [Int] = [0, 0, 0, 0, 0]
     
     // ISO8601 starts on Monday
     private let calendar = Calendar(identifier: .iso8601)
@@ -46,9 +44,23 @@ class DisplayDate {
         var dayDate = calendar.date(from: components)!
         
         // Assign day numbers
-        for day in displayDayNumbers.indices {
-            displayDayNumbers[day] = calendar.component(.day, from: dayDate)
+        for day in dayNumbers.indices {
+            dayNumbers[day] = calendar.component(.day, from: dayDate)
             dayDate = Date(timeInterval: oneDay, since: dayDate)
+        }
+    }
+    
+    /// Checks whether some day is today.
+    /// - Parameter dayOfMonth: The day number of the month.
+    func isToday(_ dayOfMonth: Int) -> Bool {
+        let today = calendar.dateComponents([.year, .month, .day], from: Date())
+        
+        if today.year == year,
+            today.month == month,
+            today.day == dayOfMonth {
+            return true
+        } else {
+            return false
         }
     }
 }

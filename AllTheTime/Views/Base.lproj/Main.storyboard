@@ -36,18 +36,27 @@
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="&lt;"/>
+                                                        <connections>
+                                                            <action selector="previousWeekButtonTapped" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="qdS-rI-Y5O"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUH-mv-AGP">
                                                         <rect key="frame" x="34" y="0.5" width="55" height="33"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="   오늘   "/>
+                                                        <connections>
+                                                            <action selector="thisWeekButtonTapped" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="9he-2k-pyx"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keP-73-TpR">
                                                         <rect key="frame" x="93" y="0.5" width="30" height="33"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <state key="normal" title="&gt;"/>
+                                                        <connections>
+                                                            <action selector="nextWeekButtonTapped" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="aUH-fI-38B"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -245,6 +254,9 @@
                         <outlet property="fridayStackView" destination="Gne-y2-HEc" id="7Ww-AQ-Vul"/>
                         <outlet property="hoursStackView" destination="Of3-Gd-VIe" id="0yM-0Q-hTM"/>
                         <outlet property="mondayStackView" destination="0VB-EG-AkV" id="IHi-fW-4VX"/>
+                        <outlet property="nextWeekButton" destination="keP-73-TpR" id="gcs-fG-qas"/>
+                        <outlet property="previousWeekButton" destination="Wfo-2y-EGu" id="bHQ-0h-BtM"/>
+                        <outlet property="thisWeekButton" destination="lUH-mv-AGP" id="Rsp-Rb-Krh"/>
                         <outlet property="thursdayStackView" destination="evj-cd-Ae6" id="j01-QL-yhm"/>
                         <outlet property="tuesdayStackView" destination="HKg-wD-NcV" id="MZ7-gs-fQB"/>
                         <outlet property="wednesdayStackView" destination="Yro-hJ-1OM" id="rs3-Pj-Idt"/>

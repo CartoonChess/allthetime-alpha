@@ -55,6 +55,8 @@ class WeeklyCalendar {
     // 5-minute intervals
     private var blocksPerDay: Int { 30 / 5 * rowsPerDay }
     
+    private let displayDate = DisplayDate()
+    
     var delegate: WeeklyCalendarDelegate?
     
     
@@ -268,30 +270,28 @@ class WeeklyCalendar {
     // MARK: - Day headers
     
     private func updateDayHeader(day: Int) -> CalendarHeaderBlockView {
-        let date = Date()
-        let calendar = Calendar.current
-//        calendar.component(.year, from: date)
-//        calendar.component(.month, from: date)
-        let dayNum = calendar.component(.day, from: date)
-
-        let weekday = (calendar.component(.weekday, from: date) - 2).string
+        let dayNumber = displayDate.dayNumbers[day]
+        let isToday = displayDate.isToday(dayNumber)
         
-        
-        let viewModel = CalendarHeaderBlockViewModel(dayName: weekday, //day.string,
-                                                     dayNumber: dayNum,
-                                                     isToday: false)
+        let viewModel = CalendarHeaderBlockViewModel(dayName: day.string,
+                                                     dayNumber: dayNumber,
+                                                     isToday: isToday)
         let view = CalendarHeaderBlockView()
         view.viewModel = viewModel
         return view
     }
     
     /// Change all day headers to reflect a different week.
-    func changeWeek() {
-        // TODO: Implement
-        for stackView in dayStacks {
-            let header = stackView.subviews[0]
-            
+    func changeWeek(by offset: Int) {
+        // Change display date
+        displayDate.changeWeek(by: offset)
+        // Update headers
+        for day in dayStacks.indices {
+            let dayStack = dayStacks[day]
+            let headerView = dayStack.subviews[0] as! CalendarHeaderBlockView
+            headerView.dayNumberLabel.text = String(displayDate.dayNumbers[day])
         }
+        // TODO: Implement "today" button
     }
     
 }

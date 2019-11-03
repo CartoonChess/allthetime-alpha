@@ -18,6 +18,10 @@ class TimeTableViewController: UIViewController {
     var weeklyCalendar: WeeklyCalendar?
     
     // MARK: IBOutlets
+    @IBOutlet weak var previousWeekButton: UIButton!
+    @IBOutlet weak var thisWeekButton: UIButton!
+    @IBOutlet weak var nextWeekButton: UIButton!
+    
     @IBOutlet weak var hoursStackView: UIStackView!
     @IBOutlet weak var mondayStackView: UIStackView!
     @IBOutlet weak var tuesdayStackView: UIStackView!
@@ -51,25 +55,8 @@ class TimeTableViewController: UIViewController {
         weeklyCalendar = WeeklyCalendar(dayStacks: dayStacks)
         weeklyCalendar?.delegate = self
         
-        // Remove background/links from hour stack
+        // Remove background/lines from hour stack
         hoursStackView.addBackground(color: .systemAppearanceBackground)
-        
-        
-        
-        let dateDetails = DisplayDate()
-        print("init:", dateDetails.displayDayNumbers)
-        dateDetails.changeWeek(by: 1)
-        print("+1:", dateDetails.displayDayNumbers)
-        dateDetails.changeWeek(by: 2)
-        print("+3:", dateDetails.displayDayNumbers)
-        dateDetails.changeWeek(by: -3)
-        print("0:", dateDetails.displayDayNumbers)
-        print("year: \(dateDetails.displayYear)")
-        print("month: \(dateDetails.displayMonth)")
-        dateDetails.changeWeek(by: -20)
-        print("super old month: \(dateDetails.displayMonth)")
-        dateDetails.changeWeek(by: -1)
-        print("-1:", dateDetails.displayDayNumbers)
     }
     
     func fetchData() {
@@ -100,6 +87,22 @@ class TimeTableViewController: UIViewController {
     func toggleSearch(enable: Bool) {
         navigationItem.rightBarButtonItem?.isEnabled = enable
     }
+    
+    
+    // MARK: - Change date
+    
+    @IBAction func previousWeekButtonTapped() {
+        weeklyCalendar?.changeWeek(by: -1)
+    }
+    
+    @IBAction func nextWeekButtonTapped() {
+        weeklyCalendar?.changeWeek(by: 1)
+    }
+    
+    @IBAction func thisWeekButtonTapped() {
+        
+    }
+    
     
     // MARK: - Navigation
 
